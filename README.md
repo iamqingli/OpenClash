@@ -1,1 +1,1 @@
-# OpenClash
+# OpenClash 配置
