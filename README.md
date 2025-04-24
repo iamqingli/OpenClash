@@ -12,11 +12,11 @@
 
 每设置完一个页面需要点一下保存，全部设置完后点保存并应用。
 
-在保证网络通常情况下无法更新订阅时请打开Passwall等插件，在代理环境下重新更新订阅！！！
+在保证网络通畅情况下，如无法更新订阅请打开Passwall等插件，在代理环境下重新更新订阅配置！！！
 
 ㈠ 插件设置：
 
-1.先恢复为默认设置：
+1.还原默认配置：
 
 ![image](https://github.com/user-attachments/assets/f369c293-7f3d-4aa2-97b8-592ce75e38af)
 
@@ -66,15 +66,15 @@
 
 自定义上游DNS服务器  重点！！！
 
-1.NameServer只设置运营商提供的DNS，其他一个都不要选
+1.NameServer只设置运营商提供的DNS，其他一个都不要选。我的上游DNS服务是Adguard Home，只用来缓存国内域名解析，未配置去广告规则，也不建议添加去广告规则。
 
 ![image](https://github.com/user-attachments/assets/1130bad0-42c8-4749-987e-006de2b432a1)
 
-2.FallBack一个都不要选，默认走节点VPS设置的DNS
+2.FallBack一个都不要选，默认走节点VPS设置的DNS。
 
 ![image](https://github.com/user-attachments/assets/9f27784d-6218-4eff-b573-ac629c69d392)
 
-3.Default-Nameserver一个都不要选
+3.Default-Nameserver一个都不要选。
 
 ![image](https://github.com/user-attachments/assets/2ad8aa36-24ba-447a-9c82-6f2f1633b211)
 
