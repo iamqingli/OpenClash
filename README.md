@@ -12,6 +12,8 @@
 
 每设置完一个页面需要点一下保存，全部设置完后点保存并应用。
 
+在保证网络通常情况下无法更新订阅时请打开Passwall等插件，在代理环境下重新更新订阅！！！
+
 ㈠ 插件设置：
 
 1.先恢复为默认设置：
@@ -89,3 +91,7 @@ https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/Clash-Full
 也可在列表中选用Online Full模板
 
 ![image](https://github.com/user-attachments/assets/75ae2835-5188-44cc-9a5b-788d5223a0e2)
+
+㈣ 更新并应用后返回运行状态页面，选择Yacd面板或其他面板根据自己需要进行节点选择：默认全部是直连。
+
+![image](https://github.com/user-attachments/assets/85d658c4-225d-4f25-90b7-95190ad5f66d)
