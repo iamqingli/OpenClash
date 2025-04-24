@@ -1,4 +1,4 @@
-# OpenClash 配置
+# OpenClash 完美配置
 
 一、immortolwrt设置项：
 
