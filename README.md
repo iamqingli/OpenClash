@@ -1,20 +1,23 @@
 # OpenClash 配置
 
-immortolwrt设置项：
+一、immortolwrt设置项：
 
 网络-DHCP/DNS-常规设置项中，取消勾选DNS重定向，保存并应用。
 
 ![image](https://github.com/user-attachments/assets/f25cbf31-6112-43f2-a69f-079e3a702344)
 
-OpenClash设置：
+二、OpenClash设置：
 
 只修改给出的设置项，其他保持默认！！！
 
-插件设置：
+每设置完一个页面需要点一下保存，全部设置完后点保存并应用。
+
+㈠ 插件设置：
 
 1.先恢复为默认设置：
 
 ![image](https://github.com/user-attachments/assets/f369c293-7f3d-4aa2-97b8-592ce75e38af)
+
 2.模式设置：选FakeIP增强模式：
 
 ![image](https://github.com/user-attachments/assets/8d97168d-8a05-4945-a0c4-d2b96b5d4ab5)
@@ -41,7 +44,7 @@ OpenClash设置：
 
 ![image](https://github.com/user-attachments/assets/cbfbb2e3-e502-41de-9b71-a732a0a72a5a)
 
-复写设置：
+㈡ 复写设置：
 
 复写设置常规项设置：
 
@@ -72,3 +75,17 @@ OpenClash设置：
 3.Default-Nameserver一个都不要选
 
 ![image](https://github.com/user-attachments/assets/2ad8aa36-24ba-447a-9c82-6f2f1633b211)
+
+㈢ 配置订阅设置：
+
+1.默认选择clash.meta;2.勾选在线订阅转换服务；3.订阅转换服务器地址可选默认或自建转换地址；4.订阅转换模板选自定义
+
+订阅转换模板自定义填写我的：
+
+https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/Clash-Full.ini
+
+或是其他人的
+
+也可在列表中选用Online Full模板
+
+![image](https://github.com/user-attachments/assets/75ae2835-5188-44cc-9a5b-788d5223a0e2)
