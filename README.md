@@ -8,7 +8,7 @@ immortolwrt设置项：
 
 OpenClash设置：
 
-只修改给出的设置项，其他保持默认：
+只修改给出的设置项，其他保持默认！！！
 
 插件设置：
 
@@ -59,7 +59,7 @@ OpenClash设置：
 
 ![image](https://github.com/user-attachments/assets/67eeba49-b1b6-4ef0-b219-ca7112da2103)
 
-自定义上游DNS服务器  重点：
+自定义上游DNS服务器  重点！！！
 
 1.NameServer只设置运营商提供的DNS，其他一个都不要选
 
