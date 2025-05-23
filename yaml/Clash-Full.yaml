@@ -305,7 +305,7 @@ rules:
 
   - RULE-SET,TEST / Domain,Test
   - RULE-SET,Block / Domain,Block  
-  - RULE-SET,ChatGPT / Domain,AI
+  - RULE-SET,AI / Domain,AI
   - RULE-SET,Github / Domain,GitHub
   - RULE-SET,Telegram / Domain,Telegram
   - RULE-SET,Telegram / IP,Telegram,no-resolve
