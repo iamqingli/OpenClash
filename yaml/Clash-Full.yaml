@@ -55,8 +55,9 @@ dns:
     - +.local
     - geosite:cn
 # 订阅转换    
-    - +.sub.aial.pw
-    - +.subweb.aial.pw 
+    - +.api.aial.pw
+    - +.sub.aial.pw 
+    - +.subweb.aial.pw
     
     - +.qeayr.cn
     - +.saojc.xyz   
