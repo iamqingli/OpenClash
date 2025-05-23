@@ -1,6 +1,12 @@
 # 直连补充列表(国内域名不解析时，防止走代理使用)
 
 # MyList
+DOMAIN-SUFFIX,aial.pw
+DOMAIN-SUFFIX,aial.cc
+DOMAIN-SUFFIX,aial.fun
+DOMAIN-SUFFIX,aial.onu
+DOMAIN-SUFFIX,hhanclub.top
+
 # 域名后缀匹配
 DOMAIN-SUFFIX,time.windows.com
 DOMAIN-SUFFIX,lanzov.com
@@ -592,8 +598,3 @@ DOMAIN-SUFFIX,zhimg.com
 DOMAIN-SUFFIX,zhipin.com
 DOMAIN-SUFFIX,zhongsou.com
 DOMAIN-SUFFIX,zhuihd.com
-DOMAIN-SUFFIX,hhanclub.top
-DOMAIN-SUFFIX,aial.pw
-DOMAIN-SUFFIX,aial.cc
-DOMAIN-SUFFIX,aial.fun
-DOMAIN-SUFFIX,aial.onu
