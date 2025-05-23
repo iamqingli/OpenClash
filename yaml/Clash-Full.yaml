@@ -55,6 +55,13 @@ dns:
     - +.local
     - geosite:cn
 
+    - +.qeayr.cn
+    - +.saojc.xyz   
+    - +.sssyun.xyz
+    - +.dler.cloud
+    - +.0tk8a3a1q4t94dler.com    
+    - +.aerianas.top
+
 ipv6: true
 
 # ========================
