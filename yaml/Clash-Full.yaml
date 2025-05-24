@@ -50,6 +50,7 @@ dns:
   fake-ip-range: 198.20.0.1/16
   nameserver:
     - 223.5.5.5
+    - 114.114.114.114
   fake-ip-filter:
     - +.lan
     - +.local
