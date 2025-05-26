@@ -1,4 +1,4 @@
-# AI平台-国外
+# AI平台-国外:
 
 DOMAIN-KEYWORD,anthropic
 DOMAIN-KEYWORD,claude
@@ -40,7 +40,7 @@ DOMAIN-SUFFIX,openaiapi-site.azureedge.net
 DOMAIN-SUFFIX,perplexity.ai
 DOMAIN-SUFFIX,sora.com
 
-# OpenAi
+# OpenAi:
 
 DOMAIN-KEYWORD,openai
 DOMAIN-SUFFIX,auth0.com
