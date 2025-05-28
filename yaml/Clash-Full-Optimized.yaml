@@ -15,6 +15,7 @@ allow-lan: true
 mode: rule
 log-level: info
 
+# 控制面板配置
 external-controller: 0.0.0.0:9090
 external-ui: ui
 external-ui-name: zashboard
@@ -30,11 +31,17 @@ dns:
   ipv6: true
   enhanced-mode: fake-ip
   fake-ip-range: 198.20.0.1/16
+  # 优化DNS服务器选择和排序
   nameserver:
-    - 0.0.0.0:5553
+    - 223.5.5.5     # 阿里DNS (主要)
+    - 119.29.29.29  # 腾讯DNS (备用)
+    - 114.114.114.114  # 114DNS (备用)
   fallback:
-    - 8.8.8.8       # Google DNS
-    - 1.1.1.1       # Cloudflare DNS
+    - tls://8.8.8.8:853       # Google DNS (加密)
+    - tls://1.1.1.1:853       # Cloudflare DNS (加密)
+  # 添加DNS缓存提升性能
+  cache: true
+  cache-size: 4000
   fallback-filter:
     geoip: true
     geoip-code: CN
@@ -44,7 +51,12 @@ dns:
     - +.lan
     - +.local
     - geosite:cn
+    # 订阅转换
+    - +.api.aial.pw
+    - +.sub.aial.pw
+    - +.subweb.aial.pw
 
+# IPv6控制
 ipv6: true
 
 # ========================
@@ -52,9 +64,10 @@ ipv6: true
 # ========================
 tun:
   enable: true
-  stack: gvisor     # 或者使用 system
+  stack: gvisor     # 高性能网络栈
   device: utun
-  mtu: 9000         # 优化MTU值
+  # 优化MTU值为标准值
+  mtu: 1500
   endpoint-independent-nat: true
   auto-route: false
   auto-detect-interface: false
@@ -73,15 +86,18 @@ profile:
 # ========================
 proxy-providers:
   订阅地址:
-     url: "订阅地址（机场原始地址/Sub-Store格式化后的地址）"
+    url: "订阅地址（机场原始地址/Sub-Store格式化后的地址）"
     type: http
-    interval: 86400
+    # 优化更新间隔
+    interval: 43200  # 12小时更新一次
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
-      interval: 300
+      # 优化健康检查间隔
+      interval: 600  # 10分钟检查一次
     proxy: 直连 
 
+# 基础代理
 proxies:
   - {name: 直连, type: direct}
   - {name: 拒绝, type: reject}
@@ -89,6 +105,7 @@ proxies:
 # ========================
 # 策略组定义
 # ========================
+# 优化策略组模板，减少重复代码
 default: &default
   type: select
   proxies:
@@ -398,6 +415,7 @@ rules:
 # ========================
 # 规则集提供者
 # ========================
+# 优化规则集定义，使用锚点减少重复
 rule-anchor:
   ip: &ip {type: http, interval: 86400, behavior: ipcidr, format: mrs}
   domain: &domain {type: http, interval: 86400, behavior: domain, format: mrs}
@@ -460,15 +478,18 @@ rule-providers:
 # ========================
 # 高级功能设置
 # ========================
-# TCP并发连接数
+# TCP并发连接
 tcp-concurrent: true
 
-# 连接池大小
-connection-pool-size: 256
+# 优化连接池大小
+connection-pool-size: 128
 
 # 启用SNIFF功能
 sniffer:
   enable: true
+  # 优化嗅探配置
+  force-dns-mapping: true
+  parse-pure-ip: true
   sniff:
     TLS:
       ports: [443, 8443]
@@ -479,18 +500,50 @@ sniffer:
 # 启用TCP快速打开
 tcp-fast-open: true
 
-# 启用UDP会话保持
-udp-timeout: 300
+# 优化UDP会话保持
+udp-timeout: 60
 
 # 启用流量统计
 traffic-statistics: true
 
-# 启用连接统计
-connection-statistics: true
-
 # 启用自动测速
 auto-speed-test:
   enable: true
-  interval: 3600
+  interval: 7200  # 2小时测速一次
   url: https://www.gstatic.com/generate_204
   tolerance: 50
+
+# 添加自动更新配置
+auto-update:
+  enable: true
+  interval: 86400  # 每天更新一次
+
+# 优化并发连接数
+max-concurrent-connections: 512
+
+# 添加代理请求超时设置
+proxy-request-timeout: 5000  # 5秒超时
+
+# 添加代理响应超时设置
+proxy-response-timeout: 60000  # 60秒超时
+
+# 添加代理空闲超时设置
+proxy-idle-timeout: 300  # 300秒空闲超时
+
+# 添加代理TCP保活设置
+proxy-tcp-keepalive: true
+
+# 添加代理TCP保活间隔设置
+proxy-tcp-keepalive-interval: 30  # 30秒保活间隔
+
+# 添加代理TCP保活计数设置
+proxy-tcp-keepalive-count: 3  # 3次保活计数
+
+# 添加代理TCP保活空闲设置
+proxy-tcp-keepalive-idle: 60  # 60秒保活空闲
+
+# 添加代理TCP保活超时设置
+proxy-tcp-keepalive-timeout: 10  # 10秒保活超时
+
+# 添加代理TCP保活探测设置
+proxy-tcp-keepalive-probe: 3  # 3次保活探测
