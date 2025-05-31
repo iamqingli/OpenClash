@@ -1,5 +1,5 @@
 # ========================
-# Clash-Full 优化配置
+# Clash-Full 性能优化配置
 # ========================
 
 # ========================
@@ -23,7 +23,7 @@ external-ui-url: https://github.moeyy.xyz/https://github.com/Zephyruso/zashboard
 secret: "123456"
 
 # ========================
-# DNS 设置
+# DNS 设置 - 性能优化
 # ========================
 dns:
   enable: true
@@ -33,15 +33,15 @@ dns:
   fake-ip-range: 198.20.0.1/16
   # 优化DNS服务器选择和排序
   nameserver:
-    - 223.5.5.5     # 阿里DNS (主要)
+    - https://dns.alidns.com/dns-query  # 阿里 DoH (主要)
+    - 223.5.5.5     # 阿里DNS (备用)
     - 119.29.29.29  # 腾讯DNS (备用)
-    - 114.114.114.114  # 114DNS (备用)
   fallback:
+    - https://dns.cloudflare.com/dns-query  # Cloudflare DoH (加密)
     - tls://8.8.8.8:853       # Google DNS (加密)
-    - tls://1.1.1.1:853       # Cloudflare DNS (加密)
-  # 添加DNS缓存提升性能
+  # 增强DNS缓存提升性能
   cache: true
-  cache-size: 4000
+  cache-size: 8000  # 增大缓存大小
   fallback-filter:
     geoip: true
     geoip-code: CN
@@ -60,41 +60,46 @@ dns:
 ipv6: true
 
 # ========================
-# TUN 模块
+# TUN 模块 - 性能优化
 # ========================
 tun:
   enable: true
-  stack: gvisor     # 高性能网络栈
+  stack: system     # 使用系统网络栈提高兼容性
   device: utun
-  # 优化MTU值为标准值
-  mtu: 1500
+  # 优化MTU值
+  mtu: 9000  # 增大MTU值以提高吞吐量
   endpoint-independent-nat: true
-  auto-route: false
-  auto-detect-interface: false
+  auto-route: true  # 启用自动路由
+  auto-detect-interface: true  # 启用自动接口检测
   auto-redirect: false
   strict-route: false
   dns-hijack:
     - any:53
     - tcp://any:53
 
+# 配置文件存储 - 性能优化
 profile:
   store-selected: true
   store-fake-ip: true
+  # 添加存储路径
+  store-path: ./storage
 
 # ========================
-# 节点订阅链接
+# 节点订阅链接 - 性能优化
 # ========================
 proxy-providers:
   订阅地址:
     url: "订阅地址（机场原始地址/Sub-Store格式化后的地址）"
     type: http
     # 优化更新间隔
-    interval: 43200  # 12小时更新一次
+    interval: 86400  # 24小时更新一次
+    # 优化健康检查
     health-check:
       enable: true
-      url: https://www.gstatic.com/generate_204
-      # 优化健康检查间隔
-      interval: 600  # 10分钟检查一次
+      url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
+      interval: 1800  # 30分钟检查一次
+    # 启用UDP支持
+    udp: true
     proxy: 直连 
 
 # 基础代理
@@ -105,7 +110,6 @@ proxies:
 # ========================
 # 策略组定义
 # ========================
-# 优化策略组模板，减少重复代码
 default: &default
   type: select
   proxies:
@@ -150,7 +154,7 @@ proxy-groups:
   - {name: 国内, <<: *default}
   - {name: 其他, <<: *default}
 
-  # 节点选择组
+  # 节点选择组 - 性能优化
   - name: 所有-手动
     type: select
     include-all: true
@@ -161,17 +165,19 @@ proxy-groups:
   - name: 所有-自动
     type: url-test
     include-all: true
-    tolerance: 50
-    interval: 300
+    tolerance: 150  # 增加容忍度
+    interval: 600   # 增加测试间隔到10分钟
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "^((?!(直连|拒绝)).)*$"
     use:
       - 订阅地址
 
-  # 香港组
+  # 香港组 - 性能优化
   - name: 香港-故转
     type: fallback
-    interval: 300
-    lazy: true  # 优化：启用懒加载
+    interval: 600   # 增加测试间隔
+    lazy: true      # 启用懒加载
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     proxies:
       - 香港-手动
       - 香港-自动
@@ -186,17 +192,19 @@ proxy-groups:
   - name: 香港-自动
     type: url-test
     include-all: true
-    tolerance: 50
-    interval: 300
+    tolerance: 150  # 增加容忍度
+    interval: 600   # 增加测试间隔
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$"
     use:
       - 订阅地址
  
-  # 台湾组
+  # 台湾组 - 性能优化
   - name: 台湾-故转
     type: fallback
-    interval: 300
-    lazy: true  # 优化：启用懒加载
+    interval: 600   # 增加测试间隔
+    lazy: true      # 启用懒加载
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     proxies:
       - 台湾-手动
       - 台湾-自动
@@ -209,17 +217,19 @@ proxy-groups:
   - name: 台湾-自动
     type: url-test
     include-all: true
-    tolerance: 50
-    interval: 300
+    tolerance: 150  # 增加容忍度
+    interval: 600   # 增加测试间隔
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$"
     use:
       - 订阅地址
 
-  # 日本组
+  # 日本组 - 性能优化
   - name: 日本-故转
     type: fallback
-    interval: 300
-    lazy: true  # 优化：启用懒加载
+    interval: 600   # 增加测试间隔
+    lazy: true      # 启用懒加载
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     proxies:
       - 日本-手动
       - 日本-自动
@@ -232,17 +242,19 @@ proxy-groups:
   - name: 日本-自动
     type: url-test
     include-all: true
-    tolerance: 50
-    interval: 300
+    tolerance: 150  # 增加容忍度
+    interval: 600   # 增加测试间隔
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$"
     use:
       - 订阅地址
 
-  # 韩国组
+  # 韩国组 - 性能优化
   - name: 韩国-故转
     type: fallback
-    interval: 300
-    lazy: true  # 优化：启用懒加载
+    interval: 600   # 增加测试间隔
+    lazy: true      # 启用懒加载
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     proxies:
       - 韩国-手动
       - 韩国-自动
@@ -255,17 +267,19 @@ proxy-groups:
   - name: 韩国-自动
     type: url-test
     include-all: true
-    tolerance: 50
-    interval: 300
+    tolerance: 150  # 增加容忍度
+    interval: 600   # 增加测试间隔
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$"
     use:
       - 订阅地址
 
-  # 美国组
+  # 美国组 - 性能优化
   - name: 美国-故转
     type: fallback
-    interval: 300
-    lazy: true  # 优化：启用懒加载
+    interval: 600   # 增加测试间隔
+    lazy: true      # 启用懒加载
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     proxies:
       - 美国-手动
       - 美国-自动
@@ -278,17 +292,19 @@ proxy-groups:
   - name: 美国-自动
     type: url-test
     include-all: true
-    tolerance: 50
-    interval: 300
+    tolerance: 150  # 增加容忍度
+    interval: 600   # 增加测试间隔
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"
     use:
       - 订阅地址
 
-  # 英国组
+  # 英国组 - 性能优化
   - name: 英国-故转
     type: fallback
-    interval: 300
-    lazy: false
+    interval: 600   # 增加测试间隔
+    lazy: true      # 启用懒加载
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     proxies:
       - 英国-手动
       - 英国-自动
@@ -296,18 +312,24 @@ proxy-groups:
     type: select
     include-all: true
     filter: "(?=.*(英国|英|伦敦|UK|United Kingdom|🇬🇧|London)).*$"
+    use:
+      - 订阅地址
   - name: 英国-自动
     type: url-test
     include-all: true
-    tolerance: 50
-    interval: 300
+    tolerance: 150  # 增加容忍度
+    interval: 600   # 增加测试间隔
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(英国|英|伦敦|UK|United Kingdom|🇬🇧|London)).*$"
+    use:
+      - 订阅地址
 
-  # 德国组
+  # 德国组 - 性能优化
   - name: 德国-故转
     type: fallback
-    interval: 300
-    lazy: true  # 优化：启用懒加载
+    interval: 600   # 增加测试间隔
+    lazy: true      # 启用懒加载
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     proxies:
       - 德国-手动
       - 德国-自动
@@ -322,17 +344,19 @@ proxy-groups:
   - name: 德国-自动
     type: url-test
     include-all: true
-    tolerance: 50
-    interval: 300
+    tolerance: 150  # 增加容忍度
+    interval: 600   # 增加测试间隔
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(德|德国|DE|Frankfurt|法兰克福|慕尼黑|柏林|汉堡|杜塞尔多夫|🇩🇪|Germany)).*$"
     use:
       - 订阅地址
 
-  # 新加坡组
+  # 新加坡组 - 性能优化
   - name: 新加坡-故转
     type: fallback
-    interval: 300
-    lazy: true  # 优化：启用懒加载
+    interval: 600   # 增加测试间隔
+    lazy: true      # 启用懒加载
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     proxies:
       - 新加坡-手动
       - 新加坡-自动
@@ -345,17 +369,19 @@ proxy-groups:
   - name: 新加坡-自动
     type: url-test
     include-all: true
-    tolerance: 50
-    interval: 300
+    tolerance: 150  # 增加容忍度
+    interval: 600   # 增加测试间隔
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$"
     use:
       - 订阅地址
 
-  # 其他组
+  # 其他组 - 性能优化
   - name: 其他-故转
     type: fallback
-    interval: 300
-    lazy: true  # 优化：启用懒加载
+    interval: 600   # 增加测试间隔
+    lazy: true      # 启用懒加载
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     proxies:
       - 其他-手动
       - 其他-自动
@@ -368,8 +394,9 @@ proxy-groups:
   - name: 其他-自动
     type: url-test
     include-all: true
-    tolerance: 50
-    interval: 300
+    tolerance: 150  # 增加容忍度
+    interval: 600   # 增加测试间隔
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "^((?!(直连|拒绝|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|英国|英|伦敦|UK|United Kingdom|🇬🇧|London|德|德国|DE|Frankfurt|法兰克福|慕尼黑|柏林|汉堡|杜塞尔多夫|🇩🇪|Germany)).)*$"
     use:
       - 订阅地址
@@ -496,76 +523,3 @@ rule-providers:
   China / Domain: {<<: *domain, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs"}
   China / IP: {<<: *ip, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs"}
   Private / Domain: {<<: *domain, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
-
-# ========================
-# 高级功能设置
-# ========================
-# TCP并发连接
-tcp-concurrent: true
-
-# 优化连接池大小
-connection-pool-size: 128
-
-# 启用SNIFF功能
-sniffer:
-  enable: true
-  # 优化嗅探配置
-  force-dns-mapping: true
-  parse-pure-ip: true
-  sniff:
-    TLS:
-      ports: [443, 8443]
-    HTTP:
-      ports: [80, 8080-8880]
-      override-destination: true
-
-# 启用TCP快速打开
-tcp-fast-open: true
-
-# 优化UDP会话保持
-udp-timeout: 60
-
-# 启用流量统计
-traffic-statistics: true
-
-# 启用自动测速
-auto-speed-test:
-  enable: true
-  interval: 7200  # 2小时测速一次
-  url: https://www.gstatic.com/generate_204
-  tolerance: 50
-
-# 添加自动更新配置
-auto-update:
-  enable: true
-  interval: 86400  # 每天更新一次
-
-# 优化并发连接数
-max-concurrent-connections: 512
-
-# 添加代理请求超时设置
-proxy-request-timeout: 5000  # 5秒超时
-
-# 添加代理响应超时设置
-proxy-response-timeout: 60000  # 60秒超时
-
-# 添加代理空闲超时设置
-proxy-idle-timeout: 300  # 300秒空闲超时
-
-# 添加代理TCP保活设置
-proxy-tcp-keepalive: true
-
-# 添加代理TCP保活间隔设置
-proxy-tcp-keepalive-interval: 30  # 30秒保活间隔
-
-# 添加代理TCP保活计数设置
-proxy-tcp-keepalive-count: 3  # 3次保活计数
-
-# 添加代理TCP保活空闲设置
-proxy-tcp-keepalive-idle: 60  # 60秒保活空闲
-
-# 添加代理TCP保活超时设置
-proxy-tcp-keepalive-timeout: 10  # 10秒保活超时
-
-# 添加代理TCP保活探测设置
-proxy-tcp-keepalive-probe: 3  # 3次保活探测
