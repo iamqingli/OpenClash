@@ -64,7 +64,7 @@ ipv6: true
 # ========================
 tun:
   enable: true
-  stack: system     # 使用系统网络栈提高兼容性
+  stack: gvisor     # 高性能网络栈
   device: utun
   # 优化MTU值
   mtu: 9000  # 增大MTU值以提高吞吐量
