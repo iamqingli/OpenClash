@@ -1,5 +1,6 @@
 # 强制代理列表，来自个人收集
 DOMAIN-SUFFIX,cloud.ggvision.net
+DOMAIN-SUFFIX,aial.pw
 # GooglePlay 相关
 DOMAIN-SUFFIX,services.googleapis.cn
 DOMAIN-SUFFIX,clientservices.googleapis.com
