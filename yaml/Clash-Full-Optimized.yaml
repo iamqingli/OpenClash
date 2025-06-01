@@ -407,7 +407,7 @@ proxy-groups:
 rules:
   # 优先级高的规则
   - RULE-SET,Block / Domain,Block  
-  - RULE-SET,TEST / Domain,Test
+  - RULE-SET,Test / Domain,Test
   
   # 应用和服务规则
   - RULE-SET,AI / Domain,AI
@@ -472,7 +472,7 @@ rule-anchor:
 
 rule-providers:
   # 测试和屏蔽规则
-  TEST / Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/Test.list"}
+  Test / Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/Test.list"}
   Block / Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/Block.list"}
   
   # 应用和服务规则
