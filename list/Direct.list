@@ -5,7 +5,6 @@ DOMAIN-SUFFIX,aial.cc
 DOMAIN-SUFFIX,smart.tcc-adn.com
 IP-CIDR,172.17.1.36/32,no-resolve
 
-# MyList
 # 域名后缀匹配
 DOMAIN-SUFFIX,time.windows.com
 DOMAIN-SUFFIX,lanzov.com
