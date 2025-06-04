@@ -1,6 +1,4 @@
 # 强制代理列表，来自个人收集
-DOMAIN-SUFFIX,rust.aial.pw
-DOMAIN-SUFFIX,desk.aial.pw
 DOMAIN-SUFFIX,cloud.ggvision.net
 
 # IP段匹配
