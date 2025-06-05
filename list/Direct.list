@@ -4,7 +4,6 @@
 DOMAIN-SUFFIX,aial.cc
 DOMAIN-KEYWORD,tcc-adn
 DOMAIN-SUFFIX,tcc-adn.com
-DOMAIN-SUFFIX,smart.tcc-adn.com
 IP-CIDR,172.17.1.36/32,no-resolve
 IP-CIDR,172.17.95.40/32,no-resolve
 
