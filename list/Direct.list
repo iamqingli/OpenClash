@@ -3,6 +3,7 @@
 # MyList
 DOMAIN-SUFFIX,aial.cc
 DOMAIN-SUFFIX,smart.tcc-adn.com
+DOMAIN-SUFFIX,gzd.tcc-adn.com
 IP-CIDR,172.17.1.36/32,no-resolve
 
 # 域名后缀匹配
