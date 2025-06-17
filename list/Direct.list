@@ -2,6 +2,7 @@
 
 # MyList
 DOMAIN-SUFFIX,aial.cc
+DOMAIN-SUFFIX,leaves.red
 DOMAIN-KEYWORD,tcc-adn
 DOMAIN-SUFFIX,tcc-adn.com
 IP-CIDR,172.17.1.36/32,no-resolve
