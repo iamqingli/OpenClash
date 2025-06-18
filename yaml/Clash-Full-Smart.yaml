@@ -88,7 +88,8 @@ profile:
 # ========================
 proxy-providers:
   订阅地址1:
-    url: "机场订阅地址"
+    # 自建
+    url: "订阅地址"
     type: http
     # 优化更新间隔
     interval: 86400  # 24小时更新一次
@@ -102,7 +103,8 @@ proxy-providers:
     proxy: 直连 
 
   订阅地址2:
-    url: "机场订阅地址"  
+    # 机场
+    url: "订阅地址"  
     type: http
     # 优化更新间隔
     interval: 86400  # 24小时更新一次
