@@ -84,8 +84,8 @@ profile:
 # 节点订阅链接 - 性能优化
 # ========================
 proxy-providers:
-  订阅地址:
-    url: "订阅地址（机场原始地址/Sub-Store格式化后的地址）"
+  订阅地址1:
+    url: "机场订阅地址"
     type: http
     # 优化更新间隔
     interval: 86400  # 24小时更新一次
@@ -98,9 +98,8 @@ proxy-providers:
     udp: true
     proxy: 直连 
 
-proxy-providers:
-  订阅地址:
-    url: "订阅地址（机场原始地址/Sub-Store格式化后的地址）"  
+  订阅地址2:
+    url: "机场订阅地址"  
     type: http
     # 优化更新间隔
     interval: 86400  # 24小时更新一次
@@ -170,9 +169,7 @@ proxy-groups:
     type: select
     include-all: true
     filter: "^((?!(直连|拒绝)).)*$"
-    use:
-      - 订阅地址
-
+    
   - name: 所有-自动
     type: url-test
     include-all: true
@@ -180,8 +177,6 @@ proxy-groups:
     interval: 600   # 增加测试间隔到10分钟
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "^((?!(直连|拒绝)).)*$"
-    use:
-      - 订阅地址
 
   # 香港组 - 性能优化
   - name: 香港-故转
@@ -191,15 +186,11 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     proxies:
       - 香港-手动
-      - 香港-自动
-  
+      - 香港-自动 
   - name: 香港-手动
     type: select
     include-all: true
-    filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$"
-    use:
-      - 订阅地址
-    
+    filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$"    
   - name: 香港-自动
     type: url-test
     include-all: true
@@ -207,8 +198,6 @@ proxy-groups:
     interval: 600   # 增加测试间隔
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$"
-    use:
-      - 订阅地址
  
   # 台湾组 - 性能优化
   - name: 台湾-故转
@@ -223,8 +212,6 @@ proxy-groups:
     type: select
     include-all: true
     filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$"
-    use:
-      - 订阅地址
   - name: 台湾-自动
     type: url-test
     include-all: true
@@ -232,9 +219,7 @@ proxy-groups:
     interval: 600   # 增加测试间隔
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$"
-    use:
-      - 订阅地址
-
+    
   # 日本组 - 性能优化
   - name: 日本-故转
     type: fallback
@@ -248,8 +233,6 @@ proxy-groups:
     type: select
     include-all: true
     filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$"
-    use:
-      - 订阅地址
   - name: 日本-自动
     type: url-test
     include-all: true
@@ -257,8 +240,6 @@ proxy-groups:
     interval: 600   # 增加测试间隔
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$"
-    use:
-      - 订阅地址
 
   # 韩国组 - 性能优化
   - name: 韩国-故转
@@ -273,8 +254,6 @@ proxy-groups:
     type: select
     include-all: true
     filter: "(?=.*(广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$"
-    use:
-      - 订阅地址
   - name: 韩国-自动
     type: url-test
     include-all: true
@@ -282,8 +261,6 @@ proxy-groups:
     interval: 600   # 增加测试间隔
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$"
-    use:
-      - 订阅地址
 
   # 美国组 - 性能优化
   - name: 美国-故转
@@ -298,8 +275,6 @@ proxy-groups:
     type: select
     include-all: true
     filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"
-    use:
-      - 订阅地址
   - name: 美国-自动
     type: url-test
     include-all: true
@@ -307,8 +282,6 @@ proxy-groups:
     interval: 600   # 增加测试间隔
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"
-    use:
-      - 订阅地址
 
   # 英国组 - 性能优化
   - name: 英国-故转
@@ -323,8 +296,6 @@ proxy-groups:
     type: select
     include-all: true
     filter: "(?=.*(英国|英|伦敦|UK|United Kingdom|🇬🇧|London)).*$"
-    use:
-      - 订阅地址
   - name: 英国-自动
     type: url-test
     include-all: true
@@ -332,8 +303,6 @@ proxy-groups:
     interval: 600   # 增加测试间隔
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(英国|英|伦敦|UK|United Kingdom|🇬🇧|London)).*$"
-    use:
-      - 订阅地址
 
   # 德国组 - 性能优化
   - name: 德国-故转
@@ -344,14 +313,10 @@ proxy-groups:
     proxies:
       - 德国-手动
       - 德国-自动
-  
   - name: 德国-手动
     type: select
     include-all: true
     filter: "(?=.*(德|德国|DE|Frankfurt|法兰克福|慕尼黑|柏林|汉堡|杜塞尔多夫|🇩🇪|Germany)).*$"
-    use:
-      - 订阅地址
-    
   - name: 德国-自动
     type: url-test
     include-all: true
@@ -359,8 +324,6 @@ proxy-groups:
     interval: 600   # 增加测试间隔
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(德|德国|DE|Frankfurt|法兰克福|慕尼黑|柏林|汉堡|杜塞尔多夫|🇩🇪|Germany)).*$"
-    use:
-      - 订阅地址
 
   # 新加坡组 - 性能优化
   - name: 新加坡-故转
@@ -375,8 +338,6 @@ proxy-groups:
     type: select
     include-all: true
     filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$"
-    use:
-      - 订阅地址
   - name: 新加坡-自动
     type: url-test
     include-all: true
@@ -384,8 +345,6 @@ proxy-groups:
     interval: 600   # 增加测试间隔
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$"
-    use:
-      - 订阅地址
 
   # 其他组 - 性能优化
   - name: 其他-故转
@@ -400,8 +359,6 @@ proxy-groups:
     type: select
     include-all: true
     filter: "^((?!(直连|拒绝|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|英国|英|伦敦|UK|United Kingdom|🇬🇧|London|德|德国|DE|Frankfurt|法兰克福|慕尼黑|柏林|汉堡|杜塞尔多夫|🇩🇪|Germany)).)*$"
-    use:
-      - 订阅地址
   - name: 其他-自动
     type: url-test
     include-all: true
@@ -409,8 +366,6 @@ proxy-groups:
     interval: 600   # 增加测试间隔
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "^((?!(直连|拒绝|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|英国|英|伦敦|UK|United Kingdom|🇬🇧|London|德|德国|DE|Frankfurt|法兰克福|慕尼黑|柏林|汉堡|杜塞尔多夫|🇩🇪|Germany)).)*$"
-    use:
-      - 订阅地址
 
 # ========================
 # 规则引擎（rules）
