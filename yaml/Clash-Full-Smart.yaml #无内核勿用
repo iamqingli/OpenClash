@@ -97,6 +97,19 @@ proxy-providers:
       interval: 600  # 10分钟检查一次
     proxy: 直连 
 
+proxy-providers:
+  订阅地址:
+    url: "订阅地址（机场原始地址/Sub-Store格式化后的地址）"
+    type: http
+    # 优化更新间隔
+    interval: 43200  # 12小时更新一次
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      # 优化健康检查间隔
+      interval: 600  # 10分钟检查一次
+    proxy: 直连 
+
 # 基础代理
 proxies:
   - {name: 直连, type: direct}
@@ -109,18 +122,18 @@ proxies:
 default: &default
   type: select
   proxies:
-    - 直连
-    - 所有-手动
     - 所有-智选
+    - 所有-手动
     - 香港-故转
-    - 台湾-故转
     - 日本-故转
-    - 韩国-故转
     - 美国-故转
+    - 新加坡-故转
+    - 韩国-故转
+    - 台湾-故转
     - 英国-故转
     - 德国-故转
-    - 新加坡-故转
     - 其他-故转
+    - 直连
     - 拒绝
 
 proxy-groups:
@@ -175,8 +188,8 @@ proxy-groups:
     interval: 300
     lazy: true  # 优化：启用懒加载
     proxies:
-      - 香港-手动
       - 香港-智选
+      - 香港-手动
   
   - name: 香港-手动
     type: select
@@ -202,8 +215,8 @@ proxy-groups:
     interval: 300
     lazy: true  # 优化：启用懒加载
     proxies:
-      - 台湾-手动
       - 台湾-智选
+      - 台湾-手动
   - name: 台湾-手动
     type: select
     include-all: true
@@ -227,8 +240,8 @@ proxy-groups:
     interval: 300
     lazy: true  # 优化：启用懒加载
     proxies:
-      - 日本-手动
       - 日本-智选
+      - 日本-手动
   - name: 日本-手动
     type: select
     include-all: true
@@ -252,8 +265,8 @@ proxy-groups:
     interval: 300
     lazy: true  # 优化：启用懒加载
     proxies:
-      - 韩国-手动
       - 韩国-智选
+      - 韩国-手动
   - name: 韩国-手动
     type: select
     include-all: true
@@ -277,8 +290,8 @@ proxy-groups:
     interval: 300
     lazy: true  # 优化：启用懒加载
     proxies:
-      - 美国-手动
       - 美国-智选
+      - 美国-手动
   - name: 美国-手动
     type: select
     include-all: true
@@ -302,8 +315,8 @@ proxy-groups:
     interval: 300
     lazy: false
     proxies:
-      - 英国-手动
       - 英国-智选
+      - 英国-手动
   - name: 英国-手动
     type: select
     include-all: true
@@ -327,8 +340,8 @@ proxy-groups:
     interval: 300
     lazy: true  # 优化：启用懒加载
     proxies:
-      - 德国-手动
       - 德国-智选
+      - 德国-手动
   
   - name: 德国-手动
     type: select
@@ -354,8 +367,8 @@ proxy-groups:
     interval: 300
     lazy: true  # 优化：启用懒加载
     proxies:
-      - 新加坡-手动
       - 新加坡-智选
+      - 新加坡-手动
   - name: 新加坡-手动
     type: select
     include-all: true
@@ -379,8 +392,8 @@ proxy-groups:
     interval: 300
     lazy: true  # 优化：启用懒加载
     proxies:
-      - 其他-手动
       - 其他-智选
+      - 其他-手动
   - name: 其他-手动
     type: select
     include-all: true
