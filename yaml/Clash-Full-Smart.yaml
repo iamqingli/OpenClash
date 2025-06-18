@@ -87,30 +87,33 @@ profile:
 # 节点订阅链接
 # ========================
 proxy-providers:
-  订阅地址:
-    url: "订阅地址（机场原始地址/Sub-Store格式化后的地址）"
+  订阅地址1:
+    url: "机场订阅地址"
     type: http
     # 优化更新间隔
-    interval: 43200  # 12小时更新一次
+    interval: 86400  # 24小时更新一次
+    # 优化健康检查
     health-check:
       enable: true
-      url: https://www.gstatic.com/generate_204
-      # 优化健康检查间隔
-      interval: 600  # 10分钟检查一次
+      url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
+      interval: 1800  # 30分钟检查一次
+    # 启用UDP支持
+    udp: true
     proxy: 直连 
 
-proxy-providers:
-  订阅地址:
-    url: "订阅地址（机场原始地址/Sub-Store格式化后的地址）"
+  订阅地址2:
+    url: "机场订阅地址"  
     type: http
     # 优化更新间隔
-    interval: 43200  # 12小时更新一次
+    interval: 86400  # 24小时更新一次
+    # 优化健康检查
     health-check:
       enable: true
-      url: https://www.gstatic.com/generate_204
-      # 优化健康检查间隔
-      interval: 600  # 10分钟检查一次
-    proxy: 直连 
+      url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
+      interval: 1800  # 30分钟检查一次
+    # 启用UDP支持
+    udp: true
+    proxy: 直连
 
 # 基础代理
 proxies:
@@ -170,19 +173,15 @@ proxy-groups:
     type: select
     include-all: true
     filter: "^((?!(直连|拒绝)).)*$"
-    use:
-      - 订阅地址
 
   - name: 所有-智选
     type: smart
     include-all: true
-    policy-priority: 香港:2
+    policy-priority: 机场:0.8
     uselightgbm: true
     collectdata: true
     interval: 300
     filter: "^((?!(直连|拒绝)).)*$"
-    use:
-      - 订阅地址
 
   # 香港组
   - name: 香港-故转
@@ -196,20 +195,15 @@ proxy-groups:
   - name: 香港-手动
     type: select
     include-all: true
-    filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$"
-    use:
-      - 订阅地址
-    
+    filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$"  
   - name: 香港-智选
     type: smart
     include-all: true
-    policy-priority: 香港:2
+    policy-priority: 机场:0.8
     uselightgbm: true
     collectdata: true
     interval: 300
     filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$"
-    use:
-      - 订阅地址
  
   # 台湾组
   - name: 台湾-故转
@@ -223,18 +217,14 @@ proxy-groups:
     type: select
     include-all: true
     filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$"
-    use:
-      - 订阅地址
   - name: 台湾-智选
     type: smart
     include-all: true
-    policy-priority: 台湾:2
+    policy-priority: 机场:0.8
     uselightgbm: true
     collectdata: true
     interval: 300
     filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$"
-    use:
-      - 订阅地址
 
   # 日本组
   - name: 日本-故转
@@ -248,18 +238,14 @@ proxy-groups:
     type: select
     include-all: true
     filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$"
-    use:
-      - 订阅地址
   - name: 日本-智选
     type: smart
     include-all: true
-    policy-priority: 日本:2
+    policy-priority: 机场:0.8
     uselightgbm: true
     collectdata: true
     interval: 300
     filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$"
-    use:
-      - 订阅地址
 
   # 韩国组
   - name: 韩国-故转
@@ -273,18 +259,14 @@ proxy-groups:
     type: select
     include-all: true
     filter: "(?=.*(广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$"
-    use:
-      - 订阅地址
   - name: 韩国-智选
     type: smart
     include-all: true
-    policy-priority: 韩国:2
+    policy-priority: 机场:0.8
     uselightgbm: true
     collectdata: true
     interval: 300
     filter: "(?=.*(广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$"
-    use:
-      - 订阅地址
 
   # 美国组
   - name: 美国-故转
@@ -298,18 +280,14 @@ proxy-groups:
     type: select
     include-all: true
     filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"
-    use:
-      - 订阅地址
   - name: 美国-智选
     type: smart
     include-all: true
-    policy-priority: 美国:2
+    policy-priority: 机场:0.8
     uselightgbm: true
     collectdata: true
     interval: 300
     filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"
-    use:
-      - 订阅地址
 
   # 英国组
   - name: 英国-故转
@@ -323,18 +301,14 @@ proxy-groups:
     type: select
     include-all: true
     filter: "(?=.*(英国|英|伦敦|UK|United Kingdom|🇬🇧|London)).*$"
-    use:
-      - 订阅地址
   - name: 英国-智选
     type: smart
     include-all: true
-    policy-priority: 英国:2
+    policy-priority: 机场:0.8
     uselightgbm: true
     collectdata: true
     interval: 300
     filter: "(?=.*(英国|英|伦敦|UK|United Kingdom|🇬🇧|London)).*$"
-    use:
-      - 订阅地址
 
   # 德国组
   - name: 德国-故转
@@ -344,24 +318,18 @@ proxy-groups:
     proxies:
       - 德国-智选
       - 德国-手动
-  
   - name: 德国-手动
     type: select
     include-all: true
     filter: "(?=.*(德|德国|DE|Frankfurt|法兰克福|慕尼黑|柏林|汉堡|杜塞尔多夫|🇩🇪|Germany)).*$"
-    use:
-      - 订阅地址
-    
   - name: 德国-智选
     type: smart
     include-all: true
-    policy-priority: 德国:2
+    policy-priority: 机场:0.8
     uselightgbm: true
     collectdata: true
     interval: 300
     filter: "(?=.*(德|德国|DE|Frankfurt|法兰克福|慕尼黑|柏林|汉堡|杜塞尔多夫|🇩🇪|Germany)).*$"
-    use:
-      - 订阅地址
 
   # 新加坡组
   - name: 新加坡-故转
@@ -375,18 +343,14 @@ proxy-groups:
     type: select
     include-all: true
     filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$"
-    use:
-      - 订阅地址
   - name: 新加坡-智选
     type: smart
     include-all: true
-    policy-priority: 新加坡:2
+    policy-priority: 机场:0.8
     uselightgbm: true
     collectdata: true
     interval: 300
     filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$"
-    use:
-      - 订阅地址
 
   # 其他组
   - name: 其他-故转
@@ -400,18 +364,14 @@ proxy-groups:
     type: select
     include-all: true
     filter: "^((?!(直连|拒绝|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|英国|英|伦敦|UK|United Kingdom|🇬🇧|London|德|德国|DE|Frankfurt|法兰克福|慕尼黑|柏林|汉堡|杜塞尔多夫|🇩🇪|Germany)).)*$"
-    use:
-      - 订阅地址
   - name: 其他-智选
     type: smart
     include-all: true
-    policy-priority: 其他:2
+    policy-priority: 机场:0.8
     uselightgbm: true
     collectdata: true
     interval: 300
     filter: "^((?!(直连|拒绝|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|英国|英|伦敦|UK|United Kingdom|🇬🇧|London|德|德国|DE|Frankfurt|法兰克福|慕尼黑|柏林|汉堡|杜塞尔多夫|🇩🇪|Germany)).)*$"
-    use:
-      - 订阅地址
 
 # ========================
 # 规则引擎（rules）
