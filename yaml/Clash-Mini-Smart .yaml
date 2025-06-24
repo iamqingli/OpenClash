@@ -183,8 +183,8 @@ proxy-groups:
     interval: 300
     lazy: true  # 优化：启用懒加载
     proxies:
-      - 香港-智选
       - 香港-手动
+      - 香港-智选
   - name: 香港-手动
     type: select
     include-all: true
@@ -204,8 +204,8 @@ proxy-groups:
     interval: 300
     lazy: true  # 优化：启用懒加载
     proxies:
-      - 台湾-智选
       - 台湾-手动
+      - 台湾-智选
   - name: 台湾-手动
     type: select
     include-all: true
@@ -225,8 +225,8 @@ proxy-groups:
     interval: 300
     lazy: true  # 优化：启用懒加载
     proxies:
-      - 日本-智选
       - 日本-手动
+      - 日本-智选
   - name: 日本-手动
     type: select
     include-all: true
@@ -246,8 +246,8 @@ proxy-groups:
     interval: 300
     lazy: true  # 优化：启用懒加载
     proxies:
-      - 韩国-智选
       - 韩国-手动
+      - 韩国-智选
   - name: 韩国-手动
     type: select
     include-all: true
@@ -267,8 +267,8 @@ proxy-groups:
     interval: 300
     lazy: true  # 优化：启用懒加载
     proxies:
-      - 美国-智选
       - 美国-手动
+      - 美国-智选
   - name: 美国-手动
     type: select
     include-all: true
@@ -288,8 +288,8 @@ proxy-groups:
     interval: 300
     lazy: false
     proxies:
-      - 英国-智选
       - 英国-手动
+      - 英国-智选
   - name: 英国-手动
     type: select
     include-all: true
@@ -309,8 +309,8 @@ proxy-groups:
     interval: 300
     lazy: true  # 优化：启用懒加载
     proxies:
-      - 德国-智选
       - 德国-手动
+      - 德国-智选
   - name: 德国-手动
     type: select
     include-all: true
@@ -330,8 +330,8 @@ proxy-groups:
     interval: 300
     lazy: true  # 优化：启用懒加载
     proxies:
-      - 新加坡-智选
       - 新加坡-手动
+      - 新加坡-智选
   - name: 新加坡-手动
     type: select
     include-all: true
@@ -351,8 +351,8 @@ proxy-groups:
     interval: 300
     lazy: true  # 优化：启用懒加载
     proxies:
-      - 其他-智选
       - 其他-手动
+      - 其他-智选
   - name: 其他-手动
     type: select
     include-all: true
