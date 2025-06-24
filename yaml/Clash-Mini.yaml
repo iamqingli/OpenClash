@@ -1,4 +1,8 @@
 # ========================
+# Clash-Full 性能优化配置
+# ========================
+
+# ========================
 # 主要端口设置
 # ========================
 port: 7890
@@ -6,9 +10,11 @@ socks-port: 7891
 redir-port: 7892
 mixed-port: 7893
 tproxy-port: 7895
+
 allow-lan: true
 mode: rule
 log-level: info
+
 # 控制面板配置
 external-controller: 0.0.0.0:9090
 external-ui: ui
@@ -26,12 +32,12 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-range: 198.20.0.1/16
   nameserver:
-    - https://dns.alidns.com/dns-query # 阿里 DoH (主要)
-    - 223.5.5.5 # 阿里DNS (备用)
-    - 119.29.29.29 # 腾讯DNS (备用)
+    - https://dns.alidns.com/dns-query  # 阿里 DoH (主要)
+    - 223.5.5.5     # 阿里DNS (备用)
+    - 119.29.29.29  # 腾讯DNS (备用)
   # 增强DNS缓存提升性能
   cache: true
-  cache-size: 8000 # 增大缓存大小
+  cache-size: 8000  # 增大缓存大小
   fallback-filter:
     geoip: true
     geoip-code: CN
@@ -45,6 +51,7 @@ dns:
     - +.api.aial.pw
     - +.sub.aial.pw
     - +.subweb.aial.pw
+
 # IPv6控制
 ipv6: true
 
@@ -53,18 +60,19 @@ ipv6: true
 # ========================
 tun:
   enable: true
-  stack: gvisor # 高性能网络栈
+  stack: gvisor     # 高性能网络栈
   device: utun
   # 优化MTU值
-  mtu: 9000 # 增大MTU值以提高吞吐量
+  mtu: 9000  # 增大MTU值以提高吞吐量
   endpoint-independent-nat: true
-  auto-route: true # 启用自动路由
-  auto-detect-interface: true # 启用自动接口检测
+  auto-route: true  # 启用自动路由
+  auto-detect-interface: true  # 启用自动接口检测
   auto-redirect: false
   strict-route: false
   dns-hijack:
     - any:53
     - tcp://any:53
+
 # 配置文件存储 - 性能优化
 profile:
   store-selected: true
@@ -81,30 +89,34 @@ proxy-providers:
     url: "订阅地址"
     type: http
     # 优化更新间隔
-    interval: 86400 # 24小时更新一次
+    interval: 86400  # 24小时更新一次
     # 优化健康检查
     health-check:
       enable: true
-      url: https://cp.cloudflare.com/generate_204 # 使用Cloudflare检测点
-      interval: 1800 # 30分钟检查一次
+      url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
+      interval: 1800  # 30分钟检查一次
     # 启用UDP支持
     udp: true
-    proxy: 直连
-    benchmark-url: https://cp.cloudflare.com/generate_204
+    proxy: 直连 
+
   订阅地址2:
     # 机场
-    url: "订阅地址"
+    url: "订阅地址"  
     type: http
     # 优化更新间隔
-    interval: 86400 # 24小时更新一次
+    interval: 86400  # 24小时更新一次
     # 优化健康检查
     health-check:
       enable: true
-      url: https://cp.cloudflare.com/generate_204 # 使用Cloudflare检测点
-      interval: 1800 # 30分钟检查一次
+      url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
+      interval: 1800  # 30分钟检查一次
     # 启用UDP支持
     udp: true
-    proxy: 直连
+    proxy: 直连 
+
+# 基础代理
+proxies:
+  - {name: 直连, type: direct}
 
 # ========================
 # 策略组定义
@@ -147,47 +159,46 @@ proxy-groups:
   - {name: 漏网之鱼, <<: *default}
 
   # 节点选择组 - 性能优化
-  - name: 直连
-    type: select
-    include-all: true
-    filter: "(?=.*(direct)).*$"
   - name: 所有-手动
     type: select
     include-all: true
     filter: "^((?!(直连)).)*$"
+    
   - name: 所有-自动
     type: url-test
     include-all: true
-    tolerance: 150 # 增加容忍度
-    interval: 600 # 增加测试间隔到10分钟
-    url: https://cp.cloudflare.com/generate_204 # 使用Cloudflare检测点
+    tolerance: 150  # 增加容忍度
+    interval: 600   # 增加测试间隔到10分钟
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "^((?!(直连)).)*$"
+
   # 香港组 - 性能优化
   - name: 香港-故转
     type: fallback
-    interval: 600 # 增加测试间隔
-    lazy: true # 启用懒加载
-    url: https://cp.cloudflare.com/generate_204 # 使用Cloudflare检测点
+    interval: 600   # 增加测试间隔
+    lazy: true      # 启用懒加载
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     proxies:
       - 香港-手动
-      - 香港-自动
+      - 香港-自动 
   - name: 香港-手动
     type: select
     include-all: true
-    filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$"
+    filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$"    
   - name: 香港-自动
     type: url-test
     include-all: true
-    tolerance: 150 # 增加容忍度
-    interval: 600 # 增加测试间隔
-    url: https://cp.cloudflare.com/generate_204 # 使用Cloudflare检测点
+    tolerance: 150  # 增加容忍度
+    interval: 600   # 增加测试间隔
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$"
+ 
   # 台湾组 - 性能优化
   - name: 台湾-故转
     type: fallback
-    interval: 600 # 增加测试间隔
-    lazy: true # 启用懒加载
-    url: https://cp.cloudflare.com/generate_204 # 使用Cloudflare检测点
+    interval: 600   # 增加测试间隔
+    lazy: true      # 启用懒加载
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     proxies:
       - 台湾-手动
       - 台湾-自动
@@ -198,16 +209,17 @@ proxy-groups:
   - name: 台湾-自动
     type: url-test
     include-all: true
-    tolerance: 150 # 增加容忍度
-    interval: 600 # 增加测试间隔
-    url: https://cp.cloudflare.com/generate_204 # 使用Cloudflare检测点
+    tolerance: 150  # 增加容忍度
+    interval: 600   # 增加测试间隔
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$"
+    
   # 日本组 - 性能优化
   - name: 日本-故转
     type: fallback
-    interval: 600 # 增加测试间隔
-    lazy: true # 启用懒加载
-    url: https://cp.cloudflare.com/generate_204 # 使用Cloudflare检测点
+    interval: 600   # 增加测试间隔
+    lazy: true      # 启用懒加载
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     proxies:
       - 日本-手动
       - 日本-自动
@@ -218,16 +230,17 @@ proxy-groups:
   - name: 日本-自动
     type: url-test
     include-all: true
-    tolerance: 150 # 增加容忍度
-    interval: 600 # 增加测试间隔
-    url: https://cp.cloudflare.com/generate_204 # 使用Cloudflare检测点
+    tolerance: 150  # 增加容忍度
+    interval: 600   # 增加测试间隔
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$"
+
   # 韩国组 - 性能优化
   - name: 韩国-故转
     type: fallback
-    interval: 600 # 增加测试间隔
-    lazy: true # 启用懒加载
-    url: https://cp.cloudflare.com/generate_204 # 使用Cloudflare检测点
+    interval: 600   # 增加测试间隔
+    lazy: true      # 启用懒加载
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     proxies:
       - 韩国-手动
       - 韩国-自动
@@ -238,16 +251,17 @@ proxy-groups:
   - name: 韩国-自动
     type: url-test
     include-all: true
-    tolerance: 150 # 增加容忍度
-    interval: 600 # 增加测试间隔
-    url: https://cp.cloudflare.com/generate_204 # 使用Cloudflare检测点
+    tolerance: 150  # 增加容忍度
+    interval: 600   # 增加测试间隔
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$"
+
   # 美国组 - 性能优化
   - name: 美国-故转
     type: fallback
-    interval: 600 # 增加测试间隔
-    lazy: true # 启用懒加载
-    url: https://cp.cloudflare.com/generate_204 # 使用Cloudflare检测点
+    interval: 600   # 增加测试间隔
+    lazy: true      # 启用懒加载
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     proxies:
       - 美国-手动
       - 美国-自动
@@ -258,16 +272,17 @@ proxy-groups:
   - name: 美国-自动
     type: url-test
     include-all: true
-    tolerance: 150 # 增加容忍度
-    interval: 600 # 增加测试间隔
-    url: https://cp.cloudflare.com/generate_204 # 使用Cloudflare检测点
+    tolerance: 150  # 增加容忍度
+    interval: 600   # 增加测试间隔
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"
+
   # 英国组 - 性能优化
   - name: 英国-故转
     type: fallback
-    interval: 600 # 增加测试间隔
-    lazy: true # 启用懒加载
-    url: https://cp.cloudflare.com/generate_204 # 使用Cloudflare检测点
+    interval: 600   # 增加测试间隔
+    lazy: true      # 启用懒加载
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     proxies:
       - 英国-手动
       - 英国-自动
@@ -278,16 +293,17 @@ proxy-groups:
   - name: 英国-自动
     type: url-test
     include-all: true
-    tolerance: 150 # 增加容忍度
-    interval: 600 # 增加测试间隔
-    url: https://cp.cloudflare.com/generate_204 # 使用Cloudflare检测点
+    tolerance: 150  # 增加容忍度
+    interval: 600   # 增加测试间隔
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(英国|英|伦敦|UK|United Kingdom|🇬🇧|London)).*$"
+
   # 德国组 - 性能优化
   - name: 德国-故转
     type: fallback
-    interval: 600 # 增加测试间隔
-    lazy: true # 启用懒加载
-    url: https://cp.cloudflare.com/generate_204 # 使用Cloudflare检测点
+    interval: 600   # 增加测试间隔
+    lazy: true      # 启用懒加载
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     proxies:
       - 德国-手动
       - 德国-自动
@@ -298,16 +314,17 @@ proxy-groups:
   - name: 德国-自动
     type: url-test
     include-all: true
-    tolerance: 150 # 增加容忍度
-    interval: 600 # 增加测试间隔
-    url: https://cp.cloudflare.com/generate_204 # 使用Cloudflare检测点
+    tolerance: 150  # 增加容忍度
+    interval: 600   # 增加测试间隔
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(德|德国|DE|Frankfurt|法兰克福|慕尼黑|柏林|汉堡|杜塞尔多夫|🇩🇪|Germany)).*$"
+
   # 新加坡组 - 性能优化
   - name: 新加坡-故转
     type: fallback
-    interval: 600 # 增加测试间隔
-    lazy: true # 启用懒加载
-    url: https://cp.cloudflare.com/generate_204 # 使用Cloudflare检测点
+    interval: 600   # 增加测试间隔
+    lazy: true      # 启用懒加载
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     proxies:
       - 新加坡-手动
       - 新加坡-自动
@@ -318,16 +335,17 @@ proxy-groups:
   - name: 新加坡-自动
     type: url-test
     include-all: true
-    tolerance: 150 # 增加容忍度
-    interval: 600 # 增加测试间隔
-    url: https://cp.cloudflare.com/generate_204 # 使用Cloudflare检测点
+    tolerance: 150  # 增加容忍度
+    interval: 600   # 增加测试间隔
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$"
+
   # 其他组 - 性能优化
   - name: 其他-故转
     type: fallback
-    interval: 600 # 增加测试间隔
-    lazy: true # 启用懒加载
-    url: https://cp.cloudflare.com/generate_204 # 使用Cloudflare检测点
+    interval: 600   # 增加测试间隔
+    lazy: true      # 启用懒加载
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     proxies:
       - 其他-手动
       - 其他-自动
@@ -338,9 +356,9 @@ proxy-groups:
   - name: 其他-自动
     type: url-test
     include-all: true
-    tolerance: 150 # 增加容忍度
-    interval: 600 # 增加测试间隔
-    url: https://cp.cloudflare.com/generate_204 # 使用Cloudflare检测点
+    tolerance: 150  # 增加容忍度
+    interval: 600   # 增加测试间隔
+    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "^((?!(直连|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|英国|英|伦敦|UK|United Kingdom|🇬🇧|London|德|德国|DE|Frankfurt|法兰克福|慕尼黑|柏林|汉堡|杜塞尔多夫|🇩🇪|Germany)).)*$"
 
 # ========================
