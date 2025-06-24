@@ -174,16 +174,16 @@ proxy-groups:
   - name: 所有-手动
     type: select
     include-all: true
-    filter: "^((?!(直连|拒绝)).)*$"
+    filter: "^((?!(直连)).)*$"
 
   - name: 所有-智选
     type: smart
     include-all: true
-    policy-priority: "机场:0.8"
+    policy-priority: "机场:0.8;节点:1.2"
     uselightgbm: true
     collectdata: true
     interval: 300
-    filter: "^((?!(直连|拒绝)).)*$"
+    filter: "^((?!(直连)).)*$"
 
   # 香港组
   - name: 香港-故转
@@ -191,8 +191,8 @@ proxy-groups:
     interval: 300
     lazy: true  # 优化：启用懒加载
     proxies:
-      - 香港-智选
       - 香港-手动
+      - 香港-智选
   - name: 香港-手动
     type: select
     include-all: true
@@ -200,7 +200,7 @@ proxy-groups:
   - name: 香港-智选
     type: smart
     include-all: true
-    policy-priority: "机场:0.8"
+    policy-priority: "机场:0.8;节点:1.2"
     uselightgbm: true
     collectdata: true
     interval: 300
@@ -212,8 +212,8 @@ proxy-groups:
     interval: 300
     lazy: true  # 优化：启用懒加载
     proxies:
-      - 台湾-智选
       - 台湾-手动
+      - 台湾-智选
   - name: 台湾-手动
     type: select
     include-all: true
@@ -221,7 +221,7 @@ proxy-groups:
   - name: 台湾-智选
     type: smart
     include-all: true
-    policy-priority: "机场:0.8"
+    policy-priority: "机场:0.8;节点:1.2"
     uselightgbm: true
     collectdata: true
     interval: 300
@@ -233,8 +233,8 @@ proxy-groups:
     interval: 300
     lazy: true  # 优化：启用懒加载
     proxies:
-      - 日本-智选
       - 日本-手动
+      - 日本-智选
   - name: 日本-手动
     type: select
     include-all: true
@@ -242,7 +242,7 @@ proxy-groups:
   - name: 日本-智选
     type: smart
     include-all: true
-    policy-priority: "机场:0.8"
+    policy-priority: "机场:0.8;节点:1.2"
     uselightgbm: true
     collectdata: true
     interval: 300
@@ -254,8 +254,8 @@ proxy-groups:
     interval: 300
     lazy: true  # 优化：启用懒加载
     proxies:
-      - 韩国-智选
       - 韩国-手动
+      - 韩国-智选
   - name: 韩国-手动
     type: select
     include-all: true
@@ -263,7 +263,7 @@ proxy-groups:
   - name: 韩国-智选
     type: smart
     include-all: true
-    policy-priority: "机场:0.8"
+    policy-priority: "机场:0.8;节点:1.2"
     uselightgbm: true
     collectdata: true
     interval: 300
@@ -275,8 +275,8 @@ proxy-groups:
     interval: 300
     lazy: true  # 优化：启用懒加载
     proxies:
-      - 美国-智选
       - 美国-手动
+      - 美国-智选
   - name: 美国-手动
     type: select
     include-all: true
@@ -284,7 +284,7 @@ proxy-groups:
   - name: 美国-智选
     type: smart
     include-all: true
-    policy-priority: "机场:0.8"
+    policy-priority: "机场:0.8;节点:1.2"
     uselightgbm: true
     collectdata: true
     interval: 300
@@ -296,8 +296,8 @@ proxy-groups:
     interval: 300
     lazy: false
     proxies:
-      - 英国-智选
       - 英国-手动
+      - 英国-智选
   - name: 英国-手动
     type: select
     include-all: true
@@ -305,7 +305,7 @@ proxy-groups:
   - name: 英国-智选
     type: smart
     include-all: true
-    policy-priority: "机场:0.8"
+    policy-priority: "机场:0.8;节点:1.2"
     uselightgbm: true
     collectdata: true
     interval: 300
@@ -317,8 +317,8 @@ proxy-groups:
     interval: 300
     lazy: true  # 优化：启用懒加载
     proxies:
-      - 德国-智选
       - 德国-手动
+      - 德国-智选
   - name: 德国-手动
     type: select
     include-all: true
@@ -326,7 +326,7 @@ proxy-groups:
   - name: 德国-智选
     type: smart
     include-all: true
-    policy-priority: "机场:0.8"
+    policy-priority: "机场:0.8;节点:1.2"
     uselightgbm: true
     collectdata: true
     interval: 300
@@ -338,8 +338,8 @@ proxy-groups:
     interval: 300
     lazy: true  # 优化：启用懒加载
     proxies:
-      - 新加坡-智选
       - 新加坡-手动
+      - 新加坡-智选
   - name: 新加坡-手动
     type: select
     include-all: true
@@ -347,7 +347,7 @@ proxy-groups:
   - name: 新加坡-智选
     type: smart
     include-all: true
-    policy-priority: "机场:0.8"
+    policy-priority: "机场:0.8;节点:1.2"
     uselightgbm: true
     collectdata: true
     interval: 300
@@ -359,20 +359,20 @@ proxy-groups:
     interval: 300
     lazy: true  # 优化：启用懒加载
     proxies:
-      - 其他-智选
       - 其他-手动
+      - 其他-智选
   - name: 其他-手动
     type: select
     include-all: true
-    filter: "^((?!(直连|拒绝|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|英国|英|伦敦|UK|United Kingdom|🇬🇧|London|德|德国|DE|Frankfurt|法兰克福|慕尼黑|柏林|汉堡|杜塞尔多夫|🇩🇪|Germany)).)*$"
+    filter: "^((?!(直连|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|英国|英|伦敦|UK|United Kingdom|🇬🇧|London|德|德国|DE|Frankfurt|法兰克福|慕尼黑|柏林|汉堡|杜塞尔多夫|🇩🇪|Germany)).)*$"
   - name: 其他-智选
     type: smart
     include-all: true
-    policy-priority: "机场:0.8"
+    policy-priority: "机场:0.8;节点:1.2"
     uselightgbm: true
     collectdata: true
     interval: 300
-    filter: "^((?!(直连|拒绝|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|英国|英|伦敦|UK|United Kingdom|🇬🇧|London|德|德国|DE|Frankfurt|法兰克福|慕尼黑|柏林|汉堡|杜塞尔多夫|🇩🇪|Germany)).)*$"
+    filter: "^((?!(直连|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|英国|英|伦敦|UK|United Kingdom|🇬🇧|London|德|德国|DE|Frankfurt|法兰克福|慕尼黑|柏林|汉堡|杜塞尔多夫|🇩🇪|Germany)).)*$"
 
 # ========================
 # 规则引擎（rules）
