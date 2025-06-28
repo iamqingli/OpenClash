@@ -1,4 +1,38 @@
 # ========================
+# 节点订阅链接
+# ========================
+proxy-providers:
+  订阅地址1:
+    # 自建
+    url: "订阅地址"
+    type: http
+    # 优化更新间隔
+    interval: 86400 # 24小时更新一次
+    # 优化健康检查
+    health-check:
+      enable: true
+      url: https://cp.cloudflare.com/generate_204 # 使用Cloudflare检测点
+      interval: 1800 # 30分钟检查一次
+    # 启用UDP支持
+    udp: true
+    proxy: 直连
+    benchmark-url: https://cp.cloudflare.com/generate_204
+  订阅地址2:
+    # 机场
+    url: "订阅地址"
+    type: http
+    # 优化更新间隔
+    interval: 86400 # 24小时更新一次
+    # 优化健康检查
+    health-check:
+      enable: true
+      url: https://cp.cloudflare.com/generate_204 # 使用Cloudflare检测点
+      interval: 1800 # 30分钟检查一次
+    # 启用UDP支持
+    udp: true
+    proxy: 直连
+    
+# ========================
 # 主要端口设置
 # ========================
 port: 7890
@@ -71,40 +105,6 @@ profile:
   store-fake-ip: true
   # 添加存储路径
   store-path: ./storage
-
-# ========================
-# 节点订阅链接 - 性能优化
-# ========================
-proxy-providers:
-  订阅地址1:
-    # 自建
-    url: "订阅地址"
-    type: http
-    # 优化更新间隔
-    interval: 86400 # 24小时更新一次
-    # 优化健康检查
-    health-check:
-      enable: true
-      url: https://cp.cloudflare.com/generate_204 # 使用Cloudflare检测点
-      interval: 1800 # 30分钟检查一次
-    # 启用UDP支持
-    udp: true
-    proxy: 直连
-    benchmark-url: https://cp.cloudflare.com/generate_204
-  订阅地址2:
-    # 机场
-    url: "订阅地址"
-    type: http
-    # 优化更新间隔
-    interval: 86400 # 24小时更新一次
-    # 优化健康检查
-    health-check:
-      enable: true
-      url: https://cp.cloudflare.com/generate_204 # 使用Cloudflare检测点
-      interval: 1800 # 30分钟检查一次
-    # 启用UDP支持
-    udp: true
-    proxy: 直连
 
 # ========================
 # 策略组定义
