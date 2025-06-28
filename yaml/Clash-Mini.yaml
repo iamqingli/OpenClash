@@ -36,6 +36,10 @@ proxy-providers:
     udp: true
     proxy: 直连 
 
+# 基础代理
+proxies:
+  - {name: 直连, type: direct}
+  
 # ========================
 # 主要端口设置
 # ========================
@@ -113,10 +117,6 @@ profile:
   store-fake-ip: true
   # 添加存储路径
   store-path: ./storage
-
-# 基础代理
-proxies:
-  - {name: 直连, type: direct}
 
 # ========================
 # 策略组定义
