@@ -1,9 +1,46 @@
 # ========================
 # 请使用smart内核，无内核禁止使用
-
 # Clash-Full 优化配置
 # ========================
 
+# ========================
+# 节点订阅链接
+# ========================
+proxy-providers:
+  订阅地址1:
+    # 自建
+    url: "订阅地址"
+    type: http
+    # 优化更新间隔
+    interval: 86400  # 24小时更新一次
+    # 优化健康检查
+    health-check:
+      enable: true
+      url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
+      interval: 1800  # 30分钟检查一次
+    # 启用UDP支持
+    udp: true
+    proxy: 直连 
+
+  订阅地址2:
+    # 机场
+    url: "订阅地址"  
+    type: http
+    # 优化更新间隔
+    interval: 86400  # 24小时更新一次
+    # 优化健康检查
+    health-check:
+      enable: true
+      url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
+      interval: 1800  # 30分钟检查一次
+    # 启用UDP支持
+    udp: true
+    proxy: 直连
+
+# 基础代理
+proxies:
+  - {name: 直连, type: direct}
+  
 # ========================
 # 主要端口设置
 # ========================
@@ -82,44 +119,6 @@ tun:
 profile:
   store-selected: true
   store-fake-ip: true
-
-# ========================
-# 节点订阅链接
-# ========================
-proxy-providers:
-  订阅地址1:
-    # 自建
-    url: "订阅地址"
-    type: http
-    # 优化更新间隔
-    interval: 86400  # 24小时更新一次
-    # 优化健康检查
-    health-check:
-      enable: true
-      url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
-      interval: 1800  # 30分钟检查一次
-    # 启用UDP支持
-    udp: true
-    proxy: 直连 
-
-  订阅地址2:
-    # 机场
-    url: "订阅地址"  
-    type: http
-    # 优化更新间隔
-    interval: 86400  # 24小时更新一次
-    # 优化健康检查
-    health-check:
-      enable: true
-      url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
-      interval: 1800  # 30分钟检查一次
-    # 启用UDP支持
-    udp: true
-    proxy: 直连
-
-# 基础代理
-proxies:
-  - {name: 直连, type: direct}
 
 # ========================
 # 策略组定义
