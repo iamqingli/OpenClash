@@ -35,10 +35,6 @@ proxy-providers:
     # 启用UDP支持
     udp: true
     proxy: 直连
-
-# 基础代理
-proxies:
-  - {name: 直连, type: direct}
   
 # ========================
 # 主要端口设置
