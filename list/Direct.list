@@ -26,29 +26,6 @@ DOMAIN-SUFFIX,pt.keepfrds.com
 DOMAIN-SUFFIX,open.cd
 DOMAIN-SUFFIX,springsunday.net
 
-# Bilibili 哔哩哔哩
-USER-AGENT,Bilibili*
-USER-AGENT,bili*
-USER-AGENT,bili-inter*
-DOMAIN,apiintl.biliapi.net
-DOMAIN,upos-hz-mirrorakam.akamaized.net
-DOMAIN-SUFFIX,acg.tv
-DOMAIN-SUFFIX,acgvideo.com
-DOMAIN-SUFFIX,b23.tv
-DOMAIN-SUFFIX,bigfun.cn
-DOMAIN-SUFFIX,bigfunapp.cn
-DOMAIN-SUFFIX,biliapi.com
-DOMAIN-SUFFIX,biliapi.net
-DOMAIN-SUFFIX,bilibili.com
-DOMAIN-SUFFIX,bilibili.tv
-DOMAIN-SUFFIX,biligame.com
-DOMAIN-SUFFIX,biligame.net
-DOMAIN-SUFFIX,bilivideo.cn
-DOMAIN-SUFFIX,bilivideo.com
-DOMAIN-SUFFIX,hdslb.com
-DOMAIN-SUFFIX,im9.com
-DOMAIN-SUFFIX,smtcdns.net
-
 # NAME: Nvidia
 # AUTHOR: blackmatrix7
 # REPO: https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/Nvidia/Nvidia.list
@@ -149,7 +126,7 @@ DOMAIN-SUFFIX,prosubnet02.eu
 DOMAIN-SUFFIX,networklinkpro.net
 # 小牛
 DOMAIN-SUFFIX,4yfu73r3a4kl.com
-DOMAIN-SUFFIX,xiaoniuyun.cc  
+# DOMAIN-SUFFIX,xiaoniuyun.cc  
 DOMAIN-SUFFIX,xiaoniuyun11.com
 DOMAIN-SUFFIX,oxeuro.xyz
 
