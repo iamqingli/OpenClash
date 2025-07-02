@@ -8,7 +8,18 @@ IP-CIDR,172.19.0.1/32,no-resolve
 IP-CIDR,172.17.1.36/32,no-resolve
 IP-CIDR,172.17.95.40/32,no-resolve
 
-# 内容：中国媒体列表
+#PT站点
+DOMAIN-SUFFIX,audiences.me
+DOMAIN-SUFFIX,ubits.club
+DOMAIN-SUFFIX,ourbits.club
+DOMAIN-SUFFIX,hhanclub.top
+DOMAIN-SUFFIX,kp.m-team.cc
+DOMAIN-SUFFIX,next.m-team.cc
+DOMAIN-SUFFIX,hddolby.com
+DOMAIN-SUFFIX,lemonhd.club
+DOMAIN-SUFFIX,agsvpt.com
+
+# 中国媒体列表
 
 # Bilibili 哔哩哔哩
 USER-AGENT,Bilibili*
