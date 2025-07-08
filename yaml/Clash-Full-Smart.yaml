@@ -12,7 +12,7 @@ proxy-providers:
     url: "订阅地址"
     type: http
     # 优化更新间隔
-    interval: 86400  # 24小时更新一次
+    interval: 21600  # 6小时更新一次
     # 优化健康检查
     health-check:
       enable: true
@@ -27,7 +27,7 @@ proxy-providers:
     url: "订阅地址"  
     type: http
     # 优化更新间隔
-    interval: 86400  # 24小时更新一次
+    interval: 21600  # 6小时更新一次
     # 优化健康检查
     health-check:
       enable: true
