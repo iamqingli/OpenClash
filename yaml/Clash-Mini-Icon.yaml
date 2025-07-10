@@ -315,8 +315,8 @@ rules:
   - RULE-SET,Facebook / Domain,🕊️ 国外应用
   
   # 流媒体规则
-  - RULE-SET,Youtube / Domain,🎞️ YouTube
-  - RULE-SET,TikTok / Domain,🎬 TikTok
+  - RULE-SET,Youtube / Domain,🎬 YouTube
+  - RULE-SET,TikTok / Domain,🎞️ TikTok
   - RULE-SET,Netflix / Domain,🎥 Netflix
   - RULE-SET,Netflix / IP,🎥 Netflix,no-resolve
   - RULE-SET,Disney / Domain,📺 流媒体
