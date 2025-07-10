@@ -338,7 +338,7 @@ rules:
   - RULE-SET,Apple-CN / Domain,🍎 Apple  
   - RULE-SET,Microsoft / Domain,Ⓜ️ Microsoft
   - RULE-SET,Google / Domain,🌍 Google
-  - RULE-SET,Google / IP,Google,🌍 no-resolve
+  - RULE-SET,Google / IP,🌍 Google,no-resolve
   
   # 加密货币规则
   - RULE-SET,OKX / Domain,💶 加密货币
