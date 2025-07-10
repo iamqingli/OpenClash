@@ -143,9 +143,9 @@ proxy-groups:
   - {name: 📘 GitHub, <<: *default}
   - {name: 🌳 Amazon, <<: *default}
   - {name: 📲 Telegram, <<: *default}
-  - {name: 🎬 TikTok, <<: *default}
+  - {name: 🎞️ TikTok, <<: *default}
   - {name: 🎥 Netflix, <<: *default}
-  - {name: 🎞️ YouTube, <<: *default}
+  - {name: 🎬 YouTube, <<: *default}
   - {name: 📺 流媒体, <<: *default} 
   - {name: 🕊️ 国外应用, <<: *default}
   - {name: 🎮 游戏平台, <<: *default}
