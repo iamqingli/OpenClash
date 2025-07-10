@@ -303,59 +303,59 @@ proxy-groups:
 # ========================
 rules:
   # 优先级高的规则
-  - RULE-SET,Test / Domain,测试服务
+  - RULE-SET,Test / Domain,⏱️ 测试服务
   
   # 应用和服务规则
-  - RULE-SET,AI / Domain,AI平台
-  - RULE-SET,Github / Domain,GitHub
-  - RULE-SET,Telegram / Domain,Telegram
-  - RULE-SET,Telegram / IP,Telegram,no-resolve
-  - RULE-SET,Twitter / Domain,国外应用
-  - RULE-SET,WhatsApp / Domain,国外应用
-  - RULE-SET,Facebook / Domain,国外应用
+  - RULE-SET,AI / Domain,💻 AI平台
+  - RULE-SET,Github / Domain,📘 GitHub
+  - RULE-SET,Telegram / Domain,📲 Telegram
+  - RULE-SET,Telegram / IP,📲 Telegram,no-resolve
+  - RULE-SET,Twitter / Domain,🕊️ 国外应用
+  - RULE-SET,WhatsApp / Domain,🕊️ 国外应用
+  - RULE-SET,Facebook / Domain,🕊️ 国外应用
   
   # 流媒体规则
-  - RULE-SET,Youtube / Domain,YouTube
-  - RULE-SET,TikTok / Domain,TikTok
-  - RULE-SET,Netflix / Domain,Netflix
-  - RULE-SET,Netflix / IP,Netflix,no-resolve
-  - RULE-SET,Disney / Domain,流媒体
-  - RULE-SET,HBO / Domain,流媒体
-  - RULE-SET,Spotify / Domain,流媒体
+  - RULE-SET,Youtube / Domain,🎞️ YouTube
+  - RULE-SET,TikTok / Domain,🎬 TikTok
+  - RULE-SET,Netflix / Domain,🎥 Netflix
+  - RULE-SET,Netflix / IP,🎥 Netflix,no-resolve
+  - RULE-SET,Disney / Domain,📺 流媒体
+  - RULE-SET,HBO / Domain,📺 流媒体
+  - RULE-SET,Spotify / Domain,📺 流媒体
   
   # 游戏规则
-  - RULE-SET,Steam / Domain,游戏平台
-  - RULE-SET,Epic / Domain,游戏平台
-  - RULE-SET,EA / Domain,游戏平台
-  - RULE-SET,Blizzard / Domain,游戏平台
-  - RULE-SET,UBI / Domain,游戏平台
-  - RULE-SET,Sony / Domain,游戏平台
-  - RULE-SET,Nintend / Domain,游戏平台
+  - RULE-SET,Steam / Domain,🎮 游戏平台
+  - RULE-SET,Epic / Domain,🎮 游戏平台
+  - RULE-SET,EA / Domain,🎮 游戏平台
+  - RULE-SET,Blizzard / Domain,🎮 游戏平台
+  - RULE-SET,UBI / Domain,🎮 游戏平台
+  - RULE-SET,Sony / Domain,🎮 游戏平台
+  - RULE-SET,Nintend / Domain,🎮 游戏平台
   
   # 公司和服务规则
-  - RULE-SET,Amazon / Domain,Amazon
-  - RULE-SET,Apple / Domain,Apple
-  - RULE-SET,Apple-CN / Domain,Apple  
-  - RULE-SET,Microsoft / Domain,Microsoft
-  - RULE-SET,Google / Domain,Google
-  - RULE-SET,Google / IP,Google,no-resolve
+  - RULE-SET,Amazon / Domain,🌳 Amazon
+  - RULE-SET,Apple / Domain,🍎 Apple
+  - RULE-SET,Apple-CN / Domain,🍎 Apple  
+  - RULE-SET,Microsoft / Domain,Ⓜ️ Microsoft
+  - RULE-SET,Google / Domain,🌍 Google
+  - RULE-SET,Google / IP,Google,🌍 no-resolve
   
   # 加密货币规则
-  - RULE-SET,OKX / Domain,加密货币
-  - RULE-SET,Bybit / Domain,加密货币
-  - RULE-SET,Binance / Domain,加密货币
-  - RULE-SET,Other / Domain,加密货币
+  - RULE-SET,OKX / Domain,💶 加密货币
+  - RULE-SET,Bybit / Domain,💶 加密货币
+  - RULE-SET,Binance / Domain,💶 加密货币
+  - RULE-SET,Other / Domain,💶 加密货币
   
   # 国内外分流规则
-  - RULE-SET,Proxy / Domain,国外
-  - RULE-SET,Abroad / Domain,国外  
-  - RULE-SET,Direct / Domain,国内
-  - RULE-SET,China / Domain,国内
-  - RULE-SET,China / IP,国内,no-resolve
-  - RULE-SET,Private / Domain,国内
+  - RULE-SET,Proxy / Domain,🚀 国外
+  - RULE-SET,Abroad / Domain,🚀 国外  
+  - RULE-SET,Direct / Domain,🎯 国内
+  - RULE-SET,China / Domain,🎯 国内
+  - RULE-SET,China / IP,🎯 国内,no-resolve
+  - RULE-SET,Private / Domain,🎯 国内
   
   # 兜底规则
-  - MATCH,漏网之鱼
+  - MATCH,🐟 漏网之鱼
 
 # ========================
 # 规则集提供者
