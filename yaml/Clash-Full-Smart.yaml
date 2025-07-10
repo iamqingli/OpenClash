@@ -81,7 +81,7 @@ dns:
     - tls://1.1.1.1:853       # Cloudflare DNS (加密)
   # 添加DNS缓存提升性能
   cache: true
-  cache-size: 4000
+  cache-size: 8000
   fallback-filter:
     geoip: true
     geoip-code: CN
