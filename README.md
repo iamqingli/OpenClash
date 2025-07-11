@@ -20,23 +20,27 @@
 
 ![image](https://github.com/user-attachments/assets/f369c293-7f3d-4aa2-97b8-592ce75e38af)
 
-2.模式设置：选FakeIP增强模式：
+2.插件设置-版本更新，更新内核至最新版本，若更新失败，建议选择CDN加速或开启其他科学上网环境
+
+<img width="1151" height="503" alt="image" src="https://github.com/user-attachments/assets/b2fb3440-a49a-4112-ab80-9a5b4e32ca3e" />
+
+3.模式设置：选FakeIP增强模式：
 
 <img width="1126" height="603" alt="image" src="https://github.com/user-attachments/assets/8f1fc668-aaf4-4dd3-84b5-becc16ab5e07" />
 
-3.流量控制：选绕过中国大陆模式：
+4.流量控制：选绕过中国大陆模式：
 
 <img width="1122" height="519" alt="image" src="https://github.com/user-attachments/assets/53f5cc79-b188-4291-866a-ac51f6118643" />
 
-4.DNS设置：选DNSmasq转发或防火墙转发：
+5.DNS设置：选DNSmasq转发或防火墙转发：
 
 ![image](https://github.com/user-attachments/assets/2db2a626-ef5f-47ac-908c-e189190db6a1)
 
-5.IPV6设置：使用IPV6只勾选允许IPv6类型DNS解析，不使用IPV6不勾选。代理模式不建议使用。
+6.IPV6设置：使用IPV6只勾选允许IPv6类型DNS解析，不使用IPV6不勾选。代理模式不建议使用。
 
 ![image](https://github.com/user-attachments/assets/39f920cc-20e2-4a04-a7f0-55e6b4de4a6c)
 
-6.规则订阅强烈建议开启并设置自动更新：
+7.规则订阅强烈建议开启并设置自动更新：
 
 ![image](https://github.com/user-attachments/assets/c839ed74-8edd-4699-9ace-ef8fb923c978)
 
