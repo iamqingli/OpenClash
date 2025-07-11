@@ -22,11 +22,11 @@
 
 2.模式设置：选FakeIP增强模式：
 
-![image](https://github.com/user-attachments/assets/8d97168d-8a05-4945-a0c4-d2b96b5d4ab5)
+<img width="1126" height="603" alt="image" src="https://github.com/user-attachments/assets/8f1fc668-aaf4-4dd3-84b5-becc16ab5e07" />
 
 3.流量控制：选绕过中国大陆模式：
 
-![image](https://github.com/user-attachments/assets/70498b2d-47b7-4af8-beff-d58b6916631f)
+<img width="1122" height="519" alt="image" src="https://github.com/user-attachments/assets/53f5cc79-b188-4291-866a-ac51f6118643" />
 
 4.DNS设置：选DNSmasq转发或防火墙转发：
 
