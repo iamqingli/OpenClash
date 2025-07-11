@@ -4,7 +4,7 @@
 
 网络-DHCP/DNS-常规设置项中，取消勾选DNS重定向，保存并应用。
 
-![image](https://github.com/user-attachments/assets/f25cbf31-6112-43f2-a69f-079e3a702344)
+<img width="1026" height="473" alt="image" src="https://github.com/user-attachments/assets/8f4a4647-3e98-4c69-b4be-455243248280" />
 
 二、OpenClash设置：
 
