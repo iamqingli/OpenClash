@@ -82,16 +82,16 @@
 
 1.默认选择clash.meta;2.勾选在线订阅转换服务；3.订阅转换服务器地址可选默认或自建转换地址；4.订阅转换模板选自定义
 
-订阅转换模板自定义填写我的：
+订阅转换模板自定义填写：
 
 https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/Clash-Full.ini
-
-或是其他人的
 
 也可在列表中选用Online Full模板
 
 ![image](https://github.com/user-attachments/assets/75ae2835-5188-44cc-9a5b-788d5223a0e2)
 
-㈣ 更新并应用后返回运行状态页面，选择Yacd面板或其他面板根据自己需要进行节点选择：默认全部是直连。
+㈣ 更新并应用后返回运行状态页面，选择Zashboard面板或其他面板根据自己需要进行节点选择。
 
-![image](https://github.com/user-attachments/assets/85d658c4-225d-4f25-90b7-95190ad5f66d)
+<img width="1116" height="597" alt="image" src="https://github.com/user-attachments/assets/f02af922-180e-47e8-bf8d-2d4384fd382d" />
+
+㈤强烈建议使用yaml文件！！！
