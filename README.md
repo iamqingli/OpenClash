@@ -96,10 +96,7 @@ https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/Clash-Full
 
 ㈣ 更新并应用后返回运行状态页面，选择Zashboard面板或其他面板根据自己需要进行节点选择。
 
-
 <img width="1116" height="597" alt="image" src="https://github.com/user-attachments/assets/f02af922-180e-47e8-bf8d-2d4384fd382d" />
-
-
 
 ㈤ 强烈建议使用yaml文件，弃用已过时的订阅转换方式！！！
 
