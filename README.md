@@ -24,7 +24,7 @@
 
 <img width="1151" height="503" alt="image" src="https://github.com/user-attachments/assets/b2fb3440-a49a-4112-ab80-9a5b4e32ca3e" />
 
-3.模式设置：选FakeIP增强模式：
+3.模式设置：选FakeIP混合模式：
 
 <img width="1126" height="603" alt="image" src="https://github.com/user-attachments/assets/8f1fc668-aaf4-4dd3-84b5-becc16ab5e07" />
 
