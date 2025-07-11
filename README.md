@@ -98,4 +98,7 @@ https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/Clash-Full
 
 <img width="1116" height="597" alt="image" src="https://github.com/user-attachments/assets/f02af922-180e-47e8-bf8d-2d4384fd382d" />
 
-㈤强烈建议使用yaml文件！！！
+
+㈤强烈建议使用yaml文件，弃用已过时的订阅转换方式！！！
+
+https://github.com/iamqingli/OpenClash/tree/main/yaml
