@@ -50,19 +50,19 @@
 
 复写设置常规项设置：
 
-![image](https://github.com/user-attachments/assets/3ddb7443-3518-4ccd-8e10-736634f7b7c8)
+<img width="830" height="571" alt="image" src="https://github.com/user-attachments/assets/21ceaf9e-970a-4220-bbf2-d1dd80a5b29e" />
 
 复写设置DNS项设置
 
-![image](https://github.com/user-attachments/assets/6487073e-25a7-4fd0-afaa-c66513854bbc)
+<img width="838" height="604" alt="image" src="https://github.com/user-attachments/assets/eebb001a-9a91-46fb-811e-2a0d19af344d" />
 
 复写设置Meta设置
 
-![image](https://github.com/user-attachments/assets/b4f7729d-415b-4fa3-be51-cd998b9496dd)
+<img width="929" height="564" alt="image" src="https://github.com/user-attachments/assets/e65aaad1-9d3a-4fda-836d-031f3a5cf916" />
 
 复写设置规则设置：
 
-![image](https://github.com/user-attachments/assets/67eeba49-b1b6-4ef0-b219-ca7112da2103)
+<img width="819" height="270" alt="image" src="https://github.com/user-attachments/assets/19c81865-76fa-4631-9c7b-b7af1f2cbb6c" />
 
 自定义上游DNS服务器  重点！！！
 
