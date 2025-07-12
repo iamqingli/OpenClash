@@ -2,44 +2,6 @@
 # Clash-Mini 性能优化配置
 # ========================
 
-# ========================
-# 节点订阅链接
-# ========================
-# 机场订阅，订阅地址1/2/3名称不能重复,但可自定义修改
-# 订阅链接1/2/3是用来写订阅链接的，填入即可
-# 机场名称1/2/3是用来给节点添加备注的，不用可以整行删除
-proxy-providers:
-  订阅地址1:
-    <<: *PProviders
-    proxy: "直连"
-    url: "订阅链接1"
-    override:
-      additional-prefix: '[订阅名称1]'
-      skip-cert-verify: true
-      udp: true
-  订阅地址2:
-    <<: *PProviders
-    proxy: "直连"
-    url: "订阅链接2"
-    override:
-      additional-prefix: '[订阅名称2]'
-      skip-cert-verify: true
-      udp: true
-  订阅地址3:
-    <<: *PProviders
-    proxy: "直连"
-    url: "订阅链接3"
-    override:
-      additional-prefix: '[订阅名称3]'
-      skip-cert-verify: true
-      udp: true
-
-# 基础代理
-proxies:
-  - {name: 直连, type: direct,udp: true}
-
-# 用于下载订阅时指定UA
-global-ua: clash.meta
 
 # ========================
 # 锚点定义
@@ -84,6 +46,45 @@ PProviders: &PProviders
     url: https://cp.cloudflare.com/generate_204
     interval: 1800
   proxy: 直连
+  
+# ========================
+# 节点订阅链接
+# ========================
+# 机场订阅，订阅地址1/2/3名称不能重复,但可自定义修改
+# 订阅链接1/2/3是用来写订阅链接的，填入即可
+# 机场名称1/2/3是用来给节点添加备注的，不用可以整行删除
+proxy-providers:
+  订阅地址1:
+    <<: *PProviders
+    proxy: "直连"
+    url: "订阅链接1"
+    override:
+      additional-prefix: '[订阅名称1]'
+      skip-cert-verify: true
+      udp: true
+  订阅地址2:
+    <<: *PProviders
+    proxy: "直连"
+    url: "订阅链接2"
+    override:
+      additional-prefix: '[订阅名称2]'
+      skip-cert-verify: true
+      udp: true
+  订阅地址3:
+    <<: *PProviders
+    proxy: "直连"
+    url: "订阅链接3"
+    override:
+      additional-prefix: '[订阅名称3]'
+      skip-cert-verify: true
+      udp: true
+
+# 基础代理
+proxies:
+  - {name: 直连, type: direct,udp: true}
+
+# 用于下载订阅时指定UA
+global-ua: clash.meta
 
 # ========================
 # 端口与控制面板
