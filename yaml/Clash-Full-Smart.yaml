@@ -187,9 +187,6 @@ dns:
     - +.lan
     - +.local
     - geosite:cn
-    - +.api.aial.pw
-    - +.sub.aial.pw
-    - +.subweb.aial.pw
   default-nameserver:
     - 119.29.29.29
     - 180.184.1.1
