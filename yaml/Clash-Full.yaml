@@ -15,6 +15,9 @@ Proxy_first: &Proxy_first
     - 美国-故转
     - 台湾-故转
     - 新加坡-故转
+    - 韩国-故转 
+    - 英国-故转
+    - 德国-故转
     - 其他-故转
     - 直连
 
@@ -29,6 +32,9 @@ Direct_first: &Direct_first
     - 美国-故转
     - 台湾-故转
     - 新加坡-故转
+    - 韩国-故转 
+    - 英国-故转
+    - 德国-故转
     - 其他-故转
 
 PProviders: &PProviders
@@ -250,6 +256,7 @@ proxy-groups:
   - {name: 漏网之鱼, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/onedrive.png"}
 
   # 节点选择组 - 性能优化
+  
   - name: 所有-手动
     type: select
     include-all: true
