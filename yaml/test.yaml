@@ -5,16 +5,34 @@
 # ========================
 # 节点订阅链接
 # ========================
-
+# 机场订阅，订阅地址1/2/3名称不能重复,但可自定义修改
+# 订阅链接1/2/3是用来写订阅链接的，填入即可
+# 机场名称1/2/3是用来给节点添加备注的，不用可以整行删除
 proxy-providers:
   订阅地址1:
     <<: *PProviders
+    proxy: "直连"
     url: "订阅链接1"
-    udp: true
+    override:
+      additional-prefix: '[订阅名称1]'
+      skip-cert-verify: true
+      udp: true
   订阅地址2:
     <<: *PProviders
+    proxy: "直连"
     url: "订阅链接2"
-    udp: true
+    override:
+      additional-prefix: '[订阅名称2]'
+      skip-cert-verify: true
+      udp: true
+  订阅地址3:
+    <<: *PProviders
+    proxy: "直连"
+    url: "订阅链接3"
+    override:
+      additional-prefix: '[订阅名称3]'
+      skip-cert-verify: true
+      udp: true
 
 # 基础代理
 proxies:
@@ -541,4 +559,4 @@ rule-providers:
   China / IP: {<<: *ip, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs"}
   Private / Domain: {<<: *domain, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
   Proxy / Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/Proxy.list"}
-  Abroad / Domain: {<<: *class, url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/he
+  Abroad / Domain: {<<: *class, url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/ProxyGFWlist.list"} 
