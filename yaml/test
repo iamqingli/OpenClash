@@ -16,7 +16,7 @@ Proxy_first: &Proxy_first
     - 美国-故转
     - 台湾-故转
     - 新加坡-故转
-    - 其他-故转
+    - 其他地区-故转
     - 直连
 
 Direct_first: &Direct_first
@@ -30,7 +30,7 @@ Direct_first: &Direct_first
     - 美国-故转
     - 台湾-故转
     - 新加坡-故转
-    - 其他-故转
+    - 其他地区-故转
 
 Include_all: &Include_all
   type: select
@@ -62,7 +62,7 @@ proxy-providers:
 
 # 基础代理
 proxies:
-  - {name: 直连, type: direct}
+  - {name: 直连, type: direct,udp: true}
 
 # 用于下载订阅时指定UA
 global-ua: clash.meta
@@ -103,56 +103,6 @@ external-ui-name: zashboard
 external-ui-url: https://github.moeyy.xyz/https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip
 secret: "123456"
 
-# ========================
-# DNS 设置
-# ========================
-
-dns:
-  enable: true
-  listen: 0.0.0.0:7874
-  ipv6: true
-  enhanced-mode: fake-ip
-  fake-ip-range: 198.20.0.1/16
-  nameserver:
-    - 180.184.1.1
-    - 119.29.29.29
-    - 114.114.114.114
-  fallback:
-    - tls://8.8.8.8:853
-    - tls://1.1.1.1:853
-  cache: true
-  cache-size: 8000
-  fallback-filter:
-    geoip: true
-    geoip-code: CN
-    ipcidr:
-      - 240.0.0.0/4
-  fake-ip-filter:
-    - +.lan
-    - +.local
-    - geosite:cn
-    - +.api.aial.pw
-    - +.sub.aial.pw
-    - +.subweb.aial.pw
-
-# ========================
-# TUN 模块
-# ========================
-
-tun:
-  enable: true
-  stack: gvisor
-  device: utun
-  mtu: 9000
-  endpoint-independent-nat: true
-  auto-route: true
-  auto-detect-interface: true
-  auto-redirect: true
-  strict-route: false
-  dns-hijack:
-    - any:53
-    - tcp://any:53
-
 # 匹配进程 always/strict/off
 find-process-mode: strict
 global-client-fingerprint: chrome
@@ -165,7 +115,7 @@ profile:
   store-fake-ip: false
 
 # ========================
-# sniffer 模块
+# 流量嗅探
 # ========================
 
 sniffer:
@@ -198,6 +148,71 @@ sniffer:
     - "*.sunlogin.net"
 
 # ========================
+# DNS 设置
+# ========================
+
+dns:
+  enable: true
+  listen: 0.0.0.0:7874
+  ipv6: true
+  prefer-h3: false # 是否开启 DoH 支持 HTTP/3，将并发尝试
+  respect-rules: true
+  # 模式切换 redir-host / fake-ip
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.20.0.1/16
+  # 模式切换 whitelist/blacklist 
+  # 黑名单模式表示如果匹配成功则不返回 Fake-IP, 白名单模式时只有匹配成功才返回 Fake-IP
+  fake-ip-filter-mode: blacklist
+  fake-ip-filter:
+    - "rule-set:fakeip_filter_domain,game_cn_domain,bank_cn_domain,wechat_domain,ai_cn_domain,NetEaseMusic_domain,fcm_domain,alibaba_domain,media_cn_domain,xiaomi_domain,steam_cn_domain,pt_cn_domain,public-tracker_domain,115_domain,aliyun_domain,direct_domain,apple_cn_domain,apple_firmware_domain,iptv_domain,private_domain,cn_domain"
+  default-nameserver:
+    - 119.29.29.29
+    - 180.184.1.1
+  proxy-server-nameserver:
+    - https://doh.pub/dns-query
+    - https://101.34.254.32/ihtw
+  direct-nameserver:
+    - https://doh.pub/dns-query
+    - https://101.34.254.32/ihtw
+  nameserver:
+    - https://dns.google/dns-query
+    - https://dns.cloudflare.com/dns-query
+  nameserver-policy:
+    "rule-set:banAd_domain": rcode://success
+  cache: true
+  cache-size: 8000
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    ipcidr:
+      - 240.0.0.0/4
+  fake-ip-filter:
+    - +.lan
+    - +.local
+    - geosite:cn
+    - +.api.aial.pw
+    - +.sub.aial.pw
+    - +.subweb.aial.pw
+
+# ========================
+# 代理模式
+# ========================
+
+tun:
+  enable: true
+  stack: gvisor
+  device: utun
+  mtu: 9000
+  endpoint-independent-nat: true
+  auto-route: true
+  auto-detect-interface: true
+  auto-redirect: true
+  strict-route: false
+  dns-hijack:
+    - any:53
+    - tcp://any:53
+
+# ========================
 # profile 存储设置
 # ========================
 profile:
@@ -219,9 +234,10 @@ default: &default
     - 美国-故转
     - 台湾-故转
     - 新加坡-故转
-    - 其他-故转
+    - 其他地区-故转
     - 直连
 
+# 策略组
 proxy-groups:
   # 业务分流组
   - {name: AI平台, <<: *default}
@@ -243,7 +259,30 @@ proxy-groups:
   - {name: 国外, <<: *default}
   - {name: 漏网之鱼, <<: *default}
 
-  # 节点选择组 - 性能优化
+# over
+  - {name: AI平台, <<: *Include_all, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/ai.png"}
+  - {name: GitHub, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/github.png"}
+  - {name: Amazon, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/shopping.png"}
+  - {name: Telegram, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/telegram.png"}
+  - {name: TikTok, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/tiktok.png"}
+  - {name: Netflix, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/netflix.png"}
+  - {name: YouTube, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/youtube.png"}
+  - {name: 流媒体, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/disney.png"}
+  - {name: 国外应用, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/discord.png"}
+  - {name: 游戏平台, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/game.png"}
+  - {name: 测试服务,type: select, <<: *Include_all, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/speedtest.png"}
+  - {name: 加密货币, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/paypal.png"}
+  - {name: Apple, type: select, <<: *Direct_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/apple.png"}
+  - {name: Google, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/google.png"}
+  - {name: Microsoft, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/microsoft.png"}
+  - {name: 国内, type: select, <<: *Direct_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/Chinese_media.png"}
+  - {name: 国外,type: select, <<: *Include_all, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/global_media.png"}
+  - {name: 漏网之鱼, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/onedrive.png"}
+  
+# ========================
+# 节点选择组
+# ========================
+
   - name: 所有-手动
     type: select
     include-all: true
@@ -257,7 +296,7 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "^((?!(直连)).)*$"
 
-  # 香港组 - 性能优化
+  # 香港组
   - name: 香港-故转
     type: fallback
     interval: 600   # 增加测试间隔
@@ -278,7 +317,7 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$"
 
-   # 日本组 - 性能优化
+   # 日本组
   - name: 日本-故转
     type: fallback
     interval: 600   # 增加测试间隔
@@ -299,7 +338,7 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$"
     
-  # 台湾组 - 性能优化
+  # 台湾组
   - name: 台湾-故转
     type: fallback
     interval: 600   # 增加测试间隔
@@ -320,7 +359,7 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$"
 
-  # 美国组 - 性能优化
+  # 美国组
   - name: 美国-故转
     type: fallback
     interval: 600   # 增加测试间隔
@@ -341,7 +380,7 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"
 
-  # 新加坡组 - 性能优化
+  # 新加坡组
   - name: 新加坡-故转
     type: fallback
     interval: 600   # 增加测试间隔
@@ -362,20 +401,20 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$"
 
-  # 其他组 - 性能优化
-  - name: 其他-故转
+  # 其他组
+  - name: 其他地区-故转
     type: fallback
     interval: 600   # 增加测试间隔
     lazy: true      # 启用懒加载
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     proxies:
-      - 其他-手动
-      - 其他-自动
+      - 其他地区-手动
+      - 其他地区-自动
   - name: 其他-手动
     type: select
     include-all: true
     filter: "^((?!(直连|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸)).)*$"
-  - name: 其他-自动
+  - name: 其他地区-自动
     type: url-test
     include-all: true
     tolerance: 150  # 增加容忍度
