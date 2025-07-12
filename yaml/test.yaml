@@ -33,11 +33,6 @@ Direct_first: &Direct_first
     - 新加坡-故转
     - 其他-故转
 
-Include_all: &Include_all
-  type: select
-  include-all: true
-  filter: "^((?!(直连)).)*$"
-
 PProviders: &PProviders
   type: http
   interval: 21600
@@ -59,23 +54,22 @@ proxy-providers:
     proxy: "直连"
     url: "订阅链接1"
     override:
-      additional-prefix: '[订阅名称1]'
       skip-cert-verify: true
       udp: true
+  
   订阅地址2:
     <<: *PProviders
     proxy: "直连"
     url: "订阅链接2"
     override:
-      additional-prefix: '[订阅名称2]'
       skip-cert-verify: true
       udp: true
+  
   订阅地址3:
     <<: *PProviders
     proxy: "直连"
     url: "订阅链接3"
     override:
-      additional-prefix: '[订阅名称3]'
       skip-cert-verify: true
       udp: true
 
@@ -252,14 +246,14 @@ proxy-groups:
   - {name: YouTube, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/youtube.png"}
   - {name: 流媒体, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/disney.png"}
   - {name: 国外应用, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/discord.png"}
-  - {name: 游戏平台,type: select, <<: *Include_all, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/game.png"}
-  - {name: 测试服务,type: select, <<: *Include_all, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/speedtest.png"}
+  - {name: 游戏平台, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/game.png"}
+  - {name: 测试服务, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/speedtest.png"}
   - {name: 加密货币, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/paypal.png"}
   - {name: Apple, type: select, <<: *Direct_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/apple.png"}
   - {name: Google, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/google.png"}
   - {name: Microsoft, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/microsoft.png"}
   - {name: 国内, type: select, <<: *Direct_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/Chinese_media.png"}
-  - {name: 国外, <<: *Proxy_first, <<: *Include_all, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/global_media.png"}
+  - {name: 国外, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/global_media.png"}
   - {name: 漏网之鱼, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/onedrive.png"}
   
 # ========================
