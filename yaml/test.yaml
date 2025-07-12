@@ -3,6 +3,27 @@
 # ========================
 
 # ========================
+# 节点订阅链接
+# ========================
+
+proxy-providers:
+  订阅地址1:
+    <<: *PProviders
+    url: "订阅链接1"
+    udp: true
+  订阅地址2:
+    <<: *PProviders
+    url: "订阅链接2"
+    udp: true
+
+# 基础代理
+proxies:
+  - {name: 直连, type: direct,udp: true}
+
+# 用于下载订阅时指定UA
+global-ua: clash.meta
+
+# ========================
 # 锚点定义
 # ========================
 
@@ -45,27 +66,6 @@ PProviders: &PProviders
     url: https://cp.cloudflare.com/generate_204
     interval: 1800
   proxy: 直连
-
-# ========================
-# 节点订阅链接
-# ========================
-
-proxy-providers:
-  订阅地址1:
-    <<: *PProviders
-    url: "订阅链接1"
-    udp: true
-  订阅地址2:
-    <<: *PProviders
-    url: "订阅链接2"
-    udp: true
-
-# 基础代理
-proxies:
-  - {name: 直连, type: direct,udp: true}
-
-# 用于下载订阅时指定UA
-global-ua: clash.meta
 
 # ========================
 # 端口与控制面板
