@@ -3,128 +3,10 @@
 # ========================
 
 # ========================
-# 节点订阅链接 - 性能优化
+# 锚点定义
 # ========================
-proxy-providers:
-  订阅地址1:
-    # 自建
-    url: "订阅地址"
-    type: http
-    # 优化更新间隔
-    interval: 21600  # 6小时更新一次
-    # 优化健康检查
-    health-check:
-      enable: true
-      url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
-      interval: 1800  # 30分钟检查一次
-    # 启用UDP支持
-    udp: true
-    proxy: 直连 
 
-  订阅地址2:
-    # 机场
-    url: "订阅地址"  
-    type: http
-    # 优化更新间隔
-    interval: 21600  # 6小时更新一次
-    # 优化健康检查
-    health-check:
-      enable: true
-      url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
-      interval: 1800  # 30分钟检查一次
-    # 启用UDP支持
-    udp: true
-    proxy: 直连 
-
-# 基础代理
-proxies:
-  - {name: 直连, type: direct}
-  
-# ========================
-# 主要端口设置
-# ========================
-port: 7890
-socks-port: 7891
-redir-port: 7892
-mixed-port: 7893
-tproxy-port: 7895
-
-allow-lan: true
-mode: rule
-log-level: info
-
-# 控制面板配置
-external-controller: 0.0.0.0:9090
-external-ui: ui
-external-ui-name: zashboard
-external-ui-url: https://github.moeyy.xyz/https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip
-secret: "123456"
-
-# ========================
-# DNS 设置 - 性能优化
-# ========================
-dns:
-  enable: true
-  listen: 0.0.0.0:7874
-  ipv6: true
-  enhanced-mode: fake-ip
-  fake-ip-range: 198.20.0.1/16
-  nameserver:
-    - 180.184.1.1      # 字节DNS
-    - 119.29.29.29     # 腾讯DNS
-    - 114.114.114.114  # 114DNS
-  fallback:
-    - tls://8.8.8.8:853       # Google DNS (加密)
-    - tls://1.1.1.1:853       # Cloudflare DNS (加密)
-  # 增强DNS缓存提升性能
-  cache: true
-  cache-size: 8000  # 增大缓存大小
-  fallback-filter:
-    geoip: true
-    geoip-code: CN
-    ipcidr:
-      - 240.0.0.0/4
-  fake-ip-filter:
-    - +.lan
-    - +.local
-    - geosite:cn
-    # 订阅转换
-    - +.api.aial.pw
-    - +.sub.aial.pw
-    - +.subweb.aial.pw
-
-# IPv6控制
-ipv6: true
-
-# ========================
-# TUN 模块 - 性能优化
-# ========================
-tun:
-  enable: true
-  stack: gvisor     # 高性能网络栈
-  device: utun
-  # 优化MTU值
-  mtu: 9000  # 增大MTU值以提高吞吐量
-  endpoint-independent-nat: true
-  auto-route: true  # 启用自动路由
-  auto-detect-interface: true  # 启用自动接口检测
-  auto-redirect: false
-  strict-route: false
-  dns-hijack:
-    - any:53
-    - tcp://any:53
-
-# 配置文件存储 - 性能优化
-profile:
-  store-selected: true
-  store-fake-ip: true
-  # 添加存储路径
-  store-path: ./storage
-
-# ========================
-# 策略组定义
-# ========================
-default: &default
+Proxy_first: &Proxy_first
   type: select
   proxies:
     - 所有-自动
@@ -137,28 +19,246 @@ default: &default
     - 其他-故转
     - 直连
 
-proxy-groups:
-  # 业务分流组
-  - {name: AI平台, <<: *default}
-  - {name: GitHub, <<: *default}
-  - {name: Amazon, <<: *default}
-  - {name: Telegram, <<: *default}
-  - {name: TikTok, <<: *default}
-  - {name: Netflix, <<: *default}
-  - {name: YouTube, <<: *default}
-  - {name: 流媒体, <<: *default} 
-  - {name: 国外应用, <<: *default}
-  - {name: 游戏平台, <<: *default}
-  - {name: 测试服务, <<: *default}
-  - {name: 加密货币, <<: *default}
-  - {name: Apple, <<: *default}
-  - {name: Google, <<: *default}
-  - {name: Microsoft, <<: *default}
-  - {name: 国内, <<: *default}
-  - {name: 国外, <<: *default}
-  - {name: 漏网之鱼, <<: *default}
+Direct_first: &Direct_first
+  type: select
+  proxies:
+    - 直连
+    - 所有-自动
+    - 所有-手动
+    - 香港-故转
+    - 日本-故转
+    - 美国-故转
+    - 台湾-故转
+    - 新加坡-故转
+    - 其他-故转
 
-  # 节点选择组 - 性能优化
+PProviders: &PProviders
+  type: http
+  interval: 21600
+  health-check:
+    enable: true
+    url: https://cp.cloudflare.com/generate_204
+    interval: 1800
+  proxy: 直连
+  
+# ========================
+# 节点订阅链接
+# ========================
+# 机场订阅，订阅地址1/2/3名称不能重复,但可自定义修改
+# 订阅链接1/2/3是用来写订阅链接的，填入即可
+# 机场名称1/2/3是用来给节点添加备注的，不用可以整行删除
+proxy-providers:
+  订阅地址1:
+    <<: *PProviders
+    proxy: "直连"
+    url: "订阅链接1"
+    override:
+      skip-cert-verify: true
+      udp: true
+  
+  订阅地址2:
+    <<: *PProviders
+    proxy: "直连"
+    url: "订阅链接2"
+    override:
+      skip-cert-verify: true
+      udp: true
+  
+  订阅地址3:
+    <<: *PProviders
+    proxy: "直连"
+    url: "订阅链接3"
+    override:
+      skip-cert-verify: true
+      udp: true
+
+# 基础代理
+proxies:
+  - {name: 直连, type: direct,udp: true}
+
+# 用于下载订阅时指定UA
+global-ua: clash.meta
+
+# ========================
+# 端口与控制面板
+# ========================
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+mode: rule
+log-level: info
+unified-delay: true
+tcp-concurrent: true
+skip-auth-prefixes:
+- 127.0.0.1/8
+- ::1/128
+
+# GEO 文件加载模式（standard：标准加载器/memconservative：专为内存受限 (小内存) 设备优化的加载器 (默认值)）
+geodata-mode: false
+geodata-loader: standard
+geo-auto-update: true
+geo-update-interval: 48
+geox-url:
+  geosite: "https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat"
+  mmdb: "https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.metadb"
+  geoip: "https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat"
+  asn: "https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/GeoLite2-ASN.mmdb"
+
+# 控制面板
+external-controller: 0.0.0.0:9090
+external-ui: ui
+external-ui-name: zashboard
+external-ui-url: https://github.moeyy.xyz/https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip
+secret: "123456"
+
+# 匹配进程 always/strict/off
+find-process-mode: strict
+global-client-fingerprint: chrome
+keep-alive-idle: 600
+keep-alive-interval: 30
+
+# 策略组选择和fakeip缓存
+profile:
+  store-selected: true
+  store-fake-ip: false
+
+# ========================
+# 流量嗅探
+# ========================
+
+sniffer:
+  enable: true
+  sniff:
+    HTTP:
+      ports: [80, 8080-8880]
+      override-destination: true
+    TLS:
+      ports: [443, 8443]
+    QUIC:
+      ports: [443, 8443]
+  force-domain:
+    - "*.v2ex.com"
+  skip-domain:
+    - "*.push.apple.com"
+    - "*.wechat.com"
+    - "*.qq.com"
+    - "*.mi.com"
+    - "Mijia Cloud"
+    - "dlg.io.mi.com"
+    - "*.push.apple.com"
+    - "*.apple.com"
+    - "*.wechat.com"
+    - "*.qpic.cn"
+    - "*.wechatapp.com"
+    - "*.vivox.com"
+    # 向日葵服务
+    - "*.oray.com"
+    - "*.sunlogin.net"
+
+# ========================
+# DNS 设置
+# ========================
+
+dns:
+  enable: true
+  listen: 0.0.0.0:7874
+  ipv6: true
+  prefer-h3: false # 是否开启 DoH 支持 HTTP/3，将并发尝试
+  respect-rules: true
+  # 模式切换 redir-host / fake-ip
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.20.0.1/16
+  # 模式切换 whitelist/blacklist 
+  # 黑名单模式表示如果匹配成功则不返回 Fake-IP, 白名单模式时只有匹配成功才返回 Fake-IP
+  fake-ip-filter-mode: blacklist
+  fake-ip-filter:
+    - "rule-set:fakeip_filter_domain,game_cn_domain,bank_cn_domain,wechat_domain,ai_cn_domain,NetEaseMusic_domain,fcm_domain,alibaba_domain,media_cn_domain,xiaomi_domain,steam_cn_domain,pt_cn_domain,public-tracker_domain,115_domain,aliyun_domain,direct_domain,apple_cn_domain,apple_firmware_domain,iptv_domain,private_domain,cn_domain"
+  default-nameserver:
+    - 119.29.29.29
+    - 180.184.1.1
+  proxy-server-nameserver:
+    - https://doh.pub/dns-query
+    - https://101.34.254.32/ihtw
+  direct-nameserver:
+    - https://doh.pub/dns-query
+    - https://101.34.254.32/ihtw
+  nameserver:
+    - https://dns.google/dns-query
+    - https://dns.cloudflare.com/dns-query
+  cache: true
+  cache-size: 8000
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    ipcidr:
+      - 240.0.0.0/4
+  fake-ip-filter:
+    - +.lan
+    - +.local
+    - geosite:cn
+    - +.api.aial.pw
+    - +.sub.aial.pw
+    - +.subweb.aial.pw
+
+# ========================
+# 代理模式
+# ========================
+
+tun:
+  enable: true
+  stack: gvisor
+  device: utun
+  mtu: 9000
+  endpoint-independent-nat: true
+  auto-route: true
+  auto-detect-interface: true
+  auto-redirect: true
+  strict-route: false
+  dns-hijack:
+    - any:53
+    - tcp://any:53
+
+# ========================
+# profile 存储设置
+# ========================
+profile:
+  store-selected: true
+  store-fake-ip: true
+  store-path: ./storage
+
+
+# ========================
+# 策略组定义
+# ========================
+
+proxy-groups:
+  - {name: AI平台, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/ai.png"}
+  - {name: GitHub, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/github.png"}
+  - {name: Amazon, type: select, <<: *Direct_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/shopping.png"}
+  - {name: Telegram, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/telegram.png"}
+  - {name: TikTok, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/tiktok.png"}
+  - {name: Netflix, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/netflix.png"}
+  - {name: YouTube, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/youtube.png"}
+  - {name: 流媒体, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/disney.png"}
+  - {name: 国外应用, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/discord.png"}
+  - {name: 游戏平台, type: select, <<: *Direct_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/game.png"}
+  - {name: 测试服务, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/speedtest.png"}
+  - {name: 加密货币, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/paypal.png"}
+  - {name: Apple, type: select, <<: *Direct_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/apple.png"}
+  - {name: Google, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/google.png"}
+  - {name: Microsoft, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/microsoft.png"}
+  - {name: 国内, type: select, <<: *Direct_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/Chinese_media.png"}
+  - {name: 国外, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/global_media.png"}
+  - {name: 漏网之鱼, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/onedrive.png"}
+  
+# ========================
+# 节点选择组
+# ========================
+
   - name: 所有-手动
     type: select
     include-all: true
@@ -172,7 +272,7 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "^((?!(直连)).)*$"
 
-  # 香港组 - 性能优化
+  # 香港组
   - name: 香港-故转
     type: fallback
     interval: 600   # 增加测试间隔
@@ -193,7 +293,7 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$"
 
-   # 日本组 - 性能优化
+   # 日本组
   - name: 日本-故转
     type: fallback
     interval: 600   # 增加测试间隔
@@ -214,7 +314,7 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$"
     
-  # 台湾组 - 性能优化
+  # 台湾组
   - name: 台湾-故转
     type: fallback
     interval: 600   # 增加测试间隔
@@ -235,7 +335,7 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$"
 
-  # 美国组 - 性能优化
+  # 美国组
   - name: 美国-故转
     type: fallback
     interval: 600   # 增加测试间隔
@@ -256,7 +356,7 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"
 
-  # 新加坡组 - 性能优化
+  # 新加坡组
   - name: 新加坡-故转
     type: fallback
     interval: 600   # 增加测试间隔
@@ -277,7 +377,7 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$"
 
-  # 其他组 - 性能优化
+  # 其他组
   - name: 其他-故转
     type: fallback
     interval: 600   # 增加测试间隔
