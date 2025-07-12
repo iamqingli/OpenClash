@@ -176,7 +176,8 @@ dns:
     - +.lan
     - +.local
     - geosite:cn
-  default-nameserver:
+  default-nameserver:    
+    - 114.114.114.114
     - 119.29.29.29
     - 180.184.1.1
   proxy-server-nameserver:
@@ -186,8 +187,9 @@ dns:
     - https://doh.pub/dns-query
     - https://101.34.254.32/ihtw
   nameserver:
-    - https://dns.google/dns-query
-    - https://dns.cloudflare.com/dns-query
+    - 114.114.114.114
+    - 119.29.29.29
+    - 180.184.1.1
   cache: true
   cache-size: 8000
   fallback-filter:
