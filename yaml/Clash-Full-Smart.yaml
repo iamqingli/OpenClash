@@ -12,7 +12,7 @@
 Proxy_first: &Proxy_first
   type: select
   proxies:
-    - 所有-自动
+    - 所有-智选
     - 所有-手动
     - 香港-故转
     - 日本-故转
@@ -29,7 +29,7 @@ Direct_first: &Direct_first
   type: select
   proxies:
     - 直连
-    - 所有-自动
+    - 所有-智选
     - 所有-手动
     - 香港-故转
     - 日本-故转
