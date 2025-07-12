@@ -243,42 +243,8 @@ profile:
 # ========================
 # 策略组定义
 # ========================
-default: &default
-  type: select
-  proxies:
-    - 所有-自动
-    - 所有-手动
-    - 香港-故转
-    - 日本-故转
-    - 美国-故转
-    - 台湾-故转
-    - 新加坡-故转
-    - 其他地区-故转
-    - 直连
 
-# 策略组
 proxy-groups:
-  # 业务分流组
-  - {name: AI平台, <<: *default}
-  - {name: GitHub, <<: *default}
-  - {name: Amazon, <<: *default}
-  - {name: Telegram, <<: *default}
-  - {name: TikTok, <<: *default}
-  - {name: Netflix, <<: *default}
-  - {name: YouTube, <<: *default}
-  - {name: 流媒体, <<: *default} 
-  - {name: 国外应用, <<: *default}
-  - {name: 游戏平台, <<: *default}
-  - {name: 测试服务, <<: *default}
-  - {name: 加密货币, <<: *default}
-  - {name: Apple, <<: *default}
-  - {name: Google, <<: *default}
-  - {name: Microsoft, <<: *default}
-  - {name: 国内, <<: *default}
-  - {name: 国外, <<: *default}
-  - {name: 漏网之鱼, <<: *default}
-
-# over
   - {name: AI平台, <<: *Include_all, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/ai.png"}
   - {name: GitHub, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/github.png"}
   - {name: Amazon, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/shopping.png"}
