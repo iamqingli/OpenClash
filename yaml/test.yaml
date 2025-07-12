@@ -196,8 +196,6 @@ dns:
   nameserver:
     - https://dns.google/dns-query
     - https://dns.cloudflare.com/dns-query
-  nameserver-policy:
-    "rule-set:banAd_domain": rcode://success
   cache: true
   cache-size: 8000
   fallback-filter:
