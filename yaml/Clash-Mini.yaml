@@ -5,7 +5,6 @@
 # ========================
 # 锚点定义
 # ========================
-
 Proxy_first: &Proxy_first
   type: select
   proxies:
@@ -46,7 +45,7 @@ PProviders: &PProviders
 # ========================
 # 机场订阅，订阅地址1/2/3名称不能重复,但可自定义修改
 # 订阅链接1/2/3是用来写订阅链接的，填入即可
-# 机场名称1/2/3是用来给节点添加备注的，不用可以整行删除
+
 proxy-providers:
   订阅地址1:
     <<: *PProviders
@@ -82,7 +81,6 @@ global-ua: clash.meta
 # ========================
 # 端口与控制面板
 # ========================
-
 port: 7890
 socks-port: 7891
 redir-port: 7892
@@ -125,11 +123,11 @@ keep-alive-interval: 30
 profile:
   store-selected: true
   store-fake-ip: false
+  store-path: ./storage
 
 # ========================
 # 流量嗅探
 # ========================
-
 sniffer:
   enable: true
   sniff:
@@ -162,7 +160,6 @@ sniffer:
 # ========================
 # DNS 设置
 # ========================
-
 dns:
   enable: true
   listen: 0.0.0.0:7874
@@ -207,7 +204,6 @@ dns:
 # ========================
 # 代理模式
 # ========================
-
 tun:
   enable: true
   stack: gvisor
@@ -223,18 +219,8 @@ tun:
     - tcp://any:53
 
 # ========================
-# profile 存储设置
-# ========================
-profile:
-  store-selected: true
-  store-fake-ip: true
-  store-path: ./storage
-
-
-# ========================
 # 策略组定义
 # ========================
-
 proxy-groups:
   - {name: AI平台, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/ai.png"}
   - {name: GitHub, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/github.png"}
@@ -258,7 +244,6 @@ proxy-groups:
 # ========================
 # 节点选择组
 # ========================
-
   - name: 所有-手动
     type: select
     include-all: true
@@ -460,7 +445,6 @@ rules:
 # ========================
 # 规则集提供者
 # ========================
-# 优化规则集定义，使用锚点减少重复
 rule-anchor:
   ip: &ip {type: http, interval: 86400, behavior: ipcidr, format: mrs}
   domain: &domain {type: http, interval: 86400, behavior: domain, format: mrs}
