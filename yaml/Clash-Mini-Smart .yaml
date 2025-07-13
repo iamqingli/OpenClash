@@ -405,6 +405,7 @@ proxy-groups:
 # ========================
 rules:
   # 优先级高的规则
+  - RULE-SET,Test / Domain,测试服务
   - RULE-SET,wechat_domain,国内
   - RULE-SET,wechat_asn,国内
   - RULE-SET,bank_cn_domain,国内
@@ -418,7 +419,6 @@ rules:
   - RULE-SET,media_cn_domain,国内
   - RULE-SET,ifast_domain,国内
   - RULE-SET,game_cn_domain,国内
-  - RULE-SET,Test / Domain,测试服务
   
   # 应用和服务规则
   - RULE-SET,AI / Domain,AI平台
