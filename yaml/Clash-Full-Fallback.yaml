@@ -239,7 +239,7 @@ proxy-groups:
   - {name: Spotify, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/spotify.png"} 
   - {name: Amazon, type: select, <<: *Direct_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/shopping.png"}
   - {name: Crypto, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2017/10/27/19/17/bitcoin-2895295_1280.png"}
-  - {name: Amazon, type: select, <<: *Direct_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/shopping.png"}
+  - {name: Amazon, type: select, <<: *Direct_first, icon: "https://cdn.pixabay.com/photo/2013/07/12/15/51/shopping-150458_1280.png"}
   - {name: Apple, type: select, <<: *Direct_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/apple.png"}
   - {name: Microsoft, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/microsoft.png"}
   - {name: Google, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Google_A.png"}  
