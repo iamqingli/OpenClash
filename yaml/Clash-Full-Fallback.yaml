@@ -246,7 +246,7 @@ proxy-groups:
   - {name: Test, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Speedtest_A.png"}
   - {name: 国外, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2020/10/02/17/50/rocket-5621760_1280.png"}
   - {name: 国内, type: select, <<: *Direct_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/private_node.png"}  
-  - {name: 漏网之鱼, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/onedrive.png"}
+  - {name: 漏网之鱼, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2014/04/02/10/53/whale-304823_1280.png"}
 
   # 节点选择组 - 性能优化
   
