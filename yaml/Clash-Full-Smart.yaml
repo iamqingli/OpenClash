@@ -184,7 +184,7 @@ dns:
   # 黑名单模式表示如果匹配成功则不返回 Fake-IP, 白名单模式时只有匹配成功才返回 Fake-IP
   fake-ip-filter-mode: blacklist
   fake-ip-filter:
-    - "rule-set:fakeip_filter_domain,game_cn_domain,media_cn_domain,steam_cn_domain,pt_cn_domain,public-tracker_domain,iptv_domain,ifast_domain,Apple / Domain,Apple-CN / Domain,Direct / Domain,China / Domain,Private / Domain"
+    - "rule-set:fakeip_filter_domain,game_cn_domain,media_cn_domain,steam_cn_domain,pt_cn_domain,public-tracker_domain,iptv_domain,ifast_domain,Apple / Domain,Apple-CN / Domain,Direct / Domain,China / Domain,Private / Domain,wechat_domain"
   default-nameserver:    
     - 114.114.114.114
     - 119.29.29.29
@@ -495,6 +495,8 @@ proxy-groups:
 # ========================
 rules:
   # 优先级高的规则
+  - RULE-SET,wechat_domain,国内
+  - RULE-SET,wechat_asn,国内
   - RULE-SET,bank_cn_domain,国内
   - RULE-SET,onedrive_domain,国内
   - RULE-SET,iptv_domain,国内
@@ -510,6 +512,7 @@ rules:
   
   # 应用和服务规则
   - RULE-SET,AI / Domain,AI平台
+  - RULE-SET,OpenAI / Domain,AI平台
   - RULE-SET,Github / Domain,GitHub
   - RULE-SET,Telegram / Domain,Telegram
   - RULE-SET,Telegram / IP,Telegram,no-resolve
@@ -539,7 +542,7 @@ rules:
   - RULE-SET,Amazon / Domain,Amazon
   - RULE-SET,Apple / Domain,Apple
   - RULE-SET,Apple-CN / Domain,Apple  
-  - RULE-SET,Microsoft / Domain,Microsoft
+  - RULE-SET,MicrosoftApple / Domain, / Domain,Microsoft
   - RULE-SET,Google / Domain,Google
   - RULE-SET,Google / IP,Google,no-resolve
   
@@ -550,12 +553,13 @@ rules:
   - RULE-SET,Other / Domain,加密货币
   
   # 国内外分流规则
-  - RULE-SET,Proxy / Domain,国外
-  - RULE-SET,Abroad / Domain,国外  
   - RULE-SET,Direct / Domain,国内
   - RULE-SET,China / Domain,国内
   - RULE-SET,China / IP,国内,no-resolve
   - RULE-SET,Private / Domain,国内
+  - RULE-SET,Proxy / Domain,国外
+  - RULE-SET,Abroad / Domain,国外
+  - RULE-SET,Globe / Domain,国外
   
   # 兜底规则
   - MATCH,漏网之鱼
@@ -583,9 +587,12 @@ rule-providers:
   ifast_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/ifast.mrs" }
   game_cn_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-games%40cn.mrs" }  
   fakeip_filter_domain: { <<: *domain, url: "https://raw.githubusercontent.com/Lanlan13-14/Rules/refs/heads/main/rules/Domain/fakeip-filter.mrs" }
- 
+  wechat_domain: { <<: *domain, url: "https://raw.githubusercontent.com/Lanlan13-14/Rules/refs/heads/main/rules/Domain/WeChat.mrs" }
+  wechat_asn: { <<: *ip, url: "https://raw.githubusercontent.com/Lanlan13-14/Rules/refs/heads/main/rules/IP/AS132203.mrs" }
+
   # 应用和服务规则
-  AI / Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/AI.list"}
+  AI / Domain: {<<: *class, url: "https://raw.githubusercontent.com/Lanlan13-14/Rules/refs/heads/main/rules/Domain/ai.mrs"}
+  OpenAI: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/openai.mrs" }
   Github / Domain: {<<: *domain, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs"}
   Telegram / Domain: {<<: *domain, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs"}
   Telegram / IP: {<<: *ip, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs"}
@@ -630,5 +637,6 @@ rule-providers:
   China / Domain: {<<: *domain, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs"}
   China / IP: {<<: *ip, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs"}
   Private / Domain: {<<: *domain, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
-  Proxy / Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/Proxy.list"}
-  Abroad / Domain: {<<: *class, url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/ProxyGFWlist.list"} 
+  Proxy / Domain: {<<: *class, url: "https://raw.githubusercontent.com/Lanlan13-14/Rules/refs/heads/main/rules/Domain/proxy.mrs"}
+  Abroad / Domain: {<<: *class, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/gfw.mrs"} 
+  Globe / Domain: {<<: *class, url: "https://gh-proxy.com/raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Global/Global.list"} 
