@@ -346,12 +346,12 @@ proxy-groups:
     proxies:
       - 韩国-手动
       - 韩国-自动
-    icon: "https://cdn.pixabay.com/photo/2016/01/06/02/51/julia-roberts-1123541_1280.jpg"
+    icon: "https://cdn.pixabay.com/photo/2016/05/30/15/33/julia-roberts-1424985_1280.png"
   - name: 韩国-手动
     type: select
     include-all: true
     filter: "(?=.*(广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$"
-    icon: "https://cdn.pixabay.com/photo/2016/01/06/02/51/julia-roberts-1123541_1280.jpg"
+    icon: "https://cdn.pixabay.com/photo/2016/05/30/15/33/julia-roberts-1424985_1280.png"
   - name: 韩国-自动
     type: url-test
     include-all: true
@@ -359,7 +359,7 @@ proxy-groups:
     interval: 600   # 增加测试间隔
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$"
-    icon: "https://cdn.pixabay.com/photo/2016/01/06/02/51/julia-roberts-1123541_1280.jpg"
+    icon: "https://cdn.pixabay.com/photo/2016/05/30/15/33/julia-roberts-1424985_1280.png"
 
   # 美国组 - 性能优化
   - name: 美国-故转
