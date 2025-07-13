@@ -231,7 +231,7 @@ proxy-groups:
   - {name: Facebook, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/talkatone.png"}
   - {name: Steam,type: select, <<: *Include_all, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/steam.png"}
   - {name: Game, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/game.png"} 
-  - {name: YouTube, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/7bd9125e2e7bd4667f5dfe1ea4a2e3b3c88e747f/border-radius/Youtube_A.png"}
+  - {name: YouTube, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2021/05/22/11/38/yt-6273367_1280.png"}
   - {name: TikTok, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Tiktok_A.png"}
   - {name: Disney, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Disney%2B_A.png"}
   - {name: Netflix, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Netflix_A.png"}
