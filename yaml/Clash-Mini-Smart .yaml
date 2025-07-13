@@ -217,23 +217,23 @@ tun:
 # 策略组定义
 # ========================
 proxy-groups:
-  - {name: AI平台, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/ai.png"}
-  - {name: GitHub, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/github.png"}
+  - {name: AI平台, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Chatgpt_A.png"}
+  - {name: GitHub, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Github_A.png"}
   - {name: Amazon, type: select, <<: *Direct_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/shopping.png"}
-  - {name: Telegram, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/telegram.png"}
-  - {name: TikTok, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/tiktok.png"}
-  - {name: Netflix, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/netflix.png"}
-  - {name: YouTube, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/youtube.png"}
-  - {name: 流媒体, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/disney.png"}
+  - {name: Telegram, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Telegram_A.png"}
+  - {name: TikTok, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Tiktok_A.png"}
+  - {name: Netflix, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Netflix_A.png"}
+  - {name: YouTube, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/7bd9125e2e7bd4667f5dfe1ea4a2e3b3c88e747f/border-radius/Youtube_A.png"}
+  - {name: 流媒体, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Disney%2B_A.png"}
   - {name: 国外应用, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/discord.png"}
-  - {name: 游戏平台, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/game.png"}
-  - {name: 测试服务, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/speedtest.png"}
+  - {name: 游戏平台, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Steam_A.png"}
+  - {name: 测试服务, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Speedtest_A.png"}
   - {name: 加密货币, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/paypal.png"}
   - {name: Apple, type: select, <<: *Direct_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/apple.png"}
-  - {name: Google, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/google.png"}
+  - {name: Google, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Google_A.png"}
   - {name: Microsoft, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/microsoft.png"}
   - {name: 国内, type: select, <<: *Direct_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/Chinese_media.png"}
-  - {name: 国外, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/global_media.png"}
+  - {name: 国外, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/a552abeb9236f0f4333c666123b8fc45113faa4e/border-radius/Padavan_A.png"}
   - {name: 漏网之鱼, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/onedrive.png"}
   
 # ========================
@@ -244,6 +244,7 @@ proxy-groups:
     type: select
     include-all: true
     filter: "^((?!(直连)).)*$"
+    icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/direct.png"
 
   - name: 所有-智选
     type: smart
@@ -253,6 +254,7 @@ proxy-groups:
     collectdata: true
     interval: 300
     filter: "^((?!(直连)).)*$"
+    icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/final.png"
 
   # 香港组
   - name: 香港-故转
@@ -262,10 +264,12 @@ proxy-groups:
     proxies:
       - 香港-手动
       - 香港-智选
+    icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/Hongkong.png"
   - name: 香港-手动
     type: select
     include-all: true
     filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$"  
+    icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/Hongkong.png"
   - name: 香港-智选
     type: smart
     include-all: true
@@ -274,7 +278,8 @@ proxy-groups:
     collectdata: true
     interval: 300
     filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$"
- 
+    icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/Hongkong.png"
+    
   # 日本组
   - name: 日本-故转
     type: fallback
@@ -283,10 +288,12 @@ proxy-groups:
     proxies:
       - 日本-手动
       - 日本-智选
+    icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/Japan.png"
   - name: 日本-手动
     type: select
     include-all: true
     filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$"
+    icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/Japan.png"
   - name: 日本-智选
     type: smart
     include-all: true
@@ -295,6 +302,7 @@ proxy-groups:
     collectdata: true
     interval: 300
     filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$"
+    icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/Japan.png"
 
   # 台湾组
   - name: 台湾-故转
@@ -304,10 +312,12 @@ proxy-groups:
     proxies:
       - 台湾-手动
       - 台湾-智选
+    icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/Taiwan_China.png"
   - name: 台湾-手动
     type: select
     include-all: true
     filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan)).*$"
+    icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/Taiwan_China.png"
   - name: 台湾-智选
     type: smart
     include-all: true
@@ -316,6 +326,7 @@ proxy-groups:
     collectdata: true
     interval: 300
     filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan)).*$"
+    icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/Taiwan_China.png"
 
   # 美国组
   - name: 美国-故转
@@ -325,10 +336,12 @@ proxy-groups:
     proxies:
       - 美国-手动
       - 美国-智选
+    icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/America.png"
   - name: 美国-手动
     type: select
     include-all: true
     filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"
+    icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/America.png"
   - name: 美国-智选
     type: smart
     include-all: true
@@ -337,6 +350,7 @@ proxy-groups:
     collectdata: true
     interval: 300
     filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"
+    icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/America.png"
 
   # 新加坡组
   - name: 新加坡-故转
@@ -346,10 +360,12 @@ proxy-groups:
     proxies:
       - 新加坡-手动
       - 新加坡-智选
+    icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/automation2.png"
   - name: 新加坡-手动
     type: select
     include-all: true
     filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$"
+    icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/automation2.png"
   - name: 新加坡-智选
     type: smart
     include-all: true
@@ -358,6 +374,7 @@ proxy-groups:
     collectdata: true
     interval: 300
     filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$"
+    icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/automation2.png"
 
   # 其他组
   - name: 其他-故转
@@ -367,10 +384,12 @@ proxy-groups:
     proxies:
       - 其他-手动
       - 其他-智选
+    icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/all.png"
   - name: 其他-手动
     type: select
     include-all: true
     filter: "^((?!(直连|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸)).)*$"
+    icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/all.png"
   - name: 其他-智选
     type: smart
     include-all: true
@@ -379,6 +398,7 @@ proxy-groups:
     collectdata: true
     interval: 300
     filter: "^((?!(直连|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸)).)*$"
+    icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/all.png"
 
 # ========================
 # 规则引擎（rules）
