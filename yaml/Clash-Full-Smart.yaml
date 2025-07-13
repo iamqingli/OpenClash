@@ -228,18 +228,18 @@ tun:
 # 策略组定义
 # ========================
 proxy-groups:
-  - {name: AI平台, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/ai.png"}
-  - {name: GitHub, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/github.png"}
-  - {name: Telegram, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/telegram.png"}
+  - {name: AI平台, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Chatgpt_A.png"}
+  - {name: GitHub, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Github_A.png"}
+  - {name: Telegram, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Telegram_A.png"}
   - {name: Twitter(X), <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/discord.png"}
   - {name: WhatsApp, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/line.png"}
   - {name: Facebook, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/talkatone.png"}
   - {name: Steam,type: select, <<: *Include_all, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/steam.png"}
   - {name: Game, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/game.png"} 
-  - {name: YouTube, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/youtube.png"}
-  - {name: TikTok, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/tiktok.png"}
-  - {name: Disney, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/disney.png"}
-  - {name: Netflix, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/netflix.png"}
+  - {name: YouTube, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/7bd9125e2e7bd4667f5dfe1ea4a2e3b3c88e747f/border-radius/Youtube_A.png"}
+  - {name: TikTok, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Tiktok_A.png"}
+  - {name: Disney, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Disney%2B_A.png"}
+  - {name: Netflix, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Netflix_A.png"}
   - {name: HBO, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/hbo.png"}
   - {name: Spotify, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/spotify.png"} 
   - {name: Amazon, type: select, <<: *Direct_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/shopping.png"}
@@ -247,11 +247,12 @@ proxy-groups:
   - {name: Amazon, type: select, <<: *Direct_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/shopping.png"}
   - {name: Apple, type: select, <<: *Direct_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/apple.png"}
   - {name: Microsoft, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/microsoft.png"}
-  - {name: Google, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/google.png"}  
-  - {name: Test, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/speedtest.png"}
-  - {name: 国外, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/global_media.png"}
+  - {name: Google, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Google_A.png"}  
+  - {name: Test, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Speedtest_A.png"}
+  - {name: 国外, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/a552abeb9236f0f4333c666123b8fc45113faa4e/border-radius/Padavan_A.png"}
   - {name: 国内, type: select, <<: *Direct_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/Chinese_media.png"}  
   - {name: 漏网之鱼, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/onedrive.png"}
+
 
   # ========================
   # 节点选择组
