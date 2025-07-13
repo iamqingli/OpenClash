@@ -503,7 +503,7 @@ rules:
   
   # 应用和服务规则
   - RULE-SET,AI / Domain,AI平台
-  - RULE-SET,OpenAI / Domain,AI平台
+  - RULE-SET,OpenAI,AI平台
   - RULE-SET,Github / Domain,GitHub
   - RULE-SET,Telegram / Domain,Telegram
   - RULE-SET,Telegram / IP,Telegram,no-resolve
