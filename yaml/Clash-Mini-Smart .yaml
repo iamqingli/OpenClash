@@ -16,12 +16,12 @@ Proxy_first: &Proxy_first
     - 台湾-故转
     - 新加坡-故转
     - 其他-故转
-    - 直连
+    - 🟢 直连
 
 Direct_first: &Direct_first
   type: select
   proxies:
-    - 直连
+    - 🟢 直连
     - 所有-智选
     - 所有-手动
     - 香港-故转
@@ -38,7 +38,7 @@ PProviders: &PProviders
     enable: true
     url: https://cp.cloudflare.com/generate_204
     interval: 1800
-  proxy: 直连
+  proxy: 🟢 直连
   
 # ========================
 # 节点订阅链接
@@ -49,7 +49,7 @@ PProviders: &PProviders
 proxy-providers:
   订阅地址1:
     <<: *PProviders
-    proxy: "直连"
+    proxy: "🟢 直连"
     url: "订阅链接1"
     override:
       skip-cert-verify: true
@@ -57,7 +57,7 @@ proxy-providers:
   
   订阅地址2:
     <<: *PProviders
-    proxy: "直连"
+    proxy: "🟢 直连"
     url: "订阅链接2"
     override:
       skip-cert-verify: true
@@ -65,7 +65,7 @@ proxy-providers:
   
   订阅地址3:
     <<: *PProviders
-    proxy: "直连"
+    proxy: "🟢 直连"
     url: "订阅链接3"
     override:
       skip-cert-verify: true
@@ -73,7 +73,7 @@ proxy-providers:
 
 # 基础代理
 proxies:
-  - {name: 直连, type: direct,udp: true}
+  - {name: 🟢 直连, type: direct,udp: true}
 
 # 用于下载订阅时指定UA
 global-ua: clash.meta
@@ -243,7 +243,7 @@ proxy-groups:
   - name: 所有-手动
     type: select
     include-all: true
-    filter: "^((?!(直连)).)*$"
+    filter: "^((?!(🟢 直连)).)*$"
     icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/direct.png"
 
   - name: 所有-智选
@@ -253,7 +253,7 @@ proxy-groups:
     uselightgbm: true
     collectdata: true
     interval: 300
-    filter: "^((?!(直连)).)*$"
+    filter: "^((?!(🟢 直连)).)*$"
     icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/final.png"
 
   # 香港组
@@ -388,7 +388,7 @@ proxy-groups:
   - name: 其他-手动
     type: select
     include-all: true
-    filter: "^((?!(直连|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸)).)*$"
+    filter: "^((?!(🟢 直连|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸)).)*$"
     icon: "https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_1280.png"
   - name: 其他-智选
     type: smart
@@ -397,7 +397,7 @@ proxy-groups:
     uselightgbm: true
     collectdata: true
     interval: 300
-    filter: "^((?!(直连|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸)).)*$"
+    filter: "^((?!(🟢 直连|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸)).)*$"
     icon: "https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_1280.png"
 
 # ========================
