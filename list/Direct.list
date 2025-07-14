@@ -2,7 +2,6 @@
 
 # MyList
 DOMAIN-SUFFIX,aial.cc
-DOMAIN-SUFFIX,aial.pw
 DOMAIN-KEYWORD,tcc-adn
 DOMAIN-SUFFIX,tcc-adn.com
 IP-CIDR,172.19.0.1/32,no-resolve
