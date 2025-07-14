@@ -223,7 +223,7 @@ proxy-groups:
   - {name: Telegram, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Telegram_A.png"}
   - {name: TikTok, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Tiktok_A.png"}
   - {name: Netflix, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Netflix_A.png"}
-  - {name: YouTube, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2017/02/01/08/56/social-2029117_960_720.png"}
+  - {name: YouTube, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2018/05/27/22/48/social-3434840_1280.png"}
   - {name: 流媒体, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Disney%2B_A.png"}
   - {name: 国外应用, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/discord.png"}
   - {name: 游戏平台, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Steam_A.png"}
