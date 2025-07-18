@@ -74,6 +74,9 @@ DOMAIN-SUFFIX,tegrazone.com
 DOMAIN-SUFFIX,tegrazone.jp
 DOMAIN-SUFFIX,tegrazone.kr
 
+# 直连补充列表(国内域名不解析时，防止走代理使用)
+
+# MyList
 # 域名后缀匹配
 DOMAIN-SUFFIX,time.windows.com
 DOMAIN-SUFFIX,lanzov.com
@@ -98,13 +101,16 @@ DOMAIN-SUFFIX,2akribis.com
 DOMAIN-SUFFIX,gptacg.top
 
 DOMAIN-SUFFIX,gying.net
+DOMAIN-SUFFIX,51zmt.top
 
 DOMAIN-SUFFIX,idsduf.com
 DOMAIN-SUFFIX,bncrcloud.com
-DOMAIN-SUFFIX,apple-bing.sbs
+# DOMAIN-SUFFIX,apple-bing.sbs
 DOMAIN-SUFFIX,xiaoniuyun.cc
 DOMAIN-SUFFIX,vp2.us
 DOMAIN-SUFFIX,km688.ink
+
+DOMAIN-SUFFIX,futo-on.com
 
 # 快猫    
 DOMAIN-SUFFIX,quickcht3.club
