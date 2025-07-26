@@ -363,12 +363,12 @@ proxy-groups:
     proxies:
       - 新加坡-手动
       - 新加坡-智选
-    icon: "https://cdn.pixabay.com/photo/2013/07/13/14/17/singapore-162418_1280.png"
+    icon: "https://cdn.pixabay.com/photo/2013/07/13/09/57/singapore-156357_1280.png"
   - name: 新加坡-手动
     type: select
     include-all: true
     filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$"
-    icon: "https://cdn.pixabay.com/photo/2013/07/13/14/17/singapore-162418_1280.png"
+    icon: "https://cdn.pixabay.com/photo/2013/07/13/09/57/singapore-156357_1280.png"
   - name: 新加坡-智选
     type: smart
     include-all: true
@@ -377,7 +377,7 @@ proxy-groups:
     collectdata: true
     interval: 300
     filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$"
-    icon: "https://cdn.pixabay.com/photo/2013/07/13/14/17/singapore-162418_1280.png"
+    icon: "https://cdn.pixabay.com/photo/2013/07/13/09/57/singapore-156357_1280.png"
 
   # 其他组
   - name: 其他-故转
