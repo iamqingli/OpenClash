@@ -33,11 +33,11 @@ Direct_first: &Direct_first
 
 PProviders: &PProviders
   type: http
-  interval: 21600
+  interval: 86400
   health-check:
     enable: true
-    url: https://cp.cloudflare.com/generate_204
-    interval: 1800
+    url: https://www.gstatic.com/generate_204
+    interval: 180
   proxy: 🟢 直连
   
 # ========================
