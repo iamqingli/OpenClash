@@ -1,7 +1,7 @@
 # 直连补充列表(国内域名不解析时，防止走代理使用)
 
 # MyList
-DOMAIN-SUFFIX,aial.cc
+DOMAIN-SUFFIX,cntcc.cn
 DOMAIN-KEYWORD,tcc-adn
 DOMAIN-SUFFIX,tcc-adn.com
 IP-CIDR,172.19.0.1/32,no-resolve
