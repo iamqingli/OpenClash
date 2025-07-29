@@ -5,6 +5,8 @@ DOMAIN-KEYWORD,tcc-adn
 DOMAIN-SUFFIX,tcc-adn.com
 DOMAIN-KEYWORD,cntcc.cn
 DOMAIN-SUFFIX,qtcc.cntcc.cn
+DOMAIN-KEYWORD,china-tcc.com
+DOMAIN-SUFFIX,cas.china-tcc.com
 DOMAIN-SUFFIX,guigusub2.acwct.cn
 IP-CIDR,172.19.0.1/32,no-resolve
 IP-CIDR,172.17.1.36/32,no-resolve
