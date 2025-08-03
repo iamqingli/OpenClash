@@ -1,6 +1,7 @@
 # 直连补充列表(国内域名不解析时，防止走代理使用)
 
 # MyList
+DOMAIN-SUFFIX,aial.cc
 DOMAIN-KEYWORD,tcc-adn
 DOMAIN-SUFFIX,tcc-adn.com
 DOMAIN-KEYWORD,cntcc.cn
