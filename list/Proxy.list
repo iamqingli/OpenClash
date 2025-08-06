@@ -1,7 +1,3 @@
-# My List
-DOMAIN-SUFFIX,hhanclub.top
-DOMAIN-KEYWORD,hhanclub.top
-
 # IP段匹配
 IP-CIDR,142.171.133.0/24,no-resolve
 IP-CIDR,103.115.43.0/24,no-resolve
