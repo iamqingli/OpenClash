@@ -251,7 +251,7 @@ proxy-groups:
   - {name: Test, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Speedtest_A.png"}
   - {name: 国外, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2020/10/02/17/50/rocket-5621760_1280.png"}
   - {name: 国内, type: select, <<: *Direct_first, icon: "https://cdn.pixabay.com/photo/2015/04/22/23/18/pagoda-735491_960_720.png"}  
-  - {name: 漏网之鱼, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2017/02/16/10/20/target-2070972_1280.png"}
+  - {name: 漏网之鱼, type: select, <<: *Direct_first, icon: "https://cdn.pixabay.com/photo/2017/02/16/10/20/target-2070972_1280.png"}
 
 
   # ========================
