@@ -159,6 +159,7 @@ sniffer:
     - "*.qpic.cn"
     - "*.wechatapp.com"
     - "*.vivox.com"
+    - "*.hhanclub.top"
     # 向日葵服务
     - "*.oray.com"
     - "*.sunlogin.net"
@@ -207,7 +208,7 @@ dns:
 # ========================
 tun:
   enable: true
-  stack: gvisor
+  stack: mixed
   device: utun
   mtu: 9000
   endpoint-independent-nat: true
