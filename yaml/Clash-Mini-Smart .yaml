@@ -226,14 +226,14 @@ proxy-groups:
   - {name: Netflix, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Netflix_A.png"}
   - {name: YouTube, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2018/05/27/22/48/social-3434840_1280.png"}
   - {name: 流媒体, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Disney%2B_A.png"}
-  - {name: 国外应用, <<: *Proxy_first, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/discord.png"}
+  - {name: 国外应用, <<: *Proxy_first, icon: "https://jiashu.jsdmirror.com/gh/Koolson/Qure%40master/IconSet/Color/Discord.png"}
   - {name: 游戏平台, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Steam_A.png"}
   - {name: 测试服务, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Speedtest_A.png"}
   - {name: 加密货币, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2017/03/12/02/57/bitcoin-2136339_1280.png"}
   - {name: Apple, type: select, <<: *Direct_first, icon: "https://cdn.pixabay.com/photo/2016/09/27/19/54/apple-1699197_1280.png"}
   - {name: Google, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2016/04/13/14/27/google-chrome-1326908_1280.png"}
   - {name: Microsoft, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2021/10/17/14/47/windows-7-logo-6718525_1280.png"}
-  - {name: 国外, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2020/10/02/17/50/rocket-5621760_1280.png"}
+  - {name: 国外, <<: *Proxy_first, icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Area.png"}
   - {name: 国内, type: select, <<: *Direct_first, icon: "https://cdn.pixabay.com/photo/2015/04/22/23/18/pagoda-735491_960_720.png"}
   - {name: 漏网之鱼, type: select, <<: *Direct_first, icon: "https://cdn.pixabay.com/photo/2017/02/16/10/20/target-2070972_1280.png"}
   
@@ -265,12 +265,12 @@ proxy-groups:
     proxies:
       - 香港-手动
       - 香港-智选
-    icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/Hongkong.png"
+    icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png"
   - name: 香港-手动
     type: select
     include-all: true
     filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$"  
-    icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/Hongkong.png"
+    icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png"
   - name: 香港-智选
     type: smart
     include-all: true
@@ -279,7 +279,7 @@ proxy-groups:
     collectdata: true
     interval: 300
     filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$"
-    icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/Hongkong.png"
+    icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png"
     
   # 日本组
   - name: 日本-故转
@@ -289,12 +289,12 @@ proxy-groups:
     proxies:
       - 日本-手动
       - 日本-智选
-    icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/Japan.png"
+    icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Japan.png"
   - name: 日本-手动
     type: select
     include-all: true
     filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$"
-    icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/Japan.png"
+    icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Japan.png"
   - name: 日本-智选
     type: smart
     include-all: true
@@ -303,7 +303,7 @@ proxy-groups:
     collectdata: true
     interval: 300
     filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$"
-    icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/Japan.png"
+    icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Japan.png"
 
   # 台湾组
   - name: 台湾-故转
@@ -313,12 +313,12 @@ proxy-groups:
     proxies:
       - 台湾-手动
       - 台湾-智选
-    icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/Taiwan_China.png"
+    icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png"
   - name: 台湾-手动
     type: select
     include-all: true
     filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan)).*$"
-    icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/Taiwan_China.png"
+    icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png"
   - name: 台湾-智选
     type: smart
     include-all: true
@@ -327,7 +327,7 @@ proxy-groups:
     collectdata: true
     interval: 300
     filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan)).*$"
-    icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/Taiwan_China.png"
+    icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png"
 
   # 美国组
   - name: 美国-故转
@@ -337,12 +337,12 @@ proxy-groups:
     proxies:
       - 美国-手动
       - 美国-智选
-    icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/America.png"
+    icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/United_States.png"
   - name: 美国-手动
     type: select
     include-all: true
     filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"
-    icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/America.png"
+    icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/United_States.png"
   - name: 美国-智选
     type: smart
     include-all: true
@@ -351,7 +351,7 @@ proxy-groups:
     collectdata: true
     interval: 300
     filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"
-    icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/America.png"
+    icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/United_States.png"
 
   # 新加坡组
   - name: 新加坡-故转
@@ -361,12 +361,12 @@ proxy-groups:
     proxies:
       - 新加坡-手动
       - 新加坡-智选
-    icon: "https://cdn.pixabay.com/photo/2013/07/13/09/57/singapore-156357_1280.png"
+    icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Singapore.png"
   - name: 新加坡-手动
     type: select
     include-all: true
     filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$"
-    icon: "https://cdn.pixabay.com/photo/2013/07/13/09/57/singapore-156357_1280.png"
+    icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Singapore.png"
   - name: 新加坡-智选
     type: smart
     include-all: true
@@ -375,7 +375,7 @@ proxy-groups:
     collectdata: true
     interval: 300
     filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$"
-    icon: "https://cdn.pixabay.com/photo/2013/07/13/09/57/singapore-156357_1280.png"
+    icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Singapore.png"
 
   # 其他组
   - name: 其他-故转
