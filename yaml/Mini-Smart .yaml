@@ -50,7 +50,7 @@ proxy-providers:
   订阅地址1:
     <<: *PProviders
     proxy: "🟢 直连"
-    url: "https://sub.aial.pw/CKg2abstVnOeRpm1aB4G/download/collection/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91"
+    url: "订阅链接1"
     override:
       skip-cert-verify: true
       udp: true
