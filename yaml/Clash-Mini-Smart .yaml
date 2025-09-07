@@ -74,6 +74,14 @@ proxy-providers:
     override:
       skip-cert-verify: true
       udp: true
+  
+  订阅地址4:
+    <<: *PProviders
+    proxy: "🟢 直连"
+    url: "订阅链接4"
+    override:
+      skip-cert-verify: true
+      udp: true
 
 # 基础代理
 proxies:
