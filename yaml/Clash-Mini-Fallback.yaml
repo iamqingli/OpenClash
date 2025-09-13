@@ -430,9 +430,9 @@ rules:
   - RULE-SET,bank_cn_domain,国内
   - RULE-SET,onedrive_domain,国内
   - RULE-SET,iptv_domain,国内
-  - RULE-SET,steam_cn_domain,国内
-  - RULE-SET,steamcdn_domain,国内
-  - RULE-SET,steamcdn_ip,国内,no-resolve
+  - RULE-SET,steam_cn_domain,游戏平台
+  - RULE-SET,steamcdn_domain,游戏平台
+  - RULE-SET,steamcdn_ip,游戏平台,no-resolve
   - RULE-SET,pt_cn_domain,国内
   - RULE-SET,public-tracker_domain,国内
   - RULE-SET,media_cn_domain,国内
