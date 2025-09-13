@@ -425,6 +425,7 @@ proxy-groups:
 # ========================
 rules:
   # 优先级高的规则
+  # 优先级高的规则
   - RULE-SET,Test / Domain,测试服务
   - RULE-SET,wechat_domain,国内
   - RULE-SET,wechat_asn,国内
@@ -435,7 +436,6 @@ rules:
   - RULE-SET,public-tracker_domain,国内
   - RULE-SET,media_cn_domain,国内
   - RULE-SET,ifast_domain,国内
-  - RULE-SET,game_cn_domain,国内
   
   # 应用和服务规则
   - RULE-SET,AI / Domain,AI平台
@@ -461,6 +461,7 @@ rules:
   - RULE-SET,steam_cn_domain,Steam
   - RULE-SET,steamcdn_domain,Steam
   - RULE-SET,steamcdn_ip,Steam,no-resolve
+  - RULE-SET,game_cn_domain,游戏平台
   - RULE-SET,Epic / Domain,游戏平台
   - RULE-SET,EA / Domain,游戏平台
   - RULE-SET,Blizzard / Domain,游戏平台
