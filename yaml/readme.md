@@ -1,4 +1,5 @@
 简要说明：
+
 所有yaml文件默认配置icon图标，可下载后自行更改图标链接
 
 1，clash-mini-smart.yaml： 带故障转移的Smart智能策略组。
