@@ -425,7 +425,6 @@ proxy-groups:
 # ========================
 rules:
   # 优先级高的规则
-  # 优先级高的规则
   - RULE-SET,Test / Domain,测试服务
   - RULE-SET,wechat_domain,国内
   - RULE-SET,wechat_asn,国内
