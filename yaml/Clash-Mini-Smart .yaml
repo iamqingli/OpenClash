@@ -85,7 +85,7 @@ proxy-providers:
 
 # 基础代理
 proxies:
-  - {name: 🟢 直连, type: direct,udp: true}
+  - {name: 🟢 直连, type: direct}
 
 # 用于下载订阅时指定UA
 global-ua: clash.meta
