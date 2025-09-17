@@ -33,6 +33,20 @@ Direct_first: &Direct_first
     - 其他-故转
     - ⛔️ 拒绝
 
+Reject_first: &Reject_first
+  type: select
+  proxies:
+    - ⛔️ 拒绝
+    - 所有-自动
+    - 所有-手动
+    - 香港-故转
+    - 日本-故转
+    - 美国-故转
+    - 台湾-故转
+    - 新加坡-故转
+    - 其他-故转
+    - 🟢 直连
+    
 PProviders: &PProviders
   type: http
   interval: 86400
@@ -259,7 +273,7 @@ proxy-groups:
   - {name: 加密货币, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2017/03/12/02/57/bitcoin-2136339_1280.png"}
   - {name: 国内, type: select, <<: *Direct_first, icon: "https://cdn.pixabay.com/photo/2015/04/22/23/18/pagoda-735491_960_720.png"}
   - {name: 国外, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Shadowrocket_A.png"}
-  - {name: 拒绝, type: select, <<: *Reject_first, icon: "https://raw.githubusercontent.com/Vbaethon/HOMOMIX/refs/heads/main/Icon/Color/AdblockPlus_2.png"}
+  - {name: 拒绝, type: select, <<: *Reject_first, icon: "https://cdn.pixabay.com/photo/2012/05/07/02/13/cancel-47588_1280.png"}
   - {name: 漏网之鱼, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2017/02/16/10/20/target-2070972_1280.png"}
   
 # ========================
