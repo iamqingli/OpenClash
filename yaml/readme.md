@@ -6,7 +6,7 @@
 # 该策略组请使用Smart内核,否则无法运行
 
 2，clash-mini-block.yaml： 带故障转移的拒绝策略组。
-# 该策略组无法在IOS系统Stash应用，因reject不被支持，无法运行
+# 该策略组无法在IOS系统Stash应用使用，因reject不被支持，无法运行
 # Block分组为拒绝分组，目前只维护了Adobe相关域名
 
 3，clash-mini-fallback.yaml： 带故障转移的Url-test策略组。
