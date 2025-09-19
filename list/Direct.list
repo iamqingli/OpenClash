@@ -4,15 +4,10 @@
 DOMAIN-SUFFIX,aial.cc
 DOMAIN-SUFFIX,aial.pw
 DOMAIN-SUFFIX,52pojie.cn
-DOMAIN-KEYWORD,tcc-adn.com
 DOMAIN-SUFFIX,tcc-adn.com
-DOMAIN-KEYWORD,smart.tcc-adn.com
 DOMAIN-SUFFIX,smart.tcc-adn.com
-DOMAIN-KEYWORD,qtcc.cntcc.cn
 DOMAIN-SUFFIX,qtcc.cntcc.cn
-DOMAIN-KEYWORD,china-tcc.com
 DOMAIN-SUFFIX,china-tcc.com
-DOMAIN-KEYWORD,cas.china-tcc.com
 DOMAIN-SUFFIX,cas.china-tcc.com
 IP-CIDR,172.19.0.1/32,no-resolve
 IP-CIDR,172.17.1.36/32,no-resolve
