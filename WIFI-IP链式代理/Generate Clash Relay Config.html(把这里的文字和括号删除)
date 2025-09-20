@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)https://iptv1.justloli.cn:666/socks5.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            width: 90%;
+            margin-left: 3.5%;
+        }
+        label {
+            padding: 0px 5px;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            margin-left: 2%;
+            margin-right: 5%;
+            resize: none; /* 禁止用户调整文本框大小 */
+        }
+        /* 基本按钮样式 */
+        .button {
+            display: inline-block;
+            padding: 8px 8px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            background-color: #000000;
+            transition: background-color 0.3s ease;
+        }
+
+        /* 悬停时按钮背景颜色变化 */
+        .button:hover {
+            background-color: #A9A9A9;
+        }
+        .button-box {
+            padding: 20px 20px;
+        }
+        .title-h1 {
+            text-align: center;
+        }
+    </style>
+    <title>Generate Clash Relay Config</title>
+</head>
+<body>
+    <h1 class="title-h1">Generate Clash Relay Config</h1>
+
+    <div id="nodes">
+        <div class="node">
+            <h2>Node 1</h2>
+            <div>
+                <label for="name1">Name:</label>
+                <input type="text" class="name" id="name1" placeholder="Enter name">
+                <label for="server1">Server:</label>
+                <input type="text" class="server" id="server1" placeholder="Enter server address">
+                <label for="port1">Port:</label>
+                <input type="number" class="port" id="port1" placeholder="Enter port">
+                <label for="username1">Username:</label>
+                <input type="text" class="username" id="username1" placeholder="Enter username">
+                <label for="password1">Password:</label>
+                <input type="password" class="password" id="password1" placeholder="Enter password">
+                <label for="preproxy1">Pre-proxy:</label>
+                <input type="text" class="preproxy" id="preproxy1" placeholder="Enter pre-proxy">
+                <label for="udp1">UDP:</label>
+                <input type="checkbox" class="udp" id="udp1">
+            </div>
+        </div>
+    </div>
+    <div class="button-box">
+        <button class="button" onclick="addNode()">Add Node</button>
+        <button class="button" onclick="deleteNode()">Delete Node</button>
+        <button class="button" onclick="generateConfig()">Generate Config</button>
+    </div>
+    <h2>Node Information</h2>
+    <textarea id="nodeInfo" rows="20" cols="50" readonly=""></textarea>
+
+    <h2>Relay Configuration</h2>
+    <textarea id="relayConfig" rows="20" cols="50" readonly=""></textarea>
+    
+    <h2>Name for Copy</h2>
+    <textarea id="nameForCopy" rows="20" cols="50" readonly=""></textarea>
+
+    <script>
+        function addNode() {
+            const nodesContainer = document.getElementById('nodes');
+            const newNode = document.createElement('div');
+            newNode.classList.add('node');
+            newNode.innerHTML = `
+                <h2>Node ${nodesContainer.childElementCount + 1}</h2>
+                <div>
+                    <label for="name${nodesContainer.childElementCount + 1}">Name:</label>
+                    <input type="text" class="name" id="name${nodesContainer.childElementCount + 1}" placeholder="Enter name">
+                    <label for="server${nodesContainer.childElementCount + 1}">Server:</label>
+                    <input type="text" class="server" id="server${nodesContainer.childElementCount + 1}" placeholder="Enter server address">
+                    <label for="port${nodesContainer.childElementCount + 1}">Port:</label>
+                    <input type="number" class="port" id="port${nodesContainer.childElementCount + 1}" placeholder="Enter port">
+                    <label for="username${nodesContainer.childElementCount + 1}">Username:</label>
+                    <input type="text" class="username" id="username${nodesContainer.childElementCount + 1}" placeholder="Enter username">
+                    <label for="password${nodesContainer.childElementCount + 1}">Password:</label>
+                    <input type="password" class="password" id="password${nodesContainer.childElementCount + 1}" placeholder="Enter password">
+                    <label for="preproxy${nodesContainer.childElementCount + 1}">Pre-proxy:</label>
+                    <input type="text" class="preproxy" id="preproxy${nodesContainer.childElementCount + 1}" placeholder="Enter pre-proxy">
+                    <label for="udp${nodesContainer.childElementCount + 1}">UDP:</label>
+                    <input type="checkbox" class="udp" id="udp${nodesContainer.childElementCount + 1}">
+                </div>
+            `;
+            nodesContainer.appendChild(newNode);
+        }
+
+        function deleteNode() {
+            const nodesContainer = document.getElementById('nodes');
+            if (nodesContainer.childElementCount > 1) {
+                nodesContainer.removeChild(nodesContainer.lastElementChild);
+            }
+        }
+
+        function generateConfig() {
+            const nodes = document.querySelectorAll('.node');
+            let nodeInfo = '';
+            let relayConfig = '';
+            let nameForCopy = '';
+
+            nodes.forEach((node, index) => {
+                const name = node.querySelector('.name').value;
+                const server = node.querySelector('.server').value;
+                const port = node.querySelector('.port').value;
+                const username = node.querySelector('.username').value;
+                const password = node.querySelector('.password').value;
+                const udp = node.querySelector('.udp').checked;
+                const preproxy = node.querySelector('.preproxy').value
+
+                const nodeData = {
+                    name: name,
+                    server: server,
+                    port: port,
+                    type: 'socks5',
+                    username: username,
+                    password: password,
+                    udp: udp
+                };
+
+                const relayName = `${name}-relay-${index + 1}`;
+                const relayItem = `{name: ${relayName}, type: relay, proxies: [${preproxy}, ${name}]}`;
+
+                nodeInfo += `  - ${JSON.stringify(nodeData)}\n`;
+
+                relayConfig += `  - ${relayItem}\n`;
+
+                nameForCopy += `  - ${relayName}\n`;
+            });
+
+            document.getElementById('nodeInfo').value = nodeInfo;
+            document.getElementById('relayConfig').value = relayConfig;
+            document.getElementById('nameForCopy').value = nameForCopy;
+        }
+    </script>
+
+
+</body></html>
