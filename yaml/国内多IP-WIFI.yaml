@@ -72,12 +72,6 @@ proxy-providers:
       skip-cert-verify: true
       udp: true
 
-proxy-providers-config:
-  proxy-providers-use: &proxy-providers-use
-    - proxy-providers
-
-proxy-providers: *PProviders
-
 pr: &pr
   proxies:  #这里添加节点名称
 
