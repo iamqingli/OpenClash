@@ -51,11 +51,25 @@ PProviders: &PProviders
 proxy-providers:
   订阅地址1:
     <<: *PProviders
+    path: ./proxy-providers.yaml
     proxy: "🟢 直连"
     url: "订阅链接1"
     override:
       skip-cert-verify: true
       udp: true
+
+proxy-providers-config:
+  proxy-providers-use: &proxy-providers-use
+    - proxy-providers
+
+proxy-providers: *PProviders
+
+pr: &pr
+  proxies:  #这里添加节点名称
+
+proxies: #节点添加到这里
+  
+
 
 # 基础代理
 proxies:
@@ -177,7 +191,6 @@ sniffer:
     - "*.qpic.cn"
     - "*.wechatapp.com"
     - "*.vivox.com"
-    # 向日葵服务
     - "*.oray.com"
     - "*.sunlogin.net"
 
@@ -247,6 +260,11 @@ tun:
 # ========================
 # 策略组定义
 # ========================
+
+proxies: #节点添加到这里
+  
+
+
 proxy-groups:
   - {name: AI平台, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Chatgpt_A.png"}
   - {name: GitHub, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Github_A.png"}
@@ -272,6 +290,56 @@ proxy-groups:
 # ========================
 # 节点选择组
 # ========================
+  - name: 策略1
+    type: select
+    use: *proxy-providers-use
+    <<: *PProviders
+    
+  - name: 策略2
+    type: select
+    use: *proxy-providers-use
+    <<: *pr
+
+  - name: 策略3
+    type: select
+    use: *proxy-providers-use
+    <<: *pr
+
+  - name: 策略4
+    type: select
+    use: *proxy-providers-use
+    <<: *pr
+
+  - name: 策略5
+    type: select
+    use: *proxy-providers-use
+    <<: *pr
+
+  - name: 策略6
+    type: select
+    use: *proxy-providers-use
+    <<: *pr
+
+  - name: 策略7
+    type: select
+    use: *proxy-providers-use
+    <<: *pr
+
+  - name: 策略8
+    type: select
+    use: *proxy-providers-use
+    <<: *pr
+
+  - name: 策略9
+    type: select
+    use: *proxy-providers-use
+    <<: *pr
+
+  - name: 策略10
+    type: select
+    use: *proxy-providers-use
+    <<: *pr
+
   - name: 所有-手动
     type: select
     include-all: true
