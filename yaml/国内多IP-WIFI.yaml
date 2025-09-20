@@ -36,6 +36,7 @@ Reject_first: &Reject_first
 PProviders: &PProviders
   type: http
   interval: 86400
+  path: ./proxy-providers.yaml
   health-check:
     enable: true
     url: https://www.gstatic.com/generate_204
@@ -51,7 +52,6 @@ PProviders: &PProviders
 proxy-providers:
   订阅地址1:
     <<: *PProviders
-    path: ./proxy-providers.yaml
     proxy: "🟢 直连"
     url: "订阅链接1"
     override:
@@ -67,14 +67,16 @@ proxy-providers: *PProviders
 pr: &pr
   proxies:  #这里添加节点名称
 
-proxies: #节点添加到这里
   
 
 
 # 基础代理
-proxies:
+proxies: #节点添加到这里
   - {name: 🟢 直连, type: direct}
   - {name: ⛔️ 拒绝, type: reject}
+
+
+
 
 # 用于下载订阅时指定UA
 global-ua: clash.meta
@@ -260,11 +262,6 @@ tun:
 # ========================
 # 策略组定义
 # ========================
-
-proxies: #节点添加到这里
-  
-
-
 proxy-groups:
   - {name: AI平台, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Chatgpt_A.png"}
   - {name: GitHub, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Github_A.png"}
@@ -293,7 +290,7 @@ proxy-groups:
   - name: 策略1
     type: select
     use: *proxy-providers-use
-    <<: *PProviders
+    <<: *pr
     
   - name: 策略2
     type: select
@@ -499,10 +496,17 @@ proxy-groups:
     filter: "^((?!(🟢 直连|⛔️ 拒绝|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸)).)*$"
     icon: "https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_1280.png"
 
+#这里填入链式代理组
+
+
+
 # ========================
 # 规则引擎（rules）
 # ========================
 rules:
+  # wifi-ip选择
+  #- SRC-IP-CIDR,192.168.100.200/32,住宅1-relay-1     #(这里填写设备ip和链式代理组名称）
+  #- SRC-IP-CIDR,192.168.100.200/32,策略2
   # 优先级高的规则
   - RULE-SET,Test / Domain,测试服务
   - RULE-SET,Block / Domain,拒绝
