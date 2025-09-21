@@ -209,19 +209,6 @@ sniffer:
     - "+.oray.com"
     - "+.sunlogin.net"
     - "+.push.apple.com"
-    - "*.wechat.com"
-    - "*.qq.com"
-    - "*.mi.com"
-    - "Mijia Cloud"
-    - "dlg.io.mi.com"
-    - "*.push.apple.com"
-    - "*.apple.com"
-    - "*.wechat.com"
-    - "*.qpic.cn"
-    - "*.wechatapp.com"
-    - "*.vivox.com"
-    - "*.oray.com"
-    - "*.sunlogin.net"
 
 # ========================
 # DNS 设置
