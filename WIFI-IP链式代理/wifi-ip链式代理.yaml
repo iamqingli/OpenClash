@@ -174,41 +174,9 @@ sniffer:
     - "+.amazonaws.com"
     - "+.media.dssott.com"
   skip-domain:
-    - '+.google.com'
-    - '+.googlesyndication.com'
-    - '+.facebook.com'
-    - '+.youtube.com'
-    - '+.x.com'
-    - '+.apple.com'
-    - '+.javbus22.com'
-    - '+.jads.co'
-    - '+.api.io.mi.com'
-    - '+.icloud.com'
-    - '+.lnaspiring.com'
-    - '+.cloudflare.com'
-    - '+.coo.wiki'
-    - '+.ip.sb'
-    - '+.doubleclick.net'
-    - '+.amazonaws.com'
-    - '+.cloudfront.net'
-    - '+.openwrt.org'
-    - '+.googleadservices.com'
-    - '+.koolcenter.com'
-    - '+.ghproxy.com'
-    - '+.knjc.cfd'
-    - '+.xiaoya.pro'
-    - '+.lwjyj.com'
-    - '+.vpdmm.cc'
-    - '+.ac.jp'
-    - '+.my-netdata.io'
-    - '+.appcenter.ms'
-    - 'vl.justloli.cn'
-    - '3kloli.justloli.cn'
-    - '+.hotloli.cloudns.org'
-    - "+.apple.com"
-    - "+.oray.com"
-    - "+.sunlogin.net"
-    - "+.push.apple.com"
+    - +.lan
+    - +.local
+    - geosite:cn
 
 # ========================
 # DNS 设置
