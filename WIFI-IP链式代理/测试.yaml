@@ -332,25 +332,29 @@ proxy-groups:
   - name: "ip1"
     type: select
     proxies:
-      - Direct_first
+      - 所有-手动
+      - Direct
       - 名字1
 
   - name: "ip2"
     type: select
     proxies:
-      - Direct_first
+      - 所有-手动
+      - Direct
       - 名字2
 
   - name: "ip3"
     type: select
     proxies:
-      - Direct_first
+      - 所有-手动
+      - Direct
       - 名字3
 
   - name: "ip4"
     type: select
     proxies:
-      - Direct_first
+      - 所有-手动
+      - Direct
       - 名字4
       
   # 香港组
