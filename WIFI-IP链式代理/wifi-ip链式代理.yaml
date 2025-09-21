@@ -99,11 +99,11 @@ proxy-providers:
 proxies:
   - {name: 🟢 直连, type: direct}
   - {name: ⛔️ 拒绝, type: reject}
-  # - { 用来加速的机场节点 } :机场中转节点名称，如机场订阅后该节点延迟低:香港01，就把｛｝内的文字修改为:香港01
-  - { name: '名字1', type: socks5, server: 住宅ip地址, port: 端口, username: 名称, password: 密码, udp: true}   #不需要链式代理，直接用协议
-  - { name: '名字2', type: ss, server: 住宅ip地址, port: 端口, cipher: 加密协议, password: 密码, udp: true, dialer-proxy: 用来加速的机场节点名称 }   #不需要机场的链式代理，请删除dialer-proxy，直接用协议
-  - { name: '名字3', type: trojan, server: 住宅ip地址, port: 端口, password: 密码, udp: true, skip-cert-verity: true, network: ws, dialer-proxy: 用来加速的机场节点名称 }   #不需要机场的链式代理，请删除dialer-proxy，直接用协议
-  - { name: '名字4', type: socks5, server: 住宅ip地址, port: 端口, username: 名称, password: 密码, udp: true, dialer-proxy: 用来加速的机场节点名称 }   #不需要机场的链式代理，请删除dialer-proxy，直接用协议
+  #{ 用来加速的机场节点 } :机场中转节点名称，如机场订阅后该节点延迟低:香港01，就把｛｝内的文字修改为:香港01
+  #- { name: '名字1', type: socks5, server: 住宅ip地址, port: 端口, username: 名称, password: 密码, udp: true}   #不需要链式代理，直接用协议
+  #- { name: '名字2', type: ss, server: 住宅ip地址, port: 端口, cipher: 加密协议, password: 密码, udp: true, dialer-proxy: 用来加速的机场节点名称 }   #不需要机场的链式代理，请删除dialer-proxy，直接用协议
+  #- { name: '名字3', type: trojan, server: 住宅ip地址, port: 端口, password: 密码, udp: true, skip-cert-verity: true, network: ws, dialer-proxy: 用来加速的机场节点名称 }   #不需要机场的链式代理，请删除dialer-proxy，直接用协议
+  #- { name: '名字4', type: socks5, server: 住宅ip地址, port: 端口, username: 名称, password: 密码, udp: true, dialer-proxy: 用来加速的机场节点名称 }   #不需要机场的链式代理，请删除dialer-proxy，直接用协议
 
 # 用于下载订阅时指定UA
 global-ua: clash.meta
@@ -275,34 +275,35 @@ proxy-groups:
     filter: "^((?!(🟢 直连|⛔️ 拒绝)).)*$"
     icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/final.png"
 
-  - name: "ip1"
-    type: select
-    proxies:
-      - 所有-手动
-      - DIRECT
-      - 名字1
-
-  - name: "ip2"
-    type: select
-    proxies:
-      - 所有-手动
-      - DIRECT
-      - 名字2
-
-  - name: "ip3"
-    type: select
-    proxies:
-      - 所有-手动
-      - DIRECT
-      - 名字3
-
-  - name: "ip4"
-    type: select
-    proxies:
-      - 所有-手动
-      - DIRECT
-      - 名字4
+  ## 在基础代理"proxies"中，配置“代理”后，把下面的#删除，即可启用
+  #- name: "ip1"
+  #  type: select
+  #  proxies:
+  #   - 所有-手动
+  #   - DIRECT
+  #   - 名字1
       
+  #- name: "ip1"
+  #  type: select
+  #  proxies:
+  #   - 所有-手动
+  #   - DIRECT
+  #   - 名字2
+
+  #- name: "ip1"
+  #  type: select
+  #  proxies:
+  #   - 所有-手动
+  #   - DIRECT
+  #   - 名字3
+
+  #- name: "ip1"
+  #  type: select
+  #  proxies:
+  #   - 所有-手动
+  #   - DIRECT
+  #   - 名字4
+
   # 香港组
   - name: 香港-故转
     type: fallback
@@ -451,13 +452,13 @@ proxy-groups:
 # 规则引擎（rules）
 # ========================
 rules:
-  ## 设置不同的路由设备ip段对应不同的住宅ip
+  ## 设置不同的路由设备ip段对应不同的住宅ip    在"节点选择组"中，配置好"ip1"分组后，把下面的#删除，即可启用
   #- SRC-IP-CIDR,192.168.10.1/24,ip1
   #- SRC-IP-CIDR,192.168.11.1/24,ip2
   #- SRC-IP-CIDR,192.168.12.1/24,ip3
   #- SRC-IP-CIDR,192.168.13.1/24,ip4
   
-  ## 设置不同的设备对应不同的住宅ip 直连/策略
+  ## 设置不同的设备对应不同的住宅ip 直连/策略   在"节点选择组"中，配置好"ip1"分组后，把下面的#删除，即可启用
   #- SRC-IP-CIDR,192.168.10.10/32,ip1
   #- SRC-IP-CIDR,192.168.11.11/32,ip2
   #- SRC-IP-CIDR,192.168.12.12/32,DIRECT
