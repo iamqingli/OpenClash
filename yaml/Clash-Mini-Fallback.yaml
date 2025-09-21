@@ -146,30 +146,6 @@ sniffer:
       ports: [443, 8443]
     QUIC:
       ports: [443, 8443]
-  force-domain:
-    - "+.netflix.com"
-    - "+.nflxvideo.net"
-    - "+.amazonaws.com"
-    - "+.media.dssott.com"
-  skip-domain:
-    - "+.apple.com"
-    - "+.oray.com"
-    - "+.sunlogin.net"
-    - "+.push.apple.com"
-    - "*.wechat.com"
-    - "*.qq.com"
-    - "*.mi.com"
-    - "Mijia Cloud"
-    - "dlg.io.mi.com"
-    - "*.push.apple.com"
-    - "*.apple.com"
-    - "*.wechat.com"
-    - "*.qpic.cn"
-    - "*.wechatapp.com"
-    - "*.vivox.com"
-    # 向日葵服务
-    - "*.oray.com"
-    - "*.sunlogin.net"
 
 # ========================
 # DNS 设置
@@ -224,7 +200,7 @@ dns:
 # ========================
 tun:
   enable: true
-  stack: mixed
+  stack: gvisor
   device: utun
   dns-hijack:
   - 127.0.0.1:53
