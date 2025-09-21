@@ -505,17 +505,17 @@ proxy-groups:
 # 规则引擎（rules）
 # ========================
 rules:
-  ## 设置不同的手机ip对应不同的住宅ip测量
+  ## 设置不同的路由设备ip段对应不同的住宅ip
   #- SRC-IP-CIDR,192.168.10.1/24,ip1
   #- SRC-IP-CIDR,192.168.11.1/24,ip2
   #- SRC-IP-CIDR,192.168.12.1/24,ip3
   #- SRC-IP-CIDR,192.168.13.1/24,ip4
   
   ## IP段：192.168.1.202-192.168.1.255 直连
-  #- SRC-IP-CIDR,192.168.10.1/24,DIRECT
-  #- SRC-IP-CIDR,192.168.11.1/24,DIRECT
-  #- SRC-IP-CIDR,192.168.12.1/24,DIRECT
-  #- SRC-IP-CIDR,192.168.13.1/24,DIRECT
+  #- SRC-IP-CIDR,192.168.10.0/32,DIRECT
+  #- SRC-IP-CIDR,192.168.11.0/32,DIRECT
+  #- SRC-IP-CIDR,192.168.12.0/32,DIRECT
+  #- SRC-IP-CIDR,192.168.13.0/32,DIRECT
   
   # 优先级高的规则
   - RULE-SET,Test / Domain,测试服务
