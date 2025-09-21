@@ -222,7 +222,7 @@ dns:
 # ========================
 tun:
   enable: true
-  stack: mixed
+  stack: gvisor
   device: utun
   dns-hijack:
   - 127.0.0.1:53
