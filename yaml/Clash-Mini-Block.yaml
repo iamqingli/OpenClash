@@ -241,11 +241,11 @@ proxy-groups:
   - {name: YouTube, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2018/05/27/22/48/social-3434840_1280.png"}
   - {name: Steam, type: select, <<: *Direct_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Steam_A.png"}
   - {name: 游戏平台, type: select, <<: *Direct_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Epicgames_A.png"}
-  - {name: 国外应用, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Discord_A.png"}
-  - {name: 测试服务, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Speedtest_A.png"}
   - {name: Google, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2016/04/13/14/27/google-chrome-1326908_1280.png"}
-  - {name: Microsoft, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2021/10/17/14/47/windows-7-logo-6718525_1280.png"}
+  - {name: 国外应用, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Discord_A.png"}
   - {name: Apple, type: select, <<: *Direct_first, icon: "https://cdn.pixabay.com/photo/2016/09/27/19/54/apple-1699197_1280.png"}
+  - {name: Microsoft, type: select, <<: *Direct_first, icon: "https://cdn.pixabay.com/photo/2021/10/17/14/47/windows-7-logo-6718525_1280.png"}
+  - {name: 测试服务, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Speedtest_A.png"}
   - {name: 加密货币, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2017/03/12/02/57/bitcoin-2136339_1280.png"}
   - {name: 国内, type: select, <<: *Direct_first, icon: "https://cdn.pixabay.com/photo/2015/04/22/23/18/pagoda-735491_960_720.png"}
   - {name: 国外, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Shadowrocket_A.png"}
