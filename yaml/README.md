@@ -2,17 +2,17 @@
 
 所有yaml文件默认配置icon图标，可下载后自行更改图标链接
 
-一，clash-mini-smart.yaml： 带故障转移的Smart智能策略组。
+一，clash-smart.yaml： 带故障转移的Smart智能策略组。
 
 该策略组请使用Smart内核,否则无法运行
 
-二，clash-mini-block.yaml： 带故障转移的拒绝策略组。
+二，clash-block.yaml： 带故障转移的拒绝策略组。
 
 该策略组无法在IOS系统的Stash应用中使用，因reject规则不被该应用支持，无法运行
 
 Block分组为拒绝分组，目前只维护了Adobe相关域名
 
-三，clash-mini-fallback.yaml： 带故障转移的Url-test策略组。
+三，clash-fallback.yaml： 带故障转移的Url-test策略组。
 
 该策略组Clash内核通用，建议使用该文件
 
