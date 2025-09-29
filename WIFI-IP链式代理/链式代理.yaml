@@ -524,6 +524,7 @@ rules:
   - RULE-SET,Other / Domain,加密货币
   
   # 国内外分流规则
+  - RULE-SET,CN / Domain,国内
   - RULE-SET,Direct / Domain,国内
   - RULE-SET,China / Domain,国内
   - RULE-SET,China / IP,国内,no-resolve
