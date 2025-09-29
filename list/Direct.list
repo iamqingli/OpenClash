@@ -3,7 +3,6 @@
 # MyList
 DOMAIN-SUFFIX,aial.cc
 DOMAIN-SUFFIX,aial.pw
-DOMAIN-SUFFIX,52pojie.cn
 DOMAIN-SUFFIX,tcc-adn.com
 DOMAIN-SUFFIX,smart.tcc-adn.com
 DOMAIN-SUFFIX,qtcc.cntcc.cn
@@ -12,7 +11,7 @@ DOMAIN-SUFFIX,cas.china-tcc.com
 IP-CIDR,172.19.0.1/32,no-resolve
 IP-CIDR,172.17.1.36/32,no-resolve
 IP-CIDR,172.17.95.40/32,no-resolve
-DOMAIN-SUFFIX,cinefiles.info
+DOMAIN-SUFFIX,tracker.cinefiles.info
 
 # NAME: Nvidia
 # AUTHOR: blackmatrix7
