@@ -263,8 +263,8 @@ proxy-groups:
   - name: 所有-自动
     type: url-test
     include-all: true
-    tolerance: 150  # 增加容忍度
-    interval: 600   # 增加测试间隔到10分钟
+    tolerance: 150
+    interval: 60
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "^((?!(🟢 直连|⛔️ 拒绝)).)*$"
     icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/final.png"
@@ -272,8 +272,8 @@ proxy-groups:
   # 香港组
   - name: 香港-故转
     type: fallback
-    interval: 600   # 增加测试间隔
-    lazy: true      # 启用懒加载
+    interval: 60
+    lazy: true 
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     proxies:
       - 香港-手动
@@ -287,8 +287,8 @@ proxy-groups:
   - name: 香港-自动
     type: url-test
     include-all: true
-    tolerance: 150  # 增加容忍度
-    interval: 600   # 增加测试间隔
+    tolerance: 150
+    interval: 60
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$"
     icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png"
@@ -296,8 +296,8 @@ proxy-groups:
    # 日本组
   - name: 日本-故转
     type: fallback
-    interval: 600   # 增加测试间隔
-    lazy: true      # 启用懒加载
+    interval: 60
+    lazy: true 
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     proxies:
       - 日本-手动
@@ -305,14 +305,14 @@ proxy-groups:
     icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Japan.png"
   - name: 日本-手动
     type: select
-    include-all: true
+    include-all: true 
     filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$"
     icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Japan.png"
   - name: 日本-自动
     type: url-test
-    include-all: true
-    tolerance: 150  # 增加容忍度
-    interval: 600   # 增加测试间隔
+    include-all: true 
+    tolerance: 150
+    interval: 60
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$"
     icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Japan.png"
@@ -320,8 +320,8 @@ proxy-groups:
   # 台湾组
   - name: 台湾-故转
     type: fallback
-    interval: 600   # 增加测试间隔
-    lazy: true      # 启用懒加载
+    interval: 60
+    lazy: true 
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     proxies:
       - 台湾-手动
@@ -329,14 +329,14 @@ proxy-groups:
     icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png"
   - name: 台湾-手动
     type: select
-    include-all: true
+    include-all: true 
     filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan)).*$"
     icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png"
   - name: 台湾-自动
     type: url-test
-    include-all: true
-    tolerance: 150  # 增加容忍度
-    interval: 600   # 增加测试间隔
+    include-all: true 
+    tolerance: 150 
+    interval: 60
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan)).*$"
     icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png"
@@ -344,8 +344,8 @@ proxy-groups:
   # 美国组
   - name: 美国-故转
     type: fallback
-    interval: 600   # 增加测试间隔
-    lazy: true      # 启用懒加载
+    interval: 60
+    lazy: true 
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     proxies:
       - 美国-手动
@@ -353,14 +353,14 @@ proxy-groups:
     icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/United_States.png"
   - name: 美国-手动
     type: select
-    include-all: true
+    include-all: true  
     filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"
     icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/United_States.png"
   - name: 美国-自动
-    type: url-test
-    include-all: true
-    tolerance: 150  # 增加容忍度
-    interval: 600   # 增加测试间隔
+    type: url-test 
+    include-all: true 
+    tolerance: 150
+    interval: 60
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"
     icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/United_States.png"
@@ -368,8 +368,8 @@ proxy-groups:
   # 新加坡组
   - name: 新加坡-故转
     type: fallback
-    interval: 600   # 增加测试间隔
-    lazy: true      # 启用懒加载
+    interval: 60
+    lazy: true 
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     proxies:
       - 新加坡-手动
@@ -377,14 +377,14 @@ proxy-groups:
     icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Singapore.png"
   - name: 新加坡-手动
     type: select
-    include-all: true
+    include-all: true 
     filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$"
     icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Singapore.png"
   - name: 新加坡-自动
     type: url-test
-    include-all: true
-    tolerance: 150  # 增加容忍度
-    interval: 600   # 增加测试间隔
+    include-all: true 
+    tolerance: 150
+    interval: 60 
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$"
     icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Singapore.png"
@@ -392,8 +392,8 @@ proxy-groups:
   # 其他组
   - name: 其他-故转
     type: fallback
-    interval: 600   # 增加测试间隔
-    lazy: true      # 启用懒加载
+    interval: 60 
+    lazy: true 
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     proxies:
       - 其他-手动
@@ -401,14 +401,14 @@ proxy-groups:
     icon: "https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_1280.png"
   - name: 其他-手动
     type: select
-    include-all: true
+    include-all: true 
     filter: "^((?!(🟢 直连|⛔️ 拒绝|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸)).)*$"
     icon: "https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_1280.png"
   - name: 其他-自动
     type: url-test
-    include-all: true
-    tolerance: 150  # 增加容忍度
-    interval: 600   # 增加测试间隔
+    include-all: true 
+    tolerance: 150 
+    interval: 60 
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "^((?!(🟢 直连|⛔️ 拒绝|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸)).)*$"
     icon: "https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_1280.png"
