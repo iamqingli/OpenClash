@@ -261,7 +261,7 @@ proxy-groups:
   - name: 香港-故转
     type: fallback
     interval: 300
-    lazy: true  # 优化：启用懒加载
+    lazy: true
     proxies:
       - 香港-手动
       - 香港-智选
@@ -285,7 +285,7 @@ proxy-groups:
   - name: 日本-故转
     type: fallback
     interval: 300
-    lazy: true  # 优化：启用懒加载
+    lazy: true
     proxies:
       - 日本-手动
       - 日本-智选
@@ -309,7 +309,7 @@ proxy-groups:
   - name: 台湾-故转
     type: fallback
     interval: 300
-    lazy: true  # 优化：启用懒加载
+    lazy: true
     proxies:
       - 台湾-手动
       - 台湾-智选
@@ -333,7 +333,7 @@ proxy-groups:
   - name: 美国-故转
     type: fallback
     interval: 300
-    lazy: true  # 优化：启用懒加载
+    lazy: true
     proxies:
       - 美国-手动
       - 美国-智选
@@ -357,7 +357,7 @@ proxy-groups:
   - name: 新加坡-故转
     type: fallback
     interval: 300
-    lazy: true  # 优化：启用懒加载
+    lazy: true
     proxies:
       - 新加坡-手动
       - 新加坡-智选
@@ -381,7 +381,7 @@ proxy-groups:
   - name: 其他-故转
     type: fallback
     interval: 300
-    lazy: true  # 优化：启用懒加载
+    lazy: true
     proxies:
       - 其他-手动
       - 其他-智选
