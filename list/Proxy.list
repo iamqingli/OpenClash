@@ -1,5 +1,7 @@
 #My List
 
+DOMAIN-SUFFIX,noresponse.audiences.me
+
 # IP段匹配
 IP-CIDR,142.171.133.0/24,no-resolve
 IP-CIDR,103.115.43.0/24,no-resolve
