@@ -176,8 +176,6 @@ dns:
     - 223.5.5.5
     - 119.29.29.29
     - 114.114.114.114
-  cache: true
-  cache-size: 8000
   
 # ========================
 # 入站代理模式
@@ -230,8 +228,8 @@ proxy-groups:
   - name: 所有-自动
     type: url-test
     include-all: true
-    tolerance: 150 
-    interval: 60 
+    tolerance: 20
+    interval: 300
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "^((?!(🟢 直连)).)*$"
     icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/final.png"
@@ -254,8 +252,8 @@ proxy-groups:
   - name: 香港-自动
     type: url-test
     include-all: true
-    tolerance: 150
-    interval: 60
+    tolerance: 20
+    interval: 300
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$"
     icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png"
@@ -278,8 +276,8 @@ proxy-groups:
   - name: 日本-自动
     type: url-test
     include-all: true
-    tolerance: 150
-    interval: 60
+    tolerance: 20
+    interval: 300
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$"
     icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Japan.png"
@@ -302,8 +300,8 @@ proxy-groups:
   - name: 台湾-自动
     type: url-test
     include-all: true
-    tolerance: 150
-    interval: 60
+    tolerance: 20
+    interval: 300
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan)).*$"
     icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png"
@@ -326,8 +324,8 @@ proxy-groups:
   - name: 美国-自动
     type: url-test
     include-all: true
-    tolerance: 150
-    interval: 60
+    tolerance: 20
+    interval: 300
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"
     icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/United_States.png"
@@ -350,8 +348,8 @@ proxy-groups:
   - name: 新加坡-自动
     type: url-test
     include-all: true
-    tolerance: 150
-    interval: 60
+    tolerance: 20
+    interval: 300
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$"
     icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Singapore.png"
@@ -374,8 +372,8 @@ proxy-groups:
   - name: 其他-自动
     type: url-test
     include-all: true
-    tolerance: 150
-    interval: 60
+    tolerance: 20
+    interval: 300
     url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "^((?!(🟢 直连|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸)).)*$"
     icon: "https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_1280.png"
