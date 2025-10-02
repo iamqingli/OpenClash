@@ -248,7 +248,6 @@ proxy-groups:
     include-all: true
     tolerance: 20
     interval: 300
-    url: https://cp.cloudflare.com/generate_204  # 使用Cloudflare检测点
     filter: "^((?!(🟢 直连|⛔️ 拒绝)).)*$"
     icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/final.png"
 
