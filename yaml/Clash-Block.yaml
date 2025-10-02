@@ -256,6 +256,7 @@ proxy-groups:
     type: fallback
     interval: 60
     lazy: true
+    proxies:
       - 香港-手动
       - 香港-自动 
     icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png"
