@@ -10,9 +10,6 @@ DOMAIN-SUFFIX,china-tcc.com
 DOMAIN-SUFFIX,cinefiles.info
 DOMAIN-SUFFIX,audiences.me
 DOMAIN-SUFFIX,cas.china-tcc.com
-IP-CIDR,172.19.0.1/32,no-resolve
-IP-CIDR,172.17.1.36/32,no-resolve
-IP-CIDR,172.17.95.40/32,no-resolve
 
 # NAME: Nvidia
 # AUTHOR: blackmatrix7
