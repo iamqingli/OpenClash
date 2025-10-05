@@ -67,6 +67,7 @@ proxy-providers:
     <<: *PProviders
     proxy: "🟢 直连"
     url: "订阅链接1"
+    path: ./providers/p1.yaml
     override:
       skip-cert-verify: true
       udp: true
@@ -75,6 +76,7 @@ proxy-providers:
     <<: *PProviders
     proxy: "🟢 直连"
     url: "订阅链接2"
+    path: ./providers/p2.yaml
     override:
       skip-cert-verify: true
       udp: true
@@ -83,6 +85,7 @@ proxy-providers:
     <<: *PProviders
     proxy: "🟢 直连"
     url: "订阅链接3"
+    path: ./providers/p3.yaml
     override:
       skip-cert-verify: true
       udp: true
@@ -91,6 +94,7 @@ proxy-providers:
     <<: *PProviders
     proxy: "🟢 直连"
     url: "订阅链接4"
+    path: ./providers/p4.yaml
     override:
       skip-cert-verify: true
       udp: true
