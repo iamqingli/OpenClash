@@ -2,9 +2,10 @@
 
 # 小红卡
 DOMAIN-SUFFIX,redotpay.com
-DOMAIN-SUFFIX,playz.mjji.de
-DOMAIN-SUFFIX,lite.cn2gias.uk
-DOMAIN-SUFFIX,emby.kongcheng666.dpdns.org
+
+#海妖交易所
+DOMAIN-SUFFIX,kraken.com
+
 # ebay
 DOMAIN,ebay-25-assets.s3-us-west-1.amazonaws.com
 DOMAIN-SUFFIX,ebayit.com
