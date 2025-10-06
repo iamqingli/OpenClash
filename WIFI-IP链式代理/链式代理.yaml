@@ -428,18 +428,6 @@ proxy-groups:
 # 规则引擎（rules）
 # ========================
 rules:
-  ## 设置不同的路由设备ip段对应不同的住宅ip    在"节点选择组"中，配置好"ip1"分组后，把下面的#删除，即可启用
-  #- SRC-IP-CIDR,192.168.10.1/24,ip1
-  #- SRC-IP-CIDR,192.168.11.1/24,ip2
-  #- SRC-IP-CIDR,192.168.12.1/24,ip3
-  #- SRC-IP-CIDR,192.168.13.1/24,ip4
-  
-  ## 设置不同的设备对应不同的住宅ip 直连/策略   在"节点选择组"中，配置好"ip1"分组后，把下面的#删除，即可启用
-  #- SRC-IP-CIDR,192.168.10.10/32,ip1
-  #- SRC-IP-CIDR,192.168.11.11/32,ip2
-  #- SRC-IP-CIDR,192.168.12.12/32,DIRECT
-  #- SRC-IP-CIDR,192.168.13.13/32,DIRECT
-  
   # 优先级高的规则
   - RULE-SET,Test / Domain,测试服务
   - RULE-SET,Block / Domain,拒绝
