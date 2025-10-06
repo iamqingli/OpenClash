@@ -196,8 +196,8 @@ dns:
     - "+.msftncsi.com"
     - "+.market.xiaomi.com"
   # 使用Meta版本Clash（支持rule-set）不建议启用
-   #- geosite:cn
-   #- geoip:cn
+    #- geosite:cn
+    #- geoip:cn
   default-nameserver:
     - 223.5.5.5
   proxy-server-nameserver:
