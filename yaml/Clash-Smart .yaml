@@ -439,6 +439,7 @@ rules:
   - RULE-SET,Spotify / Domain,流媒体
   
   # 游戏规则
+  - RULE-SET,Xbox / Domain,国内
   - RULE-SET,Steam / Domain,Steam
   - RULE-SET,steam_cn_domain,Steam
   - RULE-SET,steamcdn_domain,Steam
@@ -450,7 +451,6 @@ rules:
   - RULE-SET,UBI / Domain,游戏平台
   - RULE-SET,Sony / Domain,游戏平台
   - RULE-SET,Nintend / Domain,游戏平台
-  - RULE-SET,Xbox / Domain,Microsoft
   
   # 公司和服务规则
   - RULE-SET,Amazon / Domain,Amazon
