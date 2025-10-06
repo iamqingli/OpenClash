@@ -187,10 +187,17 @@ dns:
   # 模式切换 whitelist/blacklist,黑名单模式表示如果匹配成功则不返回 Fake-IP, 白名单模式时只有匹配成功才返回 Fake-IP
   fake-ip-filter-mode: blacklist
   fake-ip-filter:
-    - "rule-set:fakeip_filter_domain,game_cn_domain,media_cn_domain,steam_cn_domain,pt_cn_domain,public-tracker_domain,iptv_domain,ifast_domain,wechat_domain,Apple / Domain,Apple-CN / Domain,China / Domain,Private / Domain"
-    - +.lan
-    - +.local
+  # 规则集定义：应用 / 媒体 / 国内域 / 私有域等
+    - "rule-set:fakeip_filter_domain,game_cn_domain,media_cn_domain,steam_cn_domain,pt_cn_domain,public-tracker_domain,iptv_domain,ifast_domain,wechat_domain,Apple / Domain,Apple-CN / Domain,China / Domain,Private / Domain" 
+  # 系统级、局域网、时间同步、联网检测
+    - "+.lan"
+    - "+.local"
+    - "time.*.com"
+    - "+.msftncsi.com"
+    - "+.market.xiaomi.com"
+  # 最后兜底（可选，最大兼容性，建议保留）
     - geosite:cn
+    - geoip:cn
   default-nameserver:
     - 223.5.5.5
   proxy-server-nameserver:
