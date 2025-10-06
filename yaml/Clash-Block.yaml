@@ -71,6 +71,7 @@ proxy-providers:
     override:
       skip-cert-verify: true
       udp: true
+      ipv6: false     # 上游节点优先用 IPv4
   
   订阅地址2:
     <<: *PProviders
@@ -80,6 +81,7 @@ proxy-providers:
     override:
       skip-cert-verify: true
       udp: true
+      ipv6: false     # 上游节点优先用 IPv4
   
   订阅地址3:
     <<: *PProviders
@@ -89,6 +91,7 @@ proxy-providers:
     override:
       skip-cert-verify: true
       udp: true
+      ipv6: false     # 上游节点优先用 IPv4
   
   订阅地址4:
     <<: *PProviders
