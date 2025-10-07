@@ -423,7 +423,7 @@ rules:
   - RULE-SET,Spotify / Domain,流媒体
   
   # 游戏规则
-  - RULE-SET,Xbox / Domain,国内
+  - RULE-SET,Xbox / Domain,Microsoft
   - RULE-SET,Steam / Domain,Steam
   - RULE-SET,steam_cn_domain,Steam
   - RULE-SET,steamcdn_domain,Steam
