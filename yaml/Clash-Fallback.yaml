@@ -183,6 +183,9 @@ dns:
     - "time.*.com"
     - "+.msftncsi.com"
     - "+.market.xiaomi.com"
+    - '+.xboxlive.com'
+    - 'msftconnecttest.com'
+    - 'xbox.*.microsoft.com'
   # 使用Meta版本Clash（支持rule-set）不建议启用
     #- geosite:cn
     #- geoip:cn
