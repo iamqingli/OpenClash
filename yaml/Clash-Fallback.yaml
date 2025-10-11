@@ -97,11 +97,11 @@ global-ua: clash.meta
 # ========================
 # 端口与控制面板
 # ========================
-port: 7890
-socks-port: 7891
-redir-port: 7892
-mixed-port: 7893
-tproxy-port: 7895
+port: 8080
+socks-port: 1080
+redir-port: 7891
+mixed-port: 7890
+tproxy-port: 7892
 allow-lan: true
 bind-address: "*"
 mode: rule
@@ -109,14 +109,14 @@ log-level: warning
 unified-delay: true
 tcp-concurrent: true
 skip-auth-prefixes:
-- 127.0.0.1/8
-- ::1/128
+  - 127.0.0.1/8
+  - ::1/128
 
 # 控制面板
-external-controller: 0.0.0.0:9090
+external-controller: '[::]:9090'
 external-ui: ui
 external-ui-name: zashboard
-external-ui-url: https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip
+external-ui-url: https://github.com/Zephyruso/zashboard/releases/latest/download/dist-cdn-fonts.zip
 secret: "123456"
 
 # 匹配进程 always/strict/off
@@ -153,7 +153,7 @@ sniffer:
 # ========================
 dns:
   enable: true
-  listen: 0.0.0.0:7874 
+  listen: '[::]:1053'
   prefer-h3: false # 是否开启 DoH 支持 HTTP/3，将并发尝试
   respect-rules: true
   ipv6: true
@@ -200,7 +200,7 @@ tun:
   dns-hijack: ["any:53", "tcp://any:53"]
   #使用nikki，混入全部不修改的情况，开启接口指定为nikki
   #使用仅内核自行修改下面选项为true
-  #device: nikki
+  device: nikki
   auto-route: false
   auto-redirect: false
   auto-detect-interface: false
