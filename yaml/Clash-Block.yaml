@@ -141,11 +141,12 @@ geox-url:
   asn: "https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/GeoLite2-ASN.mmdb"
 
 # 控制面板
-external-controller: 0.0.0.0:9090
-external-ui: ui
-external-ui-name: zashboard
-external-ui-url: https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip
-secret: "123456"
+# 跑裸核朋友自行删除注释即可，使用nikki仅内核的ui路径改为/etc/nikki/run/ui
+# external-controller: 0.0.0.0:9090
+# external-ui: "/etc/mihomo/ui"
+# external-ui-name: zashboard
+# external-ui-url: https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip
+# secret: "123456"
 
 # 匹配进程 always/strict/off
 find-process-mode: off
@@ -229,7 +230,8 @@ tun:
   auto-route: false
   auto-redirect: false
   auto-detect-interface: false
-
+  strict-route: false
+  
 # ========================
 # 策略组定义
 # ========================
