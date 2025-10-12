@@ -122,13 +122,14 @@ skip-auth-prefixes:
   - ::1/128
 
 # 控制面板
-external-controller: '[::]:9090'
+external-controller: 0.0.0.0:9090
 # external-ui: ui
 # external-ui-name: zashboard
 # external-ui-url: https://github.com/Zephyruso/zashboard/releases/latest/download/dist-cdn-fonts.zip
 secret: "123456"
 
 # 匹配进程
+find-process-mode: 'off'
 global-client-fingerprint: chrome
 keep-alive-idle: 600
 keep-alive-interval: 30
@@ -142,7 +143,7 @@ profile:
 # 流量嗅探
 # ========================
 sniffer:
-  enable: false
+  enable: true
   sniff:
     HTTP:
       ports: [80, 8080-8880]
@@ -161,7 +162,7 @@ sniffer:
 # ========================
 dns:
   enable: true
-  listen: '[::]:7874'
+  listen: 0.0.0.0:1053
   prefer-h3: false # 是否开启 DoH 支持 HTTP/3，将并发尝试
   respect-rules: true
   ipv6: true
