@@ -123,7 +123,7 @@ external-controller: '[::]:9090'
 # external-ui-url: https://github.com/Zephyruso/zashboard/releases/latest/download/dist-cdn-fonts.zip
 secret: "123456"
 
-# 匹配进程 always/strict/off
+# 匹配进程
 global-client-fingerprint: chrome
 keep-alive-idle: 600
 keep-alive-interval: 30
