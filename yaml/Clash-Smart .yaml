@@ -192,9 +192,9 @@ tun:
   #使用仅内核模式请自行修改以下选项为true
   # device: utun
   endpoint-independent-nat: true
-  auto-route: false
+  auto-route: true
   auto-redirect: false
-  auto-detect-interface: false
+  auto-detect-interface: true
   strict-route: false
   
 # ========================
