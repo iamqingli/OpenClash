@@ -190,9 +190,9 @@ tun:
   stack: gvisor
   dns-hijack: ["any:53", "tcp://any:53"]
   #使用仅内核模式请自行修改以下选项为true
-  # device: utun
+  device: utun
   endpoint-independent-nat: true
-  auto-route: true
+  auto-route: false
   auto-redirect: false
   auto-detect-interface: true
   strict-route: false
