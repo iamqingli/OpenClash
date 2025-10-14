@@ -159,7 +159,7 @@ dns:
   enable: true
   listen: 0.0.0.0:1053
   prefer-h3: false # 是否开启 DoH 支持 HTTP/3，将并发尝试
-  respect-rules: true
+  respect-rules: false
   ipv6: true
   # 模式切换 redir-host / fake-ip
   enhanced-mode: fake-ip
@@ -181,12 +181,6 @@ dns:
   # 使用Meta版本Clash（支持rule-set）不建议启用
     #- geosite:cn
     #- geoip:cn
-  default-nameserver:
-    - 223.5.5.5
-    - 119.29.29.29
-  proxy-server-nameserver:
-    - https://1.1.1.1/dns-query
-    - https://8.8.8.8/dns-query
   # namesever尽量用运营商提供的DNS
   nameserver:
     - 223.5.5.5
