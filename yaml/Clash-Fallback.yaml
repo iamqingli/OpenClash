@@ -180,7 +180,7 @@ tun:
   # system/gvisor/mixed
   stack: gvisor
   dns-hijack: ["any:53", "tcp://any:53"]
-  #使用仅内核模式请自行修改auto-route为true，并启用device: utun
+  #使用仅内核模式请自行修改false选项为true，并启用device: utun
   # device: utun
   endpoint-independent-nat: true
   auto-route: false
