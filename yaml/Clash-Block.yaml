@@ -169,7 +169,7 @@ dns:
   fake-ip-filter-mode: blacklist
   fake-ip-filter:
   # 规则集：应用 / 媒体 / 国内域 / 私有域等
-    - "rule-set:fakeip_filter_domain,game_cn_domain,media_cn_domain,steam_cn_domain,pt_cn_domain,public-tracker_domain,iptv_domain,ifast_domain,wechat_domain,Apple / Domain,Apple-CN / Domain,China / Domain,Private / Domain" 
+    - "rule-set:pt_cn_domain,public-tracker_domain,Apple / Domain,Apple-CN / Domain,CN / Domain,China / Domain,Private / Domain" 
   # 系统级、局域网、时间同步、联网检测
     - "*.lan"
     - "*.localdomain"
@@ -386,15 +386,10 @@ rules:
   # 优先级高的规则
   - RULE-SET,Test / Domain,测试服务
   - RULE-SET,Block / Domain,拒绝
-  - RULE-SET,wechat_domain,国内
-  - RULE-SET,wechat_asn,国内
-  - RULE-SET,bank_cn_domain,国内
-  - RULE-SET,onedrive_domain,国内
-  - RULE-SET,iptv_domain,国内
+  - RULE-SET,Private / ip,国内,no-resolve
+  - RULE-SET,Private / Domain,国内
   - RULE-SET,pt_cn_domain,国内
   - RULE-SET,public-tracker_domain,国内
-  - RULE-SET,media_cn_domain,国内
-  - RULE-SET,ifast_domain,国内
   
   # 应用和服务规则
   - RULE-SET,AI / Domain,AI平台
@@ -421,7 +416,6 @@ rules:
   - RULE-SET,steam_cn_domain,Steam
   - RULE-SET,steamcdn_domain,Steam
   - RULE-SET,steamcdn_ip,Steam,no-resolve
-  - RULE-SET,game_cn_domain,游戏平台
   - RULE-SET,Epic / Domain,游戏平台
   - RULE-SET,EA / Domain,游戏平台
   - RULE-SET,Blizzard / Domain,游戏平台
@@ -433,7 +427,8 @@ rules:
   - RULE-SET,Amazon / Domain,Amazon
   - RULE-SET,Apple / Domain,Apple
   - RULE-SET,Apple / IP,Apple,no-resolve
-  - RULE-SET,Apple-CN / Domain,Apple
+  - RULE-SET,Apple-CN / Domain,国内
+  - RULE-SET,onedrive_domain,国内
   - RULE-SET,Microsoft / Domain,Microsoft
   - RULE-SET,Google / Domain,Google
   - RULE-SET,Google / IP,Google,no-resolve
@@ -448,7 +443,6 @@ rules:
   - RULE-SET,CN / Domain,国内
   - RULE-SET,China / Domain,国内
   - RULE-SET,China / IP,国内
-  - RULE-SET,Private / Domain,国内
   - RULE-SET,Proxy / Domain,国外
   - RULE-SET,geolocation-!cn / Domain,国外
   
@@ -466,20 +460,15 @@ rule-anchor:
 rule-providers:
   # 优先匹配规则
   Test / Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/Test.list"}
-  bank_cn_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-bank-cn.mrs" }
+  Private / ip: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs"}
+  Private / Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}  
+  Proxy / Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/Proxy.list"}
   onedrive_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/onedrive.mrs" }
-  iptv_domain: { <<: *domain, url: "https://raw.githubusercontent.com/Lanlan13-14/Rules/refs/heads/main/rules/Domain/iptv.mrs" }
   steam_cn_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/steam%40cn.mrs" }
   steamcdn_domain: { <<: *domain, url: "https://raw.githubusercontent.com/Lanlan13-14/Rules/refs/heads/main/rules/Domain/Steam-domain.mrs" }
   steamcdn_ip: { <<: *ip, url: "https://raw.githubusercontent.com/Lanlan13-14/Rules/refs/heads/main/rules/IP/steamCDN-ip.mrs" }
   pt_cn_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-pt.mrs" }
   public-tracker_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-public-tracker.mrs" }
-  media_cn_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-media-cn.mrs" }
-  ifast_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/ifast.mrs" }
-  game_cn_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-games%40cn.mrs" }  
-  fakeip_filter_domain: { <<: *domain, url: "https://raw.githubusercontent.com/Lanlan13-14/Rules/refs/heads/main/rules/Domain/fakeip-filter.mrs" }
-  wechat_domain: { <<: *domain, url: "https://raw.githubusercontent.com/Lanlan13-14/Rules/refs/heads/main/rules/Domain/WeChat.mrs" }
-  wechat_asn: { <<: *ip, url: "https://raw.githubusercontent.com/Lanlan13-14/Rules/refs/heads/main/rules/IP/AS132203.mrs" }
 
   # 应用和服务规则
   AI / Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-!cn.mrs"}
@@ -530,6 +519,4 @@ rule-providers:
   CN / Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/Direct.list"}
   China / Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs"}
   China / IP: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs"}
-  Private / Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
-  Proxy / Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/Proxy.list"}
   geolocation-!cn / Domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs"}
