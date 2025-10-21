@@ -169,7 +169,7 @@ dns:
   fake-ip-filter-mode: blacklist
   fake-ip-filter:
   # 规则集：应用 / 媒体 / 国内域 / 私有域等
-    - "rule-set:pt_cn_domain,public-tracker_domain,Apple / Domain,Apple-CN / Domain,CN / Domain,China / Domain,Private / Domain" 
+    - "rule-set:pt_cn_domain,public-tracker_domain,Apple / Domain,Apple-CN / Domain,China / Domain,Private / Domain" 
   # 系统级、局域网、时间同步、联网检测
     - "*.lan"
     - "*.localdomain"
