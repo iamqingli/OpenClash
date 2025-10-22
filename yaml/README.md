@@ -28,16 +28,16 @@ Block分组为拒绝分组，目前只维护了Adobe相关域名
 
 国内：国内分组默认走直连
 
-漏网之鱼：就是所有规则之外的，未被规则命中的域名或IP，默认走直连
+漏网之鱼：所有规则之外的，未被规则命中的域名或IP，默认走直连
 
 请根据使用场景，在面板中自行选择
 
 六、仅内核模式运行需要更改:
 
-  #使用仅内核模式请自行修改yaml文件中以下选项
+# 使用仅内核模式请自行修改yaml文件中以下选项
 
 device: utun
 auto-route: true
-auto-redirect: false
+auto-redirect: true
 auto-detect-interface: true
-strict-route: false
+strict-route: true
