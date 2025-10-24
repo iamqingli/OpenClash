@@ -37,7 +37,7 @@ PProviders: &PProviders
   health-check:
     enable: true
     url: https://www.gstatic.com/generate_204
-    interval: 180
+    interval: 300
   proxy: 🟢 直连
   
 # ========================
@@ -78,9 +78,6 @@ proxy-providers:
 proxies:
   - {name: 🟢 直连, type: direct}
 
-# 用于下载订阅时指定UA
-global-ua: clash.meta
-
 # ========================
 # 端口与控制面板
 # ========================
@@ -88,11 +85,11 @@ port: 7890
 socks-port: 7891
 redir-port: 7892
 mixed-port: 7893
-tproxy-port: 7895
+tproxy-port: 7894
 allow-lan: true
 bind-address: "*"
 mode: rule
-log-level: info
+log-level: warning
 unified-delay: true
 tcp-concurrent: true
 skip-auth-prefixes:
@@ -101,22 +98,21 @@ skip-auth-prefixes:
 
 # 控制面板
 external-controller: 0.0.0.0:9090
-# external-ui: ui
+# external-ui: "/etc/mihomo/ui"
 # external-ui-name: zashboard
-# external-ui-url: https://github.com/Zephyruso/zashboard/releases/latest/download/dist-cdn-fonts.zip
+# external-ui-url: "https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
 secret: "123456"
 
 # 匹配进程
-find-process-mode: 'strict'
+find-process-mode: 'off'
 global-client-fingerprint: chrome
 keep-alive-idle: 600
-keep-alive-interval: 30
+keep-alive-interval: 15
 
 # 策略组选择和fakeip缓存
 profile:
   store-selected: true
   store-fake-ip: true
-  store-path: ./storage
 
 # ========================
 # 流量嗅探
@@ -142,12 +138,11 @@ sniffer:
 dns:
   enable: true
   listen: 0.0.0.0:1053
-  prefer-h3: false # 是否开启 DoH 支持 HTTP/3，将并发尝试
-  respect-rules: false
+  respect-rules: true
   ipv6: true
   # 模式切换 redir-host / fake-ip
   enhanced-mode: fake-ip
-  fake-ip-range: 198.18.0.1/16
+  fake-ip-range: 28.0.0.1/8
   # 模式切换 whitelist/blacklist,黑名单模式表示如果匹配成功则不返回 Fake-IP, 白名单模式时只有匹配成功才返回 Fake-IP
   fake-ip-filter-mode: blacklist
   fake-ip-filter:
@@ -163,14 +158,18 @@ dns:
     - "*.local"
     - "*.home.arpa"
     - "*.direct"
-  # 使用Meta版本Clash（支持rule-set）不建议启用
-    #- geosite:cn
-    #- geoip:cn
+    - "+.msftconnecttest.com"
+    - "+.msftncsi.com"
+    - "time.*.com"
+    - "+.market.xiaomi.com"
+  default-nameserver:
+    - 223.5.5.5
+  proxy-server-nameserver:
+    - 119.29.29.29
   # namesever尽量用运营商提供的DNS
   nameserver:
     - 223.5.5.5
     - 119.29.29.29
-    - 114.114.114.114
 
 # ========================
 # 入站代理模式
@@ -178,15 +177,14 @@ dns:
 tun:
   enable: true
   # system/gvisor/mixed
-  stack: gvisor
+  stack: mixed
   dns-hijack: ["any:53", "tcp://any:53"]
-  #使用仅内核模式请自行修改false选项为true，并启用device: utun
-  # device: utun
-  endpoint-independent-nat: true
+  #使用nikki，混入全部不修改的情况，开启接口指定为nikki
+  #使用仅内核自行修改下面三项为true
+  #device: nikki
   auto-route: false
   auto-redirect: false
   auto-detect-interface: false
-  strict-route: false
   
 # ========================
 # 策略组定义
