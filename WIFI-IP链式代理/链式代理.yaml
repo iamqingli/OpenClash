@@ -119,6 +119,7 @@ skip-auth-prefixes:
   - ::1/128
 
 # 控制面板
+# 跑裸核用户请自行去掉下方控制面板模块的注释。
 external-controller: 0.0.0.0:9090
 # external-ui: "/etc/mihomo/ui"
 # external-ui-name: zashboard
