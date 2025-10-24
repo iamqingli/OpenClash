@@ -34,10 +34,8 @@ Block分组为拒绝分组，目前只维护了Adobe相关域名
 
 六、仅内核模式运行需要更改:
 
-# 使用仅内核模式请自行修改yaml文件中以下选项
-
-device: utun
-auto-route: true
-auto-redirect: true
-auto-detect-interface: true
-strict-route: true
+  #使用仅内核自行修改下面三项为true
+  #device: nikki
+  auto-route: false
+  auto-redirect: false
+  auto-detect-interface: false
