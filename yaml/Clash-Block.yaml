@@ -392,13 +392,13 @@ rules:
   
   # 应用和服务规则
   - RULE-SET,AI / Domain,AI平台
-  - RULE-SET,Talkatone / Domain,国外应用
   - RULE-SET,Github / Domain,GitHub
   - RULE-SET,Telegram / Domain,Telegram
   - RULE-SET,Telegram / IP,Telegram,no-resolve
   - RULE-SET,Twitter / Domain,国外应用
   - RULE-SET,WhatsApp / Domain,国外应用
   - RULE-SET,Facebook / Domain,国外应用
+  - RULE-SET,Talkatone / Domain,国外应用
   
   # 流媒体规则
   - RULE-SET,Youtube / Domain,YouTube
