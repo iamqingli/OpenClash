@@ -165,11 +165,7 @@ dns:
   fake-ip-filter-mode: blacklist
   fake-ip-filter:
   # 规则集：应用 / 媒体 / 国内域 / 私有域等
-    - "rule-set:China / Domain,Private / Domain" 
-    - "*.douyin.com"
-    - "*.snssdk.com"
-    - "*.amemv.com"
-    - "*.douyincdn.com"
+    - "rule-set:pt_cn_domain,public-tracker_domain,China / Domain,Private / Domain" 
   # 系统级、局域网、时间同步、联网检测
     - "+.msftconnecttest.com"
     - "+.msftncsi.com"
