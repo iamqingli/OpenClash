@@ -149,6 +149,10 @@ dns:
   fake-ip-filter:
   # 规则集：应用 / 媒体 / 国内域 / 私有域等
     - "rule-set:pt_cn_domain,public-tracker_domain,Apple / Domain,Apple-CN / Domain,China / Domain,Private / Domain" 
+    - "*.douyin.com"
+    - "*.snssdk.com"
+    - "*.amemv.com"
+    - "*.douyincdn.com"
   # 系统级、局域网、时间同步、联网检测
     - "+.msftconnecttest.com"
     - "+.msftncsi.com"
