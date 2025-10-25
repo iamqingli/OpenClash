@@ -99,7 +99,7 @@ skip-auth-prefixes:
 # 控制面板
 # 跑裸核用户请自行去掉下方控制面板模块的注释。
 external-controller: 0.0.0.0:9090
-# external-ui: "/etc/mihomo/ui"
+# external-ui: ui
 # external-ui-name: zashboard
 # external-ui-url: "https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
 secret: "123456"
