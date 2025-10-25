@@ -165,7 +165,7 @@ dns:
   fake-ip-filter-mode: blacklist
   fake-ip-filter:
   # 规则集：应用 / 媒体 / 国内域 / 私有域等
-    - "rule-set:pt_cn_domain,public-tracker_domain,Apple / Domain,Apple-CN / Domain,China / Domain,Private / Domain" 
+    - "rule-set:China / Domain,Private / Domain" 
     - "*.douyin.com"
     - "*.snssdk.com"
     - "*.amemv.com"
