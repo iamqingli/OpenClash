@@ -367,7 +367,7 @@ rules:
   - RULE-SET,AI / Domain,AI平台
   - RULE-SET,Github / Domain,GitHub
   - RULE-SET,Telegram / Domain,Telegram
-  - RULE-SET,Telegram / IP,Telegram,no-resolve
+  - RULE-SET,Telegram / IP,Telegram
   - RULE-SET,Twitter / Domain,国外应用
   - RULE-SET,WhatsApp / Domain,国外应用
   - RULE-SET,Facebook / Domain,国外应用
@@ -377,7 +377,7 @@ rules:
   - RULE-SET,Youtube / Domain,YouTube
   - RULE-SET,TikTok / Domain,TikTok
   - RULE-SET,Netflix / Domain,Netflix
-  - RULE-SET,Netflix / IP,Netflix,no-resolve
+  - RULE-SET,Netflix / IP,Netflix
   - RULE-SET,Disney / Domain,流媒体
   - RULE-SET,HBO / Domain,流媒体
   - RULE-SET,Spotify / Domain,流媒体
@@ -387,7 +387,7 @@ rules:
   - RULE-SET,Steam / Domain,Steam
   - RULE-SET,steam_cn_domain,Steam
   - RULE-SET,steamcdn_domain,Steam
-  - RULE-SET,steamcdn_ip,Steam,no-resolve
+  - RULE-SET,steamcdn_ip,Steam
   - RULE-SET,Epic / Domain,游戏平台
   - RULE-SET,EA / Domain,游戏平台
   - RULE-SET,Blizzard / Domain,游戏平台
@@ -398,12 +398,12 @@ rules:
   # 公司和服务规则
   - RULE-SET,Amazon / Domain,Amazon
   - RULE-SET,Apple / Domain,Apple
-  - RULE-SET,Apple / IP,Apple,no-resolve
+  - RULE-SET,Apple / IP,Apple
   - RULE-SET,Apple-CN / Domain,国内
   - RULE-SET,onedrive_domain,国内
   - RULE-SET,Microsoft / Domain,Microsoft
   - RULE-SET,Google / Domain,Google
-  - RULE-SET,Google / IP,Google,no-resolve
+  - RULE-SET,Google / IP,Google
   
   # 加密货币规则
   - RULE-SET,OKX / Domain,加密货币
