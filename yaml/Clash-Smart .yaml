@@ -96,9 +96,7 @@ mode: rule
 log-level: warning
 unified-delay: true
 tcp-concurrent: true
-skip-auth-prefixes:
-  - 127.0.0.1/8
-  - ::1/128
+# interface-name: enp6s18
 
 # 控制面板
 # 跑裸核用户请自行去掉下方控制面板模块的注释。
