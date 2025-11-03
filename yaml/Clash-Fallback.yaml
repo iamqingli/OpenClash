@@ -146,16 +146,13 @@ dns:
   fake-ip-filter-mode: blacklist
   fake-ip-filter:
   # 规则集：应用 / 媒体 / 国内域 / 私有域等
-    - "rule-set:pt_cn_domain,public-tracker_domain,China / Domain,Private / Domain" 
-  # 系统级、局域网、时间同步、联网检测
-    - "+.msftconnecttest.com"
-    - "+.msftncsi.com"
-    - "time.*.com"
-    - "+.market.xiaomi.com"
+    - "rule-set:fakeip_filter_domain,pt_cn_domain,public-tracker_domain,China / Domain,Private / Domain" 
   default-nameserver:
     - 223.5.5.5
   proxy-server-nameserver:
     - 119.29.29.29
+  direct-nameserver:
+    - https://doh.pub/dns-query
   # namesever尽量用运营商提供的DNS
   nameserver:
     - 223.5.5.5
@@ -430,6 +427,7 @@ rule-anchor:
 
 rule-providers:
   # 优先匹配规则
+  fakeip_filter_domain: {<<: *domain, url: "https://raw.githubusercontent.com/Lanlan13-14/Rules/refs/heads/main/rules/Domain/fakeip-filter.mrs"}
   Test / Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/Test.list"}
   Private / ip: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs"}
   Private / Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}  
