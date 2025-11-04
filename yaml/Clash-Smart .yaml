@@ -17,9 +17,10 @@ Proxy_first: &Proxy_first
     - 香港-故转
     - 日本-故转
     - 美国-故转
+    - 德国-故转
     - 台湾-故转
     - 新加坡-故转
-    - 其他-故转
+    - 其他节点-故转
     - 🟢 直连
 
 Direct_first: &Direct_first
@@ -31,9 +32,10 @@ Direct_first: &Direct_first
     - 香港-故转
     - 日本-故转
     - 美国-故转
+    - 德国-故转
     - 台湾-故转
     - 新加坡-故转
-    - 其他-故转
+    - 其他节点-故转
 
 PProviders: &PProviders
   type: http
