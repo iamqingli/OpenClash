@@ -52,7 +52,6 @@ PProviders: &PProviders
 proxy-providers:
   订阅地址1:
     <<: *PProviders
-    proxy: "🟢 直连"
     url: "订阅链接1"
     override:
       skip-cert-verify: true
@@ -61,7 +60,6 @@ proxy-providers:
   
   订阅地址2:
     <<: *PProviders
-    proxy: "🟢 直连"
     url: "订阅链接2"
     override:
       skip-cert-verify: true
@@ -70,7 +68,6 @@ proxy-providers:
   
   订阅地址3:
     <<: *PProviders
-    proxy: "🟢 直连"
     url: "订阅链接3"
     override:
       skip-cert-verify: true
@@ -159,6 +156,7 @@ dns:
     - https://9.9.9.9/dns-query
   direct-nameserver:
     - https://doh.pub/dns-query
+    - https://223.5.5.5/dns-query
   # namesever尽量用运营商提供的DNS
   nameserver:
     - 223.5.5.5
@@ -386,7 +384,7 @@ rules:
   - RULE-SET,Private / Domain,国内
   - RULE-SET,Direct / Domain,国内
   - RULE-SET,pt_cn_domain,国内
-  - RULE-SET,public-tracker_domain,国内
+  - RULE-SET,public-tracker_domain,国外
   
   # 应用和服务规则
   - RULE-SET,AI / Domain,AI平台
