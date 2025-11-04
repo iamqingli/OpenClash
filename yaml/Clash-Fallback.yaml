@@ -309,6 +309,28 @@ proxy-groups:
     filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"
     icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/United_States.png"
 
+  # 德国组
+  - name: 德国-故转
+    type: fallback
+    interval: 60
+    lazy: true
+    proxies:
+      - 德国-手动
+      - 德国-自动
+    icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Germany.png"
+  - name: 德国-手动
+    type: select
+    include-all: true
+    filter: "(?=.*(德|德国|DE|Frankfurt|法兰克福|慕尼黑|柏林|汉堡|杜塞尔多夫|🇩🇪|Germany)).*$"
+    icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Germany.png"
+  - name: 德国-自动
+    type: url-test 
+    include-all: true
+    tolerance: 20
+    interval: 300
+    filter: "(?=.*(德|德国|DE|Frankfurt|法兰克福|慕尼黑|柏林|汉堡|杜塞尔多夫|🇩🇪|Germany)).*$"
+    icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Germany.png"
+
   # 新加坡组
   - name: 新加坡-故转
     type: fallback
@@ -331,27 +353,26 @@ proxy-groups:
     filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$"
     icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Singapore.png"
 
-  # 其他组
-  - name: 其他-故转
+  # 其他节点组
+  - name: 其他节点-故转
     type: fallback
     interval: 60
     lazy: true
     proxies:
-      - 其他-手动
-      - 其他-自动
+      - 其他节点-手动
+      - 其他节点-自动
     icon: "https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_1280.png"
-  - name: 其他-手动
+  - name: 其他节点-手动
     type: select
     include-all: true
-    filter: "^((?!(🟢 直连|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸)).)*$"
+    filter: "^((?!(🟢 直连|🔴 拒绝|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|德|德国|DE|Frankfurt|法兰克福|慕尼黑|柏林|汉堡|杜塞尔多夫|🇩🇪|Germany)).)*$"
     icon: "https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_1280.png"
-  - name: 其他-自动
+  - name: 其他节点-自动
     type: url-test
     include-all: true
     tolerance: 20
     interval: 300
-    filter: "^((?!(🟢 直连|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸)).)*$"
-    icon: "https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_1280.png"
+    filter: "^((?!(🟢 直连|🔴 拒绝|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|德|德国|DE|Frankfurt|法兰克福|慕尼黑|柏林|汉堡|杜塞尔多夫|🇩🇪|Germany)).)*$"
 
 # ========================
 # 规则引擎（rules）
