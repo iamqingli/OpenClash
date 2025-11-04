@@ -158,9 +158,8 @@ dns:
     - 119.29.29.29
     - 114.114.114.114
   proxy-server-nameserver:
-    - 223.5.5.5
-    - 119.29.29.29
-    - 114.114.114.114
+    - https://1.1.1.1/dns-query
+    - https://9.9.9.9/dns-query
   direct-nameserver:
     - https://doh.pub/dns-query
   # namesever尽量用运营商提供的DNS
@@ -403,7 +402,6 @@ proxy-groups:
 rules:
   # 优先级高的规则
   - RULE-SET,Test / Domain,测试服务
-  - RULE-SET,Block / Domain,拒绝
   - RULE-SET,Private / ip,国内,no-resolve
   - RULE-SET,Private / Domain,国内
   - RULE-SET,Direct / Domain,国内
@@ -460,7 +458,7 @@ rules:
   
   # 国内外分流规则
   - RULE-SET,China / Domain,国内
-  - RULE-SET,China / IP,国内
+  - RULE-SET,China / IP,国内,no-resolve
   - RULE-SET,Proxy / Domain,国外
   - RULE-SET,geolocation-!cn / Domain,国外
   
@@ -498,7 +496,6 @@ rule-providers:
   Twitter / Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/x.mrs"}
   WhatsApp / Domain: {<<: *class, url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Whatsapp/Whatsapp.list"}
   Facebook / Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/facebook.mrs"}
-  Block / Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/Block.list"}
   
   # 公司和服务规则
   Amazon / Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/amazon.mrs"}
