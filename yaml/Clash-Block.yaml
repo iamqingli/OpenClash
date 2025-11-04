@@ -395,12 +395,13 @@ proxy-groups:
     
 # ========================
 # 规则引擎（rules）
+# 此规则部分没有做防泄露处理，因为弊严重大于利！
 # ========================
 rules:
   # 优先级高的规则
   - RULE-SET,Test / Domain,测试服务
   - RULE-SET,Block / Domain,拒绝
-  - RULE-SET,Private / ip,国内,no-resolve
+  - RULE-SET,Private / ip,国内
   - RULE-SET,Private / Domain,国内
   - RULE-SET,Direct / Domain,国内
   - RULE-SET,pt_cn_domain,国内
