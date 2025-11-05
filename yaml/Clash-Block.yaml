@@ -169,15 +169,12 @@ dns:
     - 223.5.5.5
     - 119.29.29.29
     - 114.114.114.114
-  proxy-server-nameserver:
-    - 223.5.5.5
-    - 119.29.29.29
-    - 114.114.114.114
-  # namesever尽量用运营商提供的DNS
-  nameserver:
-    - 223.5.5.5
-    - 119.29.29.29
-    - 114.114.114.114
+  nameserver:    # namesever尽量用运营商提供的DNS
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+  proxy-server-nameserver:   #代理节点域名解析服务器，仅用于解析代理节点的域名
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
 
 # ========================
 # 入站代理模式
