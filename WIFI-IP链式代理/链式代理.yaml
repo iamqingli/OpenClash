@@ -194,7 +194,7 @@ tun:
   dns-hijack: ["any:53", "tcp://any:53"]
   #使用nikki，混入全部不修改的情况，开启接口指定为nikki
   #使用仅内核自行修改下面三项为true
-  device: nikki
+  # device: mihomo
   auto-route: false
   auto-redirect: false
   auto-detect-interface: false
