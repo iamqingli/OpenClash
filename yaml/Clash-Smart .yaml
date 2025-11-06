@@ -425,7 +425,6 @@ rules:
   - RULE-SET,Steam / Domain,游戏平台
   - RULE-SET,steam_cn_domain,游戏平台
   - RULE-SET,steamcdn_domain,游戏平台
-  - RULE-SET,steamcdn_ip,游戏平台
   - RULE-SET,Epic / Domain,游戏平台
   - RULE-SET,EA / Domain,游戏平台
   - RULE-SET,Blizzard / Domain,游戏平台
@@ -442,6 +441,7 @@ rules:
   - RULE-SET,Google / IP,Google 
   - RULE-SET,Netflix / IP,Netflix 
   - RULE-SET,Telegram / IP,Telegram
+  - RULE-SET,steamcdn_ip,游戏平台
   - RULE-SET,geolocation-!cn / Domain,国外
   - RULE-SET,China / Domain,国内
   - RULE-SET,China / IP,国内 
