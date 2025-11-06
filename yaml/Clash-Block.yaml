@@ -196,19 +196,17 @@ tun:
 # ========================
 proxy-groups:
   - {name: AI平台, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Chatgpt_A.png"}
+  - {name: Google, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2016/04/13/14/27/google-chrome-1326908_1280.png"}
+  - {name: Microsoft, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2021/10/17/14/47/windows-7-logo-6718525_1280.png"}
   - {name: GitHub, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Github_A.png"}
-  - {name: Amazon, <<: *Direct_first, icon: "https://cdn.pixabay.com/photo/2013/07/12/15/51/shopping-150458_1280.png"}
+  - {name: PayPal, <<: *Direct_first, icon: "https://cdn.pixabay.com/photo/2013/07/12/15/51/shopping-150458_1280.png"}
   - {name: Telegram, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Telegram_A.png"}
   - {name: 流媒体, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Disney%2B_A.png"}
   - {name: TikTok, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Tiktok_A.png"}
   - {name: Netflix, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Netflix_A.png"}
   - {name: YouTube, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2018/05/27/22/48/social-3434840_1280.png"}
-  - {name: Steam, <<: *Direct_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Steam_A.png"}
   - {name: 游戏平台, <<: *Direct_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Epicgames_A.png"}
-  - {name: Google, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2016/04/13/14/27/google-chrome-1326908_1280.png"}
-  - {name: Microsoft, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2021/10/17/14/47/windows-7-logo-6718525_1280.png"}
-  - {name: Apple, <<: *Direct_first, icon: "https://cdn.pixabay.com/photo/2016/09/27/19/54/apple-1699197_1280.png"}
-  - {name: 国外应用, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Discord_A.png"}
+  - {name: 海外应用, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Discord_A.png"}
   - {name: 测试服务, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Speedtest_A.png"}
   - {name: 加密货币, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2017/03/12/02/57/bitcoin-2136339_1280.png"}
   - {name: 国内, <<: *Direct_first, icon: "https://cdn.pixabay.com/photo/2015/04/22/23/18/pagoda-735491_960_720.png"}
@@ -398,6 +396,7 @@ rules:
   - RULE-SET,Private / ip,国内
   - RULE-SET,Private / Domain,国内
   - RULE-SET,Direct / Domain,国内
+  - RULE-SET,Proxy / Domain,国外
   - RULE-SET,pt_cn_domain,国内
   - RULE-SET,public-tracker_domain,国外
   
@@ -406,10 +405,10 @@ rules:
   - RULE-SET,Github / Domain,GitHub
   - RULE-SET,Telegram / Domain,Telegram
   - RULE-SET,Telegram / IP,Telegram
-  - RULE-SET,Twitter / Domain,国外应用
-  - RULE-SET,WhatsApp / Domain,国外应用
-  - RULE-SET,Facebook / Domain,国外应用
-  - RULE-SET,Talkatone / Domain,国外应用
+  - RULE-SET,Twitter / Domain,海外应用
+  - RULE-SET,WhatsApp / Domain,海外应用
+  - RULE-SET,Facebook / Domain,海外应用
+  - RULE-SET,Talkatone / Domain,海外应用
   
   # 流媒体规则
   - RULE-SET,Youtube / Domain,YouTube
@@ -421,11 +420,11 @@ rules:
   - RULE-SET,Spotify / Domain,流媒体
   
   # 游戏规则
-  - RULE-SET,Xbox / Domain,Microsoft
-  - RULE-SET,Steam / Domain,Steam
-  - RULE-SET,steam_cn_domain,Steam
-  - RULE-SET,steamcdn_domain,Steam
-  - RULE-SET,steamcdn_ip,Steam
+  - RULE-SET,Xbox / Domain,游戏平台
+  - RULE-SET,Steam / Domain,游戏平台
+  - RULE-SET,steam_cn_domain,游戏平台
+  - RULE-SET,steamcdn_domain,游戏平台
+  - RULE-SET,steamcdn_ip,游戏平台
   - RULE-SET,Epic / Domain,游戏平台
   - RULE-SET,EA / Domain,游戏平台
   - RULE-SET,Blizzard / Domain,游戏平台
@@ -434,9 +433,9 @@ rules:
   - RULE-SET,Nintend / Domain,游戏平台
   
   # 公司和服务规则
-  - RULE-SET,Amazon / Domain,Amazon
-  - RULE-SET,Apple / Domain,Apple
-  - RULE-SET,Apple / IP,Apple
+  - RULE-SET,PayPal / Domain,PayPal
+  - RULE-SET,Apple / Domain,国内
+  - RULE-SET,Apple / IP,国内
   - RULE-SET,Apple-CN / Domain,国内
   - RULE-SET,onedrive_domain,国内
   - RULE-SET,Microsoft / Domain,Microsoft
@@ -450,10 +449,9 @@ rules:
   - RULE-SET,Other / Domain,加密货币
   
   # 国内外分流规则
+  - RULE-SET,geolocation-!cn / Domain,国外
   - RULE-SET,China / Domain,国内
   - RULE-SET,China / IP,国内
-  - RULE-SET,Proxy / Domain,国外
-  - RULE-SET,geolocation-!cn / Domain,国外
   
   # 兜底规则
   - MATCH,漏网之鱼
@@ -492,7 +490,7 @@ rule-providers:
   Block / Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/Block.list"}
   
   # 公司和服务规则
-  Amazon / Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/amazon.mrs"}
+  PayPal / Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/paypal.mrs"}
   Apple-CN / Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple-cn.mrs"}
   Apple / Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple.mrs"} 
   Apple / IP: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geoip/apple.mrs"}
