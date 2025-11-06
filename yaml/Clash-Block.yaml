@@ -407,7 +407,6 @@ rules:
   - RULE-SET,onedrive_domain,国内
   - RULE-SET,Microsoft_Domain,Microsoft
   - RULE-SET,Apple_Domain,国内
-  - RULE-SET,Apple-CN_Domain,国内
   - RULE-SET,PayPal_Domain,PayPal
   - RULE-SET,Telegram_Domain,Telegram
   - RULE-SET,Twitter_Domain,海外应用
@@ -478,7 +477,6 @@ rule-providers:
   Block_Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/Block.list"}
   # 公司和服务规则
   PayPal_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/paypal.mrs"}
-  Apple-CN_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple-cn.mrs"}
   Apple_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple.mrs"} 
   Apple_IP: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geoip/apple.mrs"}
   Microsoft_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.mrs"}
