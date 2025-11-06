@@ -439,7 +439,6 @@ rules:
   - RULE-SET,Google_IP,Google 
   - RULE-SET,Netflix_IP,Netflix 
   - RULE-SET,Telegram_IP,Telegram
-  - RULE-SET,steamcdn_ip,游戏平台
   - RULE-SET,geolocation-!cn_Domain,国外
   - RULE-SET,Proxy_Domain,国外
   - RULE-SET,China_Domain,国内
