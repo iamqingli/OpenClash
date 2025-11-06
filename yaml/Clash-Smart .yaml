@@ -192,7 +192,7 @@ proxy-groups:
   - {name: YouTube, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2018/05/27/22/48/social-3434840_1280.png"}
   - {name: 游戏平台, <<: *Direct_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Steam_A.png"}
   - {name: 海外应用, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Discord_A.png"}
-  - {name: 测试服务, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Speedtest_A.png"}
+  - {name: 网络检测, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Speedtest_A.png"}
   - {name: 加密货币, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2017/03/12/02/57/bitcoin-2136339_1280.png"}
   - {name: 国内, <<: *Direct_first, icon: "https://cdn.pixabay.com/photo/2015/04/22/23/18/pagoda-735491_960_720.png"}
   - {name: 国外, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Shadowrocket_A.png"}
@@ -392,7 +392,7 @@ proxy-groups:
 # ========================
 rules:
   # 优先级高的规则
-  - RULE-SET,Test / Domain,测试服务
+  - RULE-SET,Test / Domain,网络检测
   - RULE-SET,Private / ip,国内
   - RULE-SET,Private / Domain,国内
   - RULE-SET,Direct / Domain,国内
