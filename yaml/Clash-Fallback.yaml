@@ -180,7 +180,7 @@ proxy-groups:
   - {name: AI平台, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Chatgpt_A.png"}
   - {name: Google, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2016/04/13/14/27/google-chrome-1326908_1280.png"}
   - {name: Microsoft, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2021/10/17/14/47/windows-7-logo-6718525_1280.png"}
-  - {name: PayPal, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2021/09/23/06/59/paypal-6648897_1280.jpg"}
+  - {name: PayPal, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2024/04/24/08/09/credit-8716939_960_720.png"}
   - {name: GitHub, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Github_A.png"}
   - {name: Telegram, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Telegram_A.png"}
   - {name: 流媒体, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Disney%2B_A.png"}
@@ -189,8 +189,8 @@ proxy-groups:
   - {name: YouTube, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2018/05/27/22/48/social-3434840_1280.png"}
   - {name: 游戏平台, <<: *Direct_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Steam_A.png"}
   - {name: 海外应用, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Discord_A.png"}
+  - {name: 加密货币, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2015/04/14/08/09/currency-721803_1280.png"}
   - {name: 网络检测, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Speedtest_A.png"}
-  - {name: 加密货币, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2017/03/12/02/57/bitcoin-2136339_1280.png"}
   - {name: 国内, <<: *Direct_first, icon: "https://cdn.pixabay.com/photo/2015/04/22/23/18/pagoda-735491_960_720.png"}
   - {name: 国外, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Shadowrocket_A.png"}
   - {name: 漏网之鱼, <<: *Direct_first, icon: "https://cdn.pixabay.com/photo/2017/02/16/10/20/target-2070972_1280.png"}
