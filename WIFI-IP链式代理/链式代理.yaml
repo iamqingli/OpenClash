@@ -456,8 +456,6 @@ rules:
   # 游戏规则
   - RULE-SET,Xbox_Domain,游戏平台
   - RULE-SET,Steam_Domain,游戏平台
-  - RULE-SET,steam_cn_domain,游戏平台
-  - RULE-SET,steamcdn_domain,游戏平台
   - RULE-SET,Epic_Domain,游戏平台
   - RULE-SET,EA_Domain,游戏平台
   - RULE-SET,Blizzard_Domain,游戏平台
@@ -474,7 +472,6 @@ rules:
   - RULE-SET,Google_IP,Google 
   - RULE-SET,Netflix_IP,Netflix 
   - RULE-SET,Telegram_IP,Telegram
-  - RULE-SET,steamcdn_ip,游戏平台
   - RULE-SET,geolocation-!cn_Domain,国外 
   - RULE-SET,China_Domain,国内
   - RULE-SET,China_IP,国内
@@ -498,9 +495,6 @@ rule-providers:
   Private_ip: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs"}
   Private_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}  
   onedrive_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/onedrive.mrs" }
-  steam_cn_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/steam%40cn.mrs" }
-  steamcdn_domain: { <<: *domain, url: "https://raw.githubusercontent.com/Lanlan13-14/Rules/refs/heads/main/rules/Domain/Steam-domain.mrs" }
-  steamcdn_ip: { <<: *ip, url: "https://raw.githubusercontent.com/Lanlan13-14/Rules/refs/heads/main/rules/IP/steamCDN-ip.mrs" }
   pt_cn_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-pt.mrs" }
   public-tracker_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-public-tracker.mrs" }
   # 应用和服务规则
