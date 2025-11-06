@@ -169,7 +169,11 @@ dns:
   fake-ip-filter-mode: blacklist
   fake-ip-filter:
   # 规则集：应用_媒体_国内域_私有域等
-    - "rule-set:fakeip_filter_domain,pt_cn_domain,public-tracker_domain,China_Domain,Private_Domain" 
+    - "rule-set:fakeip_filter_domain"
+    - "rule-set:pt_cn_domain"
+    - "rule-set:public-tracker_domain"
+    - "rule-set:China_Domain"
+    - "rule-set:Private_Domain"
   default-nameserver:
     - 223.5.5.5
     - 119.29.29.29
