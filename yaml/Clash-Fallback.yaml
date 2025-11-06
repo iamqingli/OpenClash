@@ -180,8 +180,8 @@ proxy-groups:
   - {name: AI平台, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Chatgpt_A.png"}
   - {name: Google, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2016/04/13/14/27/google-chrome-1326908_1280.png"}
   - {name: Microsoft, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2021/10/17/14/47/windows-7-logo-6718525_1280.png"}
-  - {name: GitHub, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Github_A.png"}
   - {name: PayPal, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2021/09/23/06/59/paypal-6648897_1280.jpg"}
+  - {name: GitHub, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Github_A.png"}
   - {name: Telegram, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Telegram_A.png"}
   - {name: 流媒体, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Disney%2B_A.png"}
   - {name: TikTok, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Tiktok_A.png"}
