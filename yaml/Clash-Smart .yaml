@@ -149,7 +149,11 @@ dns:
   # 模式切换 whitelist/blacklist,黑名单模式表示如果匹配成功则不返回 Fake-IP, 白名单模式时只有匹配成功才返回 Fake-IP
   fake-ip-filter-mode: blacklist
   fake-ip-filter:  # 规则集：应用_媒体_国内域_私有域等
-    - "rule-set:fakeip_filter_domain,pt_cn_domain,public-tracker_domain,China_Domain,Private_Domain" 
+    - "rule-set:fakeip_filter_domain"
+    - "rule-set:pt_cn_domain"
+    - "rule-set:public-tracker_domain"
+    - "rule-set:China_Domain"
+    - "rule-set:Private_Domain"
   default-nameserver:
     - 223.5.5.5
     - 119.29.29.29
