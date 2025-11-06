@@ -396,7 +396,6 @@ proxy-groups:
 rules:
   # 优先级高的规则
   - RULE-SET,Test_Domain,网络检测
-  - RULE-SET,Block_Domain,拒绝
   - RULE-SET,Private_ip,国内
   - RULE-SET,Private_Domain,国内
   - RULE-SET,Direct_Domain,国内
@@ -424,8 +423,6 @@ rules:
   # 游戏规则
   - RULE-SET,Xbox_Domain,游戏平台
   - RULE-SET,Steam_Domain,游戏平台
-  - RULE-SET,steam_cn_domain,游戏平台
-  - RULE-SET,steamcdn_domain,游戏平台
   - RULE-SET,Epic_Domain,游戏平台
   - RULE-SET,EA_Domain,游戏平台
   - RULE-SET,Blizzard_Domain,游戏平台
@@ -442,12 +439,11 @@ rules:
   - RULE-SET,Google_IP,Google 
   - RULE-SET,Netflix_IP,Netflix 
   - RULE-SET,Telegram_IP,Telegram
-  - RULE-SET,steamcdn_ip,游戏平台
-  - RULE-SET,geolocation-!cn_Domain,国外
+  - RULE-SET,geolocation-!cn_Domain,国外 
   - RULE-SET,China_Domain,国内
   - RULE-SET,China_IP,国内
   - RULE-SET,pt_cn_domain,国内
-  - RULE-SET,public-tracker_domain,国外
+  - RULE-SET,public-tracker_domain,国外 
   # 兜底规则
   - MATCH,漏网之鱼
 
@@ -466,9 +462,6 @@ rule-providers:
   Private_ip: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs"}
   Private_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}  
   onedrive_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/onedrive.mrs" }
-  steam_cn_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/steam%40cn.mrs" }
-  steamcdn_domain: { <<: *domain, url: "https://raw.githubusercontent.com/Lanlan13-14/Rules/refs/heads/main/rules/Domain/Steam-domain.mrs" }
-  steamcdn_ip: { <<: *ip, url: "https://raw.githubusercontent.com/Lanlan13-14/Rules/refs/heads/main/rules/IP/steamCDN-ip.mrs" }
   pt_cn_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-pt.mrs" }
   public-tracker_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-public-tracker.mrs" }
   # 应用和服务规则
@@ -480,7 +473,6 @@ rule-providers:
   Twitter_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/x.mrs"}
   WhatsApp_Domain: {<<: *class, url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Whatsapp/Whatsapp.list"}
   Facebook_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/facebook.mrs"}
-  Block_Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/Block.list"}
   # 公司和服务规则
   PayPal_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/paypal.mrs"}
   Apple-CN_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple-cn.mrs"}
@@ -488,12 +480,12 @@ rule-providers:
   Apple_IP: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geoip/apple.mrs"}
   Microsoft_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.mrs"}
   Google_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs"}
-  Google_IP: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs"}  
+  Google_IP: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs"}
   # 加密货币规则
   OKX_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/okx.mrs"}
   Bybit_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/bybit.mrs"}
   Binance_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/binance.mrs"}
-  Other_Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/Other.list"} 
+  Other_Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/Other.list"}
   # 流媒体规则
   Youtube_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs"}
   TikTok_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.mrs"}
