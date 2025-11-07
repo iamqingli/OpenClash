@@ -212,7 +212,6 @@ proxy-groups:
   - {name: 游戏平台, <<: *Direct_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Steam_A.png"}
   - {name: 海外应用, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Discord_A.png"}
   - {name: 加密货币, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2015/04/14/08/09/currency-721803_1280.png"}
-  - {name: 网络检测, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Speedtest_A.png"}
   - {name: 国内, <<: *Direct_first, icon: "https://cdn.pixabay.com/photo/2015/04/22/23/18/pagoda-735491_960_720.png"}
   - {name: 国外, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Shadowrocket_A.png"}
   - {name: 拒绝, <<: *Reject_first, icon: "https://cdn.pixabay.com/photo/2024/08/09/06/31/ai-generated-8956182_1280.png"}
@@ -395,7 +394,6 @@ proxy-groups:
 # ========================
 rules:
   # 优先级高的规则
-  - RULE-SET,Test_Domain,网络检测
   - RULE-SET,Block_Domain,拒绝
   - RULE-SET,Private_ip,国内
   - RULE-SET,Private_Domain,国内
@@ -458,7 +456,6 @@ rule-anchor:
 rule-providers:
   # 优先匹配规则
   fakeip_filter_domain: {<<: *domain, url: "https://raw.githubusercontent.com/Lanlan13-14/Rules/refs/heads/main/rules/Domain/fakeip-filter.mrs"}
-  Test_Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/Test.list"}
   Private_ip: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs"}
   Private_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}  
   onedrive_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/onedrive.mrs" }
