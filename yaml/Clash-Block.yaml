@@ -172,6 +172,7 @@ proxy-groups:
 # ========================
 # 节点选择组
 # ========================
+# 全局
 - {name: 所有-手动, type: select, include-all: true, filter: "^((?!(🟢 直连|🔴 拒绝)).)*$", icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/direct.png"}
 - {name: 所有-自动, type: url-test, include-all: true, tolerance: 20, interval: 300, url: "http://www.gstatic.com/generate_204", lazy: true, filter: "^((?!(🟢 直连|🔴 拒绝)).)*$", icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/final.png"}
 # 香港
