@@ -23,8 +23,8 @@ proxy-providers:
 
 # 基础代理
 proxies:
-  - {name: 🟢 直连, type: direct}
-  - {name: 🔴 拒绝, type: reject}
+- {name: 🟢 直连, type: select, proxies: [DIRECT]}
+- {name: 🔴 拒绝, type: select, proxies: [REJECT]}
 
 # ========================
 # 端口与控制面板
