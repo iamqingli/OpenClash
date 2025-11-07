@@ -413,7 +413,7 @@ rules:
   - RULE-SET,OKX_Domain,加密货币
   - RULE-SET,Bybit_Domain,加密货币
   - RULE-SET,Binance_Domain,加密货币
-  - RULE-SET,Other_Domain,加密货币  
+  - RULE-SET,OtherPay_Domain,加密货币  
   # 国内外分流规则
   - RULE-SET,Apple_IP,国内
   - RULE-SET,Google_IP,Google 
@@ -464,7 +464,7 @@ rule-providers:
   OKX_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/okx.mrs"}
   Bybit_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/bybit.mrs"}
   Binance_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/binance.mrs"}
-  Other_Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/Other.list"}
+  OtherPay_Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/OtherPay.list"} 
   # 流媒体规则
   Youtube_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs"}
   TikTok_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.mrs"}
