@@ -1,0 +1,10 @@
+#需要走海外应用策略组的APP
+# Tello
+DOMAIN-SUFFIX,tello.com
+DOMAIN-SUFFIX,my.tello.com
+DOMAIN-SUFFIX,api.tello.com
+DOMAIN-SUFFIX,cdn.tello.com
+DOMAIN-SUFFIX,plintron.com
+DOMAIN-SUFFIX,plintron.in
+DOMAIN-SUFFIX,twilio.com
+DOMAIN-SUFFIX,verify.twilio.com
