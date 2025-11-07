@@ -206,8 +206,7 @@ tun:
 proxy-groups:
   - {name: AI平台, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Chatgpt_A.png"}
   - {name: Google, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2016/04/13/14/27/google-chrome-1326908_1280.png"}
-
-  - {name: Onedrive, <<: *Direct_first, icon: "https://cdn.pixabay.com/photo/2015/04/22/23/18/pagoda-735491_960_720.png"}
+  - {name: Onedrive, <<: *Direct_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Onedrive_A.png"}
   - {name: Microsoft, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2021/10/17/14/47/windows-7-logo-6718525_1280.png"}
   - {name: PayPal, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2012/04/28/18/53/money-43994_1280.png"}
   - {name: GitHub, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Github_A.png"}
@@ -429,16 +428,16 @@ proxy-groups:
 # ========================
 rules:
   # 优先级高的规则
-  - RULE-SET,Private_ip,国内
-  - RULE-SET,Private_Domain,国内
-  - RULE-SET,Direct_Domain,国内
+  - RULE-SET,Private_ip,国内流量
+  - RULE-SET,Private_Domain,国内流量
+  - RULE-SET,Direct_Domain,国内流量
   # 应用和服务规则
   - RULE-SET,AI_Domain,AI平台
   - RULE-SET,Github_Domain,GitHub
   - RULE-SET,Google_Domain,Google
   - RULE-SET,onedrive_domain,Onedrive
   - RULE-SET,Microsoft_Domain,Microsoft
-  - RULE-SET,Apple_Domain,国内
+  - RULE-SET,Apple_Domain,国内流量
   - RULE-SET,PayPal_Domain,PayPal
   - RULE-SET,Telegram_Domain,Telegram
   - RULE-SET,Twitter_Domain,海外应用
@@ -468,15 +467,15 @@ rules:
   - RULE-SET,Binance_Domain,加密货币
   - RULE-SET,Other_Domain,加密货币  
   # 国内外分流规则
-  - RULE-SET,Apple_IP,国内
+  - RULE-SET,Apple_IP,国内流量
   - RULE-SET,Google_IP,Google 
   - RULE-SET,Netflix_IP,Netflix 
   - RULE-SET,Telegram_IP,Telegram
-  - RULE-SET,geolocation-!cn_Domain,国外 
-  - RULE-SET,China_Domain,国内
-  - RULE-SET,China_IP,国内
-  - RULE-SET,pt_cn_domain,国内
-  - RULE-SET,public-tracker_domain,国外 
+  - RULE-SET,geolocation-!cn_Domain,国外流量
+  - RULE-SET,China_Domain,国内流量
+  - RULE-SET,China_IP,国内流量
+  - RULE-SET,pt_cn_domain,国内流量
+  - RULE-SET,public-tracker_domain,国外流量
   # 兜底规则
   - MATCH,漏网之鱼
 
