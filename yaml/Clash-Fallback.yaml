@@ -111,6 +111,7 @@ dns:
   nameserver-policy:
     "geosite:cn,private": [223.5.5.5, 119.29.29.29, 114.114.114.114]
     "geosite:geolocation-!cn": [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
+
 # ========================
 # 入站代理模式
 # ========================
@@ -119,12 +120,11 @@ tun:
   # system/gvisor/mixed
   stack: mixed
   dns-hijack: ["any:53", "tcp://any:53"]
-  #使用nikki，混入全部不修改的情况，开启接口指定为nikki
-  #使用仅内核自行修改下面三项为true
-  # device: mihomo
-  auto-route: false
+  # 使用仅内核时，自行修改下面device网卡名称并取消注释以开启指定接口
+  # device: mihomo/nikki/utun
+  auto-route: true
   auto-redirect: false
-  auto-detect-interface: false
+  auto-detect-interface: true
   
 # ========================
 # 策略组定义
