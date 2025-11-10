@@ -13,6 +13,16 @@ DOMAIN-SUFFIX,cas.china-tcc.com
 DOMAIN-SUFFIX,audiences.me
 DOMAIN-SUFFIX,cinefiles.info
 
+#douyin
+DOMAIN-SUFFIX,snssdk.com
+DOMAIN-SUFFIX,pstatp.com
+DOMAIN-SUFFIX,douyincdn.com
+DOMAIN-SUFFIX,douyinpic.com
+DOMAIN-SUFFIX,douyinstatic.com
+DOMAIN-SUFFIX,ixigua.com
+DOMAIN-SUFFIX,amemv.com
+DOMAIN-SUFFIX,byteimg.com
+
 # Tello的短信、电话、WiFi calling,强制走直连
 DOMAIN-SUFFIX,epdg.epc.mnc260.mcc310.pub
 DOMAIN-SUFFIX,epc.mnc260.mcc310.pub
