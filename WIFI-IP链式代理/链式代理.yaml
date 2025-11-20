@@ -99,11 +99,7 @@ dns:
   fake-ip-filter-mode: blacklist
   fake-ip-filter:
   # 规则集：应用_媒体_国内域_私有域等
-    - "rule-set:fakeip_filter_domain"
-    - "rule-set:pt_cn_domain"
-    - "rule-set:public-tracker_domain"
-    - "rule-set:China_Domain"
-    - "rule-set:Private_Domain"
+    - "rule-set:fakeip_filter_domain,pt_cn_domain,public-tracker_domain,China_Domain,Private_Domain"
   default-nameserver:
     - 223.5.5.5
     - 119.29.29.29
@@ -115,7 +111,10 @@ dns:
     - 223.5.5.5
     - 119.29.29.29
     - 114.114.114.114
-
+  # 增强DNS缓存,提升性能
+  cache: true
+  cache-size: 8000
+  
 # ========================
 # 入站代理模式
 # ========================
@@ -124,12 +123,13 @@ tun:
   # system/gvisor/mixed
   stack: mixed
   dns-hijack: ["any:53", "tcp://any:53"]
-  # 使用nikki，混入全部不修改的情况，开启接口指定为nikki
-  # 使用仅内核自行修改下面三项为true
-  # device: nikki
-  auto-route: false
+  # 使用nikki，混入全部不修改的情况，请修改开启接口device指定为nikki
+  device: utun
+  endpoint-independent-nat: true
+  auto-route: true  # 启用自动路由
+  auto-detect-interface: true  # 启用自动接口检测
   auto-redirect: false
-  auto-detect-interface: false
+  strict-route: false
   
 # ========================
 # 策略组定义
