@@ -36,7 +36,4 @@ Block分组为拒绝分组，目前只维护了Adobe相关域名
   
   1.#跑裸核用户请自行去掉控制面板模块的注释。
   
-  2.#使用仅内核自行修改下面三项为true
-  auto-route: false
-  auto-redirect: false
-  auto-detect-interface: false
+  2.#使用nikki，混入全部不修改的情况，请修改开启接口device指定为nikki
