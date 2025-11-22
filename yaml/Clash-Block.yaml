@@ -194,6 +194,7 @@ rules:
   - RULE-SET,Private_ip,国内流量
   - RULE-SET,Private_Domain,国内流量
   - RULE-SET,Direct_Domain,国内流量
+  - RULE-SET,Proxy_Domain,国外流量
   # 应用和服务规则
   - RULE-SET,AI_Domain,AI平台
   - RULE-SET,Github_Domain,GitHub
@@ -299,6 +300,7 @@ rule-providers:
   Xbox_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/xbox.mrs"}
   # 国内外分流规则
   Direct_Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/Direct.list"}
+  Proxy_Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/Proxy.list"}
   China_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs"}
   China_IP: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs"}
   geolocation-!cn_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs"}
