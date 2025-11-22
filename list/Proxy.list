@@ -22,3 +22,5 @@ DOMAIN-SUFFIX,discovery-announce-v4.syncthing.net
 DOMAIN-SUFFIX,discovery-announce-v6.syncthing.net
 DOMAIN-SUFFIX,stable.dl.unraid.net
 DOMAIN-SUFFIX,wpad.netbird.cloud
+DOMAIN-SUFFIX,cdn.pixabay.com
+DOMAIN-SUFFIX,pub-8feead0908f649a8b94397f152fb9cba.r2.dev
