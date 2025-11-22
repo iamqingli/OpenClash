@@ -21,3 +21,4 @@ DOMAIN-SUFFIX,stun.voip.aebc.com
 DOMAIN-SUFFIX,discovery-announce-v4.syncthing.net
 DOMAIN-SUFFIX,discovery-announce-v6.syncthing.net
 DOMAIN-SUFFIX,stable.dl.unraid.net
+DOMAIN-SUFFIX,wpad.netbird.cloud
