@@ -45,3 +45,4 @@ Block分组为拒绝分组，目前只维护了Adobe相关域名
   auto-detect-interface: false  # 启用自动接口检测 ＞ auto-detect-interface: true
   auto-redirect: false ＞ auto-redirect: false
   strict-route: false ＞ strict-route: false
+七、
