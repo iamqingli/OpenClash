@@ -119,10 +119,10 @@ tun:
   stack: mixed
   dns-hijack: ["any:53", "tcp://any:53"]
   # 使用nikki，混入全部不修改的情况，请修改开启接口device指定为nikki
-  device: utun
-  endpoint-independent-nat: true
-  auto-route: true  # 启用自动路由
-  auto-detect-interface: true  # 启用自动接口检测
+  # device: utun
+  endpoint-independent-nat: false
+  auto-route: false  # 启用自动路由
+  auto-detect-interface: false  # 启用自动接口检测
   auto-redirect: false
   strict-route: false
   
