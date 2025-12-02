@@ -86,6 +86,7 @@ sniffer:
 # ========================
 dns:
   enable: true
+  cache-algorithm: arc
   listen: 0.0.0.0:1053
   respect-rules: true
   ipv6: true
@@ -106,7 +107,7 @@ dns:
     - https://8.8.8.8/dns-query#RULES&ecs=223.5.5.0/24
   fake-ip-filter:
   # 规则集：应用_媒体_国内域_私有域等
-    - "rule-set:fakeip_filter_domain,pt_cn_domain,public-tracker_domain,China_Domain,Private_Domain"  
+    - "rule-set:fakeip_filter_domain,pt_cn_domain,public-tracker_domain,China_Domain,Private_Domain"
   # 增强DNS缓存,提升性能
   # cache: true
   # cache-size: 8000
