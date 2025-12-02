@@ -109,7 +109,6 @@ dns:
   fake-ip-filter:
   # 规则集：应用_媒体_国内域_私有域等
     - "rule-set:fakeip_filter_domain,pt_cn_domain,public-tracker_domain,China_Domain,Private_Domain"
-
   # 增强DNS缓存,提升性能
   # cache: true
   # cache-size: 8000
