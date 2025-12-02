@@ -68,7 +68,7 @@ profile:
   store-fake-ip: true
 
 # ========================
-# 流量嗅探
+# 流量嗅探（fakeip下可以不用嗅探）
 # ========================
 sniffer:
   enable: false
@@ -102,7 +102,7 @@ dns:
     - https://223.5.5.5/dns-query
   proxy-server-nameserver:
     - https://dns.alidns.com/dns-query
-    - https://doh.pub/dns-query  nameserver:
+    - https://doh.pub/dns-query
   nameserver:
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
@@ -184,7 +184,6 @@ proxy-groups:
     
 # ========================
 # 规则引擎（rules）
-# 此规则部分没有做防泄露处理，因为弊严重大于利！
 # ========================
 rules:
   # 优先级高的规则
@@ -242,6 +241,7 @@ rules:
 
 # ========================
 # 规则集提供者
+# type：可选http/file/inline  behavior：可选domain/ipcidr/classical format：可选yaml/text/mrs
 # ========================
 rule-anchor:
   ip: &ip {type: http, interval: 86400, behavior: ipcidr, format: mrs}
