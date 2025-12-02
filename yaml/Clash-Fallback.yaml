@@ -181,7 +181,6 @@ proxy-groups:
 
 # ========================
 # 规则引擎（rules）
-# type：可选http/file/inline  behavior：可选domain/ipcidr/classical format：可选yaml/text/mrs
 # ========================
 rules:
   # 优先级高的规则
@@ -239,6 +238,7 @@ rules:
 
 # ========================
 # 规则集提供者
+# type：可选http/file/inline  behavior：可选domain/ipcidr/classical format：可选yaml/text/mrs
 # ========================
 rule-anchor:
   ip: &ip {type: http, interval: 86400, behavior: ipcidr, format: mrs}
