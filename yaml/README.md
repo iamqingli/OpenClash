@@ -38,16 +38,10 @@ Block分组为拒绝分组，目前只维护了Adobe相关域名
   
   2.#使用nikki，混入全部不修改的情况，请修改开启接口device指定为nikki
 
-  3.#tun模块需将原参数修改以下为参数
+  3.#tun模块需使用仅内核自行修改下面三项为true
+
+  auto-route: false > true
   
-  #device: utun ＞ device: utun
+  auto-redirect: false > true
   
-  endpoint-independent-nat: false ＞ endpoint-independent-nat: true
-  
-  auto-route: false  # 启用自动路由 ＞ auto-route: true
-  
-  auto-detect-interface: false  # 启用自动接口检测 ＞ auto-detect-interface: true
-  
-  auto-redirect: false ＞ auto-redirect: false
-  
-  strict-route: false ＞ strict-route: false
+  auto-detect-interface: false > true
