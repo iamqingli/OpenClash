@@ -5,9 +5,9 @@
 # ========================
 # 锚点定义
 # ========================
-优先代理: &Proxy_first {type: select, proxies: [所有-自动, 所有-手动, 香港-故转, 日本-故转, 美国-故转, 德国-故转, 台湾-故转, 新加坡-故转, 其他节点-故转, 🟢 直连, 🔴 拒绝]}
-优先直连: &Direct_first {type: select, proxies: [🟢 直连, 所有-自动, 所有-手动, 香港-故转, 日本-故转, 美国-故转, 德国-故转, 台湾-故转, 新加坡-故转, 其他节点-故转, 🔴 拒绝]}
-优先拒绝: &Reject_first {type: select, proxies: [🔴 拒绝, 所有-自动, 所有-手动, 香港-故转, 日本-故转, 美国-故转, 德国-故转, 台湾-故转, 新加坡-故转, 其他节点-故转, 🟢 直连]}
+优先代理: &Proxy_first {type: select, proxies: [所有-自动, 所有-手动, 香港-故转, 日本-故转, 美国-故转, 德国-故转, 台湾-故转, 狮城-故转, 全球-故转, 🟢 直连, 🔴 拒绝]}
+优先直连: &Direct_first {type: select, proxies: [🟢 直连, 所有-自动, 所有-手动, 香港-故转, 日本-故转, 美国-故转, 德国-故转, 台湾-故转, 狮城-故转, 全球-故转, 🔴 拒绝]}
+优先拒绝: &Reject_first {type: select, proxies: [🔴 拒绝, 所有-自动, 所有-手动, 香港-故转, 日本-故转, 美国-故转, 德国-故转, 台湾-故转, 狮城-故转, 全球-故转, 🟢 直连]}
 PProviders: &PProviders {type: http, interval: 86400, health-check: {enable: true, url: "https://www.gstatic.com/generate_204", interval: 300}, proxy: 🟢 直连}
   
 # ========================
@@ -16,10 +16,14 @@ PProviders: &PProviders {type: http, interval: 86400, health-check: {enable: tru
 # 未使用的订阅可整体删除
 # 订阅地址的名称不能重复,可自定义
 # 订阅链接url填写订阅链接,双引号“”不要删除
+
 proxy-providers:
-  订阅地址1: {<<: *PProviders, url: "订阅链接1", override: {skip-cert-verify: true, udp: true, ipv6: false}}
-  订阅地址2: {<<: *PProviders, url: "订阅链接2", override: {skip-cert-verify: true, udp: true, ipv6: false}}
-  订阅地址3: {<<: *PProviders, url: "订阅链接3", override: {skip-cert-verify: true, udp: true, ipv6: false}}
+
+  订阅地址1: {<<: *PProviders, url: "机场订阅填到这里，两端引号不要去掉", override: {skip-cert-verify: true, udp: true, ipv6: false}}
+  
+  订阅地址2: {<<: *PProviders, url: "机场订阅填到这里，两端引号不要去掉", override: {skip-cert-verify: true, udp: true, ipv6: false}}
+  
+  订阅地址3: {<<: *PProviders, url: "机场订阅填到这里，两端引号不要去掉", override: {skip-cert-verify: true, udp: true, ipv6: false}}
 
 # 基础代理
 proxies:
@@ -67,7 +71,7 @@ profile:
   store-fake-ip: true
 
 # ========================
-# 流量嗅探
+# 流量嗅探（fakeip下可以不用嗅探）
 # ========================
 sniffer:
   enable: false
@@ -79,16 +83,16 @@ sniffer:
       ports: [443, 8443]
     QUIC:
       ports: [443, 8443]
-  force-domain:
-    - "+.v2ex.com"
   skip-domain:
-    - "+.baidu.com"
+    - "Mijia Cloud"
+    - "+.push.apple.com"
 
 # ========================
 # DNS 设置
 # ========================
 dns:
   enable: true
+  cache-algorithm: arc
   listen: 0.0.0.0:1053
   respect-rules: true
   ipv6: true
@@ -97,23 +101,20 @@ dns:
   fake-ip-range: 28.0.0.1/8
   # 模式切换 whitelist/blacklist,黑名单模式表示如果匹配成功则不返回 Fake-IP, 白名单模式时只有匹配成功才返回 Fake-IP
   fake-ip-filter-mode: blacklist
+  default-nameserver:
+    - https://223.5.5.5/dns-query
+  proxy-server-nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+  nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
   fake-ip-filter:
   # 规则集：应用_媒体_国内域_私有域等
     - "rule-set:fakeip_filter_domain,pt_cn_domain,public-tracker_domain,China_Domain,Private_Domain"
-  default-nameserver:
-    - 223.5.5.5
-    - 119.29.29.29
-    - 114.114.114.114
-  proxy-server-nameserver:   #代理节点域名解析服务器，仅用于解析代理节点的域名
-    - https://dns.alidns.com/dns-query
-    - https://doh.pub/dns-query
-  nameserver:    # namesever尽量用运营商提供的DNS
-    - 223.5.5.5
-    - 119.29.29.29
-    - 114.114.114.114
   # 增强DNS缓存,提升性能
-  cache: true
-  cache-size: 8000
+  # cache: true
+  # cache-size: 8000
   
 # ========================
 # 入站代理模式
@@ -207,22 +208,21 @@ proxy-groups:
   - {name: 德国-故转, type: fallback, interval: 60, lazy: true, proxies: [德国-手动, 德国-自动], icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Germany.png"}
   - {name: 德国-手动, type: select, include-all: true, filter: "(?i)(德|德国|\\bDE\\b|Frankfurt|法兰克福|慕尼黑|柏林|汉堡|杜塞尔多夫|🇩🇪|Germany)", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Germany.png"}
   - {name: 德国-自动, type: url-test, include-all: true, tolerance: 20, interval: 300, url: "http://www.gstatic.com/generate_204", lazy: true, filter: "(?i)(德|德国|\\bDE\\b|Frankfurt|法兰克福|慕尼黑|柏林|汉堡|杜塞尔多夫|🇩🇪|Germany)", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Germany.png"}
-  # 新加坡
-  - {name: 新加坡-故转, type: fallback, interval: 60, lazy: true, proxies: [新加坡-手动, 新加坡-自动], icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Singapore.png"}
-  - {name: 新加坡-手动, type: select, include-all: true, filter: "(?i)(广新|新加坡|\\bSG\\b|坡|狮城|🇸🇬|Singapore)", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Singapore.png"}
-  - {name: 新加坡-自动, type: url-test, include-all: true, tolerance: 20, interval: 300, url: "http://www.gstatic.com/generate_204", lazy: true, filter: "(?i)(广新|新加坡|\\bSG\\b|坡|狮城|🇸🇬|Singapore)", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Singapore.png"}
-  # 其他
-  - {name: 其他节点-故转, type: fallback, interval: 60, lazy: true, proxies: [其他节点-手动, 其他节点-自动], icon: "https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_1280.png"}
-  - {name: 其他节点-手动, type: select, include-all: true, filter: "^((?!(🟢 直连|🔴 拒绝|广港|香港|HK|Hong\\ Kong|🇭🇰|HongKong|广台|台湾|台灣|\\bTW\\b|Tai\\ Wan|🇹🇼|TaiWan|Taiwan|广日|日本|\\bJP\\b|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|\\bSG\\b|坡|狮城|🇸🇬|Singapore|广美|\\bUS\\b|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|德|德国|\\bDE\\b|Frankfurt|法兰克福|慕尼黑|柏林|汉堡|杜塞尔多夫|🇩🇪|Germany)).)*$", icon: "https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_1280.png"}
-  - {name: 其他节点-自动, type: url-test, include-all: true, tolerance: 20, interval: 300, url: "http://www.gstatic.com/generate_204", lazy: true, filter: "^((?!(🟢 直连|🔴 拒绝|广港|香港|HK|Hong\\ Kong|🇭🇰|HongKong|广台|台湾|台灣|\\bTW\\b|Tai\\ Wan|🇹🇼|TaiWan|Taiwan|广日|日本|\\bJP\\b|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|\\bSG\\b|坡|狮城|🇸🇬|Singapore|广美|\\bUS\\b|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|德|德国|\\bDE\\b|Frankfurt|法兰克福|慕尼黑|柏林|汉堡|杜塞尔多夫|🇩🇪|Germany)).)*$", icon: "https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_1280.png"}
+  # 狮城
+  - {name: 狮城-故转, type: fallback, interval: 60, lazy: true, proxies: [狮城-手动, 狮城-自动], icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Singapore.png"}
+  - {name: 狮城-手动, type: select, include-all: true, filter: "(?i)(广新|新加坡|\\bSG\\b|坡|狮城|🇸🇬|Singapore)", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Singapore.png"}
+  - {name: 狮城-自动, type: url-test, include-all: true, tolerance: 20, interval: 300, url: "http://www.gstatic.com/generate_204", lazy: true, filter: "(?i)(广新|新加坡|\\bSG\\b|坡|狮城|🇸🇬|Singapore)", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Singapore.png"}
+  # 全球
+  - {name: 全球-故转, type: fallback, interval: 60, lazy: true, proxies: [全球-手动, 全球-自动], icon: "https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_1280.png"}
+  - {name: 全球-手动, type: select, include-all: true, filter: "^((?!(🟢 直连|🔴 拒绝|广港|香港|HK|Hong\\ Kong|🇭🇰|HongKong|广台|台湾|台灣|\\bTW\\b|Tai\\ Wan|🇹🇼|TaiWan|Taiwan|广日|日本|\\bJP\\b|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|\\bSG\\b|坡|狮城|🇸🇬|Singapore|广美|\\bUS\\b|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|德|德国|\\bDE\\b|Frankfurt|法兰克福|慕尼黑|柏林|汉堡|杜塞尔多夫|🇩🇪|Germany)).)*$", icon: "https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_1280.png"}
+  - {name: 全球-自动, type: url-test, include-all: true, tolerance: 20, interval: 300, url: "http://www.gstatic.com/generate_204", lazy: true, filter: "^((?!(🟢 直连|🔴 拒绝|广港|香港|HK|Hong\\ Kong|🇭🇰|HongKong|广台|台湾|台灣|\\bTW\\b|Tai\\ Wan|🇹🇼|TaiWan|Taiwan|广日|日本|\\bJP\\b|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|\\bSG\\b|坡|狮城|🇸🇬|Singapore|广美|\\bUS\\b|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|德|德国|\\bDE\\b|Frankfurt|法兰克福|慕尼黑|柏林|汉堡|杜塞尔多夫|🇩🇪|Germany)).)*$", icon: "https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_1280.png"}
     
 # ========================
 # 规则引擎（rules）
-# 此规则部分没有做防泄露处理，因为弊严重大于利！
 # ========================
 rules:
   # 优先级高的规则
-  - RULE-SET,Private_ip,国内流量
+  - RULE-SET,Private_ip,国内流量,no-resolve
   - RULE-SET,Private_Domain,国内流量
   - RULE-SET,Direct_Domain,国内流量
   - RULE-SET,Proxy_Domain,国外流量
@@ -276,6 +276,7 @@ rules:
 
 # ========================
 # 规则集提供者
+# type：可选http/file/inline  behavior：可选domain/ipcidr/classical format：可选yaml/text/mrs
 # ========================
 rule-anchor:
   ip: &ip {type: http, interval: 86400, behavior: ipcidr, format: mrs}
