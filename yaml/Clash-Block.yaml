@@ -19,11 +19,11 @@ PProviders: &PProviders {type: http, interval: 86400, health-check: {enable: tru
 
 proxy-providers:
 
-  订阅地址1: {<<: *PProviders, url: "订阅链接1", override: {skip-cert-verify: true, udp: true, ipv6: false}}
+  订阅地址1: {<<: *PProviders, url: "机场订阅填到这里，两端引号不要去掉", override: {skip-cert-verify: true, udp: true, ipv6: false}}
   
-  订阅地址2: {<<: *PProviders, url: "订阅链接2", override: {skip-cert-verify: true, udp: true, ipv6: false}}
+  订阅地址2: {<<: *PProviders, url: "机场订阅填到这里，两端引号不要去掉", override: {skip-cert-verify: true, udp: true, ipv6: false}}
   
-  订阅地址3: {<<: *PProviders, url: "订阅链接3", override: {skip-cert-verify: true, udp: true, ipv6: false}}
+  订阅地址3: {<<: *PProviders, url: "机场订阅填到这里，两端引号不要去掉", override: {skip-cert-verify: true, udp: true, ipv6: false}}
 
 # 基础代理
 proxies:
@@ -66,7 +66,7 @@ profile:
   store-fake-ip: true
 
 # ========================
-# 流量嗅探
+# 流量嗅探（fakeip下可以不用嗅探）
 # ========================
 sniffer:
   enable: false
@@ -78,16 +78,16 @@ sniffer:
       ports: [443, 8443]
     QUIC:
       ports: [443, 8443]
-  force-domain:
-    - "+.v2ex.com"
   skip-domain:
-    - "+.baidu.com"
+    - "Mijia Cloud"
+    - "+.push.apple.com"
 
 # ========================
 # DNS 设置
 # ========================
 dns:
   enable: true
+  cache-algorithm: arc
   listen: 0.0.0.0:1053
   respect-rules: true
   ipv6: true
@@ -100,16 +100,14 @@ dns:
   # 规则集：应用_媒体_国内域_私有域等
     - "rule-set:fakeip_filter_domain,pt_cn_domain,public-tracker_domain,China_Domain,Private_Domain"
   default-nameserver:
-    - 223.5.5.5
-    - 119.29.29.29
-    - 114.114.114.114
-  proxy-server-nameserver:   #代理节点域名解析服务器，仅用于解析代理节点的域名
+    - https://223.5.5.5/dns-query
+  proxy-server-nameserver:
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
-  nameserver:    # namesever尽量用运营商提供的DNS
-    - 223.5.5.5
-    - 119.29.29.29
-    - 114.114.114.114
+  nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+
   # 增强DNS缓存,提升性能
   # cache: true
   # cache-size: 8000
@@ -186,7 +184,6 @@ proxy-groups:
 
 # ========================
 # 规则引擎（rules）
-# 此规则部分没有做防泄露处理，因为弊严重大于利！
 # ========================
 rules:
   # 优先级高的规则
@@ -244,6 +241,7 @@ rules:
 
 # ========================
 # 规则集提供者
+# type：可选http/file/inline  behavior：可选domain/ipcidr/classical format：可选yaml/text/mrs
 # ========================
 rule-anchor:
   ip: &ip {type: http, interval: 86400, behavior: ipcidr, format: mrs}
