@@ -64,7 +64,7 @@ profile:
   store-fake-ip: true
 
 # ========================
-# 流量嗅探
+# 流量嗅探（fakeip下可以不用嗅探）
 # ========================
 sniffer:
   enable: false
@@ -181,7 +181,7 @@ proxy-groups:
 
 # ========================
 # 规则引擎（rules）
-# 此规则部分没有做防泄露处理，因为弊严重大于利！
+# type：可选http/file/inline  behavior：可选domain/ipcidr/classical format：可选yaml/text/mrs
 # ========================
 rules:
   # 优先级高的规则
