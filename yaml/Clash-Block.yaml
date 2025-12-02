@@ -16,9 +16,13 @@ PProviders: &PProviders {type: http, interval: 86400, health-check: {enable: tru
 # 未使用的订阅可整体删除
 # 订阅地址的名称不能重复,可自定义
 # 订阅链接url填写订阅链接,双引号“”不要删除
+
 proxy-providers:
+
   订阅地址1: {<<: *PProviders, url: "订阅链接1", override: {skip-cert-verify: true, udp: true, ipv6: false}}
+  
   订阅地址2: {<<: *PProviders, url: "订阅链接2", override: {skip-cert-verify: true, udp: true, ipv6: false}}
+  
   订阅地址3: {<<: *PProviders, url: "订阅链接3", override: {skip-cert-verify: true, udp: true, ipv6: false}}
 
 # 基础代理
