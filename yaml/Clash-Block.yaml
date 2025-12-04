@@ -126,7 +126,6 @@ tun:
   dns-hijack: ["any:53", "tcp://any:53"]
   # 使用nikki，混入全部不修改的情况，请修改开启接口device指定为nikki
   # device: utun
-  #使用仅内核自行修改下面三项为true
   auto-route: true
   auto-redirect: true
   auto-detect-interface: true
