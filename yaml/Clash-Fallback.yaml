@@ -96,7 +96,7 @@ dns:
   # 模式切换 whitelist/blacklist,黑名单模式表示如果匹配成功则不返回 Fake-IP, 白名单模式时只有匹配成功才返回 Fake-IP
   fake-ip-filter-mode: blacklist
   fake-ip-filter:
-    - rule-set:fakeip_filter_domain
+    - "rule-set:fakeip_filter_domain,China_Domain,Private_Domain"
   default-nameserver:
     - https://223.5.5.5/dns-query
     - https://119.29.29.29/dns-query
