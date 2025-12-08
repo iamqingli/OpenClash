@@ -1,14 +1,5 @@
 # 直连补充列表(国内域名不解析时，防止走代理使用)
 
-# MyList
-DOMAIN-SUFFIX,aial.cc
-DOMAIN-SUFFIX,aial.pw
-DOMAIN-SUFFIX,tcc-adn.com
-DOMAIN-SUFFIX,smart.tcc-adn.com
-DOMAIN-SUFFIX,qtcc.cntcc.cn
-DOMAIN-SUFFIX,china-tcc.com
-DOMAIN-SUFFIX,cas.china-tcc.com
-
 # tracker
 DOMAIN-SUFFIX,audiences.me
 DOMAIN-SUFFIX,cinefiles.info
