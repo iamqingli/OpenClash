@@ -14,13 +14,11 @@ DOMAIN-SUFFIX,ourbits.club
 DOMAIN-SUFFIX,ubits.club
 DOMAIN-SUFFIX,pttime.org
 
-# Tello的短信、电话、WiFi calling,强制走直连
-DOMAIN-SUFFIX,epdg.epc.mnc260.mcc310.pub
-DOMAIN-SUFFIX,epc.mnc260.mcc310.pub
-DOMAIN-SUFFIX,ims
-DOMAIN-SUFFIX,ims.mnc260.mcc310.3gppnetwork.org
-DOMAIN-SUFFIX,vowifi
-DOMAIN-SUFFIX,volte
+# Lucky域名同步网络检测
+DOMAIN-SUFFIX,666666.host
+DOMAIN-SUFFIX,ipip.net
+DOMAIN-SUFFIX,ipw.cn
+DOMAIN-SUFFIX,ddnspod.com
 
 # 域名关键字匹配
 DOMAIN-KEYWORD,baidu
