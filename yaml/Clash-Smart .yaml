@@ -57,7 +57,6 @@ external-controller: 0.0.0.0:9090
 secret: "123456"
 
 # 匹配进程
-find-process-mode: 'off'
 global-client-fingerprint: chrome
 keep-alive-idle: 600
 keep-alive-interval: 15
