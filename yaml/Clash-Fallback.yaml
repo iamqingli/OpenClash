@@ -7,7 +7,7 @@
 # ========================
 优先代理: &Proxy_first {type: select, proxies: [所有-自动, 所有-手动, 香港-故转, 日本-故转, 美国-故转, 台湾-故转, 狮城-故转, 全球-故转, 🟢 直连]}
 优先直连: &Direct_first {type: select, proxies: [🟢 直连, 所有-自动, 所有-手动, 香港-故转, 日本-故转, 美国-故转, 台湾-故转, 狮城-故转, 全球-故转]}
-PProviders: &PProviders {type: http, interval: 86400, health-check: {enable: true, url: "http://cp.cloudflare.com/generate_204", interval: 300}, proxy: 🟢 直连, filter: '^(?!.*(群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|提示|特别|访问|支持|教程|关注|更新|作者|加入|USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|traffic))'}
+PProviders: &PProviders {type: http, interval: 86400, health-check: {enable: true, url: "https://www.cloudflare.com/cdn-cgi/trace", interval: 300}, proxy: 🟢 直连, filter: '^(?!.*(群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|提示|特别|访问|支持|教程|关注|更新|作者|加入|USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|traffic))'}
   
 # ========================
 # 节点订阅链接
