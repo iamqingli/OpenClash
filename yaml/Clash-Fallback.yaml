@@ -29,7 +29,7 @@ proxies:
   - {name: 🟢 直连, type: direct}
 
 # ========================
-# 端口与控制面板
+# 全局配置
 # ========================
 port: 7890
 socks-port: 7891
@@ -43,6 +43,9 @@ log-level: warning
 unified-delay: true
 tcp-concurrent: true
 # interface-name: enp6s18
+global-client-fingerprint: chrome
+keep-alive-idle: 600
+keep-alive-interval: 15
 
 # 控制面板
 # 跑裸核用户请自行去掉下方控制面板模块的注释。
@@ -51,11 +54,6 @@ external-controller: 0.0.0.0:9090
 # external-ui-name: zashboard
 # external-ui-url: "https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
 secret: "123456"
-
-# 匹配进程
-global-client-fingerprint: chrome
-keep-alive-idle: 600
-keep-alive-interval: 15
 
 # 策略组选择和fakeip缓存
 profile:
@@ -75,10 +73,9 @@ sniffer:
       ports: [443, 8443]
     QUIC:
       ports: [443, 8443]
-  force-domain:
-    - "+.v2ex.com"
   skip-domain:
-    - "+.baidu.com"
+    - "Mijia Cloud"
+    - "+.push.apple.com"
 
 # ========================
 # DNS 设置
@@ -111,7 +108,7 @@ dns:
   # cache-size: 8000
   
 # ========================
-# 入站代理模式
+# 入站代理配置
 # ========================
 tun:
   enable: true
