@@ -5,9 +5,9 @@
 # ========================
 # 锚点定义
 # ========================
-优先代理: &Proxy_first {type: select, proxies: [所有-自动, 所有-手动, 香港-故转, 日本-故转, 美国-故转, 台湾-故转, 狮城-故转, 全球-故转, 🟢 直连, 🔴 拒绝]}
-优先直连: &Direct_first {type: select, proxies: [🟢 直连, 所有-自动, 所有-手动, 香港-故转, 日本-故转, 美国-故转, 台湾-故转, 狮城-故转, 全球-故转, 🔴 拒绝]}
-优先拒绝: &Reject_first {type: select, proxies: [🔴 拒绝, 所有-自动, 所有-手动, 香港-故转, 日本-故转, 美国-故转, 台湾-故转, 狮城-故转, 全球-故转, 🟢 直连]}
+优先代理: &Proxy_first {type: select, proxies: [自动选择, 手动选择, 香港, 日本, 美国, 台湾, 狮城, 全球, 🟢 直连, 🔴 拒绝]}
+优先直连: &Direct_first {type: select, proxies: [🟢 直连, 自动选择, 手动选择, 香港, 日本, 美国, 台湾, 狮城, 全球, 🔴 拒绝]}
+优先拒绝: &Reject_first {type: select, proxies: [🔴 拒绝, 自动选择, 手动选择, 香港, 日本, 美国, 台湾, 狮城, 全球, 🟢 直连]}
 PProviders: &PProviders {type: http, interval: 86400, health-check: {enable: true, url: "http://www.cloudflare.com/cdn-cgi/trace", interval: 300}, proxy: 🟢 直连, filter: '^(?!.*(群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|提示|特别|访问|支持|教程|关注|更新|作者|加入|USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|traffic))'}
 
 # ========================
@@ -54,7 +54,7 @@ external-controller: 0.0.0.0:9090
 # external-ui-url: "https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
 secret: "123456"
 
-# 匹配进程
+# 客户端设置
 global-client-fingerprint: chrome
 keep-alive-idle: 600
 keep-alive-interval: 15
@@ -139,8 +139,8 @@ proxy-groups:
   - {name: GitHub, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Github_A.png"}
   - {name: Telegram, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Telegram_A.png"}
   - {name: 流媒体, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Disney%2B_A.png"}
-  - {name: TikTok, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Tiktok_A.png"}
   - {name: Netflix, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Netflix_A.png"}
+  - {name: TikTok, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Tiktok_A.png"}
   - {name: YouTube, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2018/05/27/22/48/social-3434840_1280.png"}
   - {name: 游戏平台, <<: *Direct_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Steam_A.png"}
   - {name: 海外应用, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Discord_A.png"}
@@ -153,32 +153,32 @@ proxy-groups:
 # 节点选择组
 # ========================
   # 全局
-  - {name: 所有-手动, type: select, include-all: true, filter: "^((?!(🟢 直连|🔴 拒绝)).)*$", icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/direct.png"}
-  - {name: 所有-自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "^((?!(🟢 直连|🔴 拒绝)).)*$", icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/final.png"}
+  - {name: 手动选择, type: select, include-all: true, filter: "^((?!(🟢 直连|🔴 拒绝)).)*$", icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/direct.png"}
+  - {name: 自动选择, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "^((?!(🟢 直连|🔴 拒绝)).)*$", icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/final.png"}
   # 香港
-  - {name: 香港-故转, type: fallback, interval: 60, lazy: true, proxies: [香港-手动, 香港-自动], icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png"}
-  - {name: 香港-手动, type: select, include-all: true, filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png"}
-  - {name: 香港-自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png"}
+  - {name: 香港, type: fallback, interval: 60, lazy: true, proxies: [香港手选, 香港自选], icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png"}
+  - {name: 香港手选, type: select, include-all: true, filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png"}
+  - {name: 香港自选, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png"}
   # 日本
-  - {name: 日本-故转, type: fallback, interval: 60, lazy: true, proxies: [日本-手动, 日本-自动], icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Japan.png"}
-  - {name: 日本-手动, type: select, include-all: true, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Japan.png"}
-  - {name: 日本-自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Japan.png"}
+  - {name: 日本, type: fallback, interval: 60, lazy: true, proxies: [日本手选, 日本自选], icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Japan.png"}
+  - {name: 日本手选, type: select, include-all: true, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Japan.png"}
+  - {name: 日本自选, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Japan.png"}
   # 台湾
-  - {name: 台湾-故转, type: fallback, interval: 60, lazy: true, proxies: [台湾-手动, 台湾-自动], icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png"}
-  - {name: 台湾-手动, type: select, include-all: true, filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan)).*$", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png"}
-  - {name: 台湾-自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan)).*$", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png"}
+  - {name: 台湾, type: fallback, interval: 60, lazy: true, proxies: [台湾手选, 台湾自选], icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png"}
+  - {name: 台湾手选, type: select, include-all: true, filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan)).*$", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png"}
+  - {name: 台湾自选, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan)).*$", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png"}
   # 美国
-  - {name: 美国-故转, type: fallback, interval: 60, lazy: true, proxies: [美国-手动, 美国-自动], icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/United_States.png"}
-  - {name: 美国-手动, type: select, include-all: true, filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/United_States.png"}
-  - {name: 美国-自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/United_States.png"}
+  - {name: 美国, type: fallback, interval: 60, lazy: true, proxies: [美国手选, 美国自选], icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/United_States.png"}
+  - {name: 美国手选, type: select, include-all: true, filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/United_States.png"}
+  - {name: 美国自选, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/United_States.png"}
   # 狮城
-  - {name: 狮城-故转, type: fallback, interval: 60, lazy: true, proxies: [狮城-手动, 狮城-自动], icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Singapore.png"}
-  - {name: 狮城-手动, type: select, include-all: true, filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Singapore.png"}
-  - {name: 狮城-自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Singapore.png"}
+  - {name: 狮城, type: fallback, interval: 60, lazy: true, proxies: [狮城手选, 狮城自选], icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Singapore.png"}
+  - {name: 狮城手选, type: select, include-all: true, filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Singapore.png"}
+  - {name: 狮城自选, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Singapore.png"}
   # 全球
-  - {name: 全球-故转, type: fallback, interval: 60, lazy: true, proxies: [全球-手动, 全球-自动], icon: "https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_1280.png"}
-  - {name: 全球-手动, type: select, include-all: true, filter: "^((?!(🟢 直连|🔴 拒绝|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸)).)*$", icon: "https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_1280.png"}
-  - {name: 全球-自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "^((?!(🟢 直连|🔴 拒绝|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸)).)*$", icon: "https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_1280.png"}
+  - {name: 全球, type: fallback, interval: 60, lazy: true, proxies: [全球手选, 全球自选], icon: "https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_1280.png"}
+  - {name: 全球手选, type: select, include-all: true, filter: "^((?!(🟢 直连|🔴 拒绝|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸)).)*$", icon: "https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_1280.png"}
+  - {name: 全球自选, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "^((?!(🟢 直连|🔴 拒绝|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸)).)*$", icon: "https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_1280.png"}
 
 # ========================
 # 规则引擎（rules）
@@ -300,3 +300,4 @@ rule-providers:
   China_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs"}
   China_IP: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs"}
   geolocation-!cn_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs"}
+
