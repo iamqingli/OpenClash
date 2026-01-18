@@ -194,11 +194,11 @@ rules:
   - RULE-SET,Apple_Domain,国内流量
   - RULE-SET,PayPal_Domain,PayPal
   - RULE-SET,Telegram_Domain,Telegram
-  - RULE-SET,Twitter_Domain,海外应用
-  - RULE-SET,WhatsApp_Domain,海外应用
-  - RULE-SET,Facebook_Domain,海外应用
-  - RULE-SET,Talkatone_Domain,海外应用
-  - RULE-SET,OtherAPP_Domain,海外应用
+  - RULE-SET,Twitter_Domain,国外应用
+  - RULE-SET,WhatsApp_Domain,国外应用
+  - RULE-SET,Facebook_Domain,国外应用
+  - RULE-SET,Talkatone_Domain,国外应用
+  - RULE-SET,OtherAPP_Domain,国外应用
   # 流媒体规则
   - RULE-SET,Youtube_Domain,YouTube
   - RULE-SET,TikTok_Domain,TikTok
