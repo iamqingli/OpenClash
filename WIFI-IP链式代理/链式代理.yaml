@@ -149,7 +149,6 @@ proxy-groups:
   - {name: 国外流量, <<: *Proxy_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Shadowrocket_A.png"}
   - {name: 游戏平台, <<: *Direct_first, icon: "https://raw.githubusercontent.com/xushier/HD-Icons/refs/heads/main/border-radius/Steam_A.png"}
   - {name: 国内流量, <<: *Direct_first, icon: "https://cdn.pixabay.com/photo/2015/04/22/23/18/pagoda-735491_960_720.png"}
-  - {name: 拒绝访问, <<: *Reject_first, icon: "https://cdn.pixabay.com/photo/2024/08/09/06/31/ai-generated-8956182_1280.png"}
   - {name: 漏网之鱼, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2017/02/16/10/20/target-2070972_1280.png"}
   
 # ========================
@@ -233,11 +232,11 @@ rules:
   - RULE-SET,Apple_Domain,国内流量
   - RULE-SET,PayPal_Domain,PayPal
   - RULE-SET,Telegram_Domain,Telegram
-  - RULE-SET,Twitter_Domain,海外应用
-  - RULE-SET,WhatsApp_Domain,海外应用
-  - RULE-SET,Facebook_Domain,海外应用
-  - RULE-SET,Talkatone_Domain,海外应用
-  - RULE-SET,OtherAPP_Domain,海外应用
+  - RULE-SET,Twitter_Domain,国外应用
+  - RULE-SET,WhatsApp_Domain,国外应用
+  - RULE-SET,Facebook_Domain,国外应用
+  - RULE-SET,Talkatone_Domain,国外应用
+  - RULE-SET,OtherAPP_Domain,国外应用
   # 流媒体规则
   - RULE-SET,Youtube_Domain,YouTube
   - RULE-SET,TikTok_Domain,TikTok
