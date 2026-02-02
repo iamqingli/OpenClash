@@ -133,21 +133,21 @@ tun:
 # 策略组定义
 # ========================
 proxy-groups:
-  - {name: AI平台, <<: *Proxy_first, icon: "https://cdn.worldvectorlogo.com/logos/chatgpt-6.svg"}
+  - {name: AI平台, <<: *Proxy_first, icon: "https://www.freepnglogos.com/uploads/logo-chatgpt-png/circle-green-logo-chatgpt-png-visual-studio-marketplace.png"}
   - {name: Google, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2016/04/13/14/27/google-chrome-1326908_1280.png"}
-  - {name: Onedrive, <<: *Direct_first, icon: "https://cdn.worldvectorlogo.com/logos/onedrive-1.svg"}
+  - {name: Onedrive, <<: *Direct_first, icon: "https://logo.svgcdn.com/logos/microsoft-onedrive.png"}
   - {name: Microsoft, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2021/10/17/14/47/windows-7-logo-6718525_1280.png"}
   - {name: PayPal, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2012/04/28/18/53/money-43994_1280.png"}
   - {name: 加密货币, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2015/04/14/08/09/currency-721803_1280.png"}
-  - {name: GitHub, <<: *Proxy_first, icon: "https://cdn.worldvectorlogo.com/logos/github-icon-1.svg"}
-  - {name: Telegram, <<: *Proxy_first, icon: "https://cdn.worldvectorlogo.com/logos/telegram.svg"}
-  - {name: 流媒体, <<: *Proxy_first, icon: "https://cdn.worldvectorlogo.com/logos/playhouse-disney-2002-2011-3--1.svg"}
-  - {name: Netflix, <<: *Proxy_first, icon: "https://cdn.worldvectorlogo.com/logos/netflix-logo-icon.svg"}
-  - {name: TikTok, <<: *Proxy_first, icon: "https://cdn.worldvectorlogo.com/logos/tiktok-logo-2--1.svg"}
+  - {name: GitHub, <<: *Proxy_first, icon: "https://www.freepnglogos.com/uploads/512x512-logo-png/512x512-logo-github-icon-35.png"}
+  - {name: Telegram, <<: *Proxy_first, icon: "https://www.freepnglogos.com/uploads/telegram-png/telegram-software-wikipedia-2.png"}
+  - {name: 流媒体, <<: *Proxy_first, icon: "https://logo.svgcdn.com/streamline-logos/disney-plus-logo-block-dark.png"}
+  - {name: Netflix, <<: *Proxy_first, icon: "https://www.freepnglogos.com/uploads/netflix-logo-app-png-16.png"}
+  - {name: TikTok, <<: *Proxy_first, icon: "https://www.freepnglogos.com/uploads/tik-tok-logo-png/tik-tok-musical-archives-buy-social-buzz-19.png"}
   - {name: YouTube, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2018/05/27/22/48/social-3434840_1280.png"}
-  - {name: 国外应用, <<: *Proxy_first, icon: "https://cdn.worldvectorlogo.com/logos/whatsapp-business-bg.svg"}
-  - {name: 国外流量, <<: *Proxy_first, icon: "https://cdn.worldvectorlogo.com/logos/openvpn-2.svg"}
-  - {name: 游戏平台, <<: *Direct_first, icon: "https://cdn.worldvectorlogo.com/logos/steam-icon-logo.svg"}
+  - {name: 国外应用, <<: *Proxy_first, icon: "https://www.freepnglogos.com/uploads/whatsapp-png-logo-1.png"}
+  - {name: 国外流量, <<: *Proxy_first, icon: "https://logo.svgcdn.com/simple-icons/openvpn-dark.png"}
+  - {name: 游戏平台, <<: *Direct_first, icon: "https://www.freepnglogos.com/uploads/512x512-logo-png/512x512-logo-steam-icon-13.png"}
   - {name: 国内流量, <<: *Direct_first, icon: "https://cdn.pixabay.com/photo/2015/04/22/23/18/pagoda-735491_960_720.png"}
   - {name: 漏网之鱼, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2017/02/16/10/20/target-2070972_1280.png"}
   
