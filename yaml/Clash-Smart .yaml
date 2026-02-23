@@ -187,6 +187,13 @@ rules:
   - RULE-SET,Private_ip,国内流量,no-resolve
   - RULE-SET,Private_Domain,国内流量
   - RULE-SET,Direct_Domain,国内流量
+  # 流媒体规则
+  - RULE-SET,Youtube_Domain,YouTube
+  - RULE-SET,TikTok_Domain,TikTok
+  - RULE-SET,Netflix_Domain,Netflix
+  - RULE-SET,Disney_Domain,流媒体
+  - RULE-SET,HBO_Domain,流媒体
+  - RULE-SET,Spotify_Domain,流媒体
   # 应用和服务规则
   - RULE-SET,AI_Domain,AI平台
   - RULE-SET,Github_Domain,GitHub
@@ -201,13 +208,6 @@ rules:
   - RULE-SET,Facebook_Domain,国外应用
   - RULE-SET,Talkatone_Domain,国外应用
   - RULE-SET,OtherAPP_Domain,国外应用
-  # 流媒体规则
-  - RULE-SET,Youtube_Domain,YouTube
-  - RULE-SET,TikTok_Domain,TikTok
-  - RULE-SET,Netflix_Domain,Netflix
-  - RULE-SET,Disney_Domain,流媒体
-  - RULE-SET,HBO_Domain,流媒体
-  - RULE-SET,Spotify_Domain,流媒体
   # 游戏规则
   - RULE-SET,Xbox_Domain,游戏平台
   - RULE-SET,Steam_Domain,游戏平台
