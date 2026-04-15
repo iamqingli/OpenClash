@@ -23,7 +23,7 @@ PProviders: &PProviders {type: http, interval: 21600, health-check: {enable: tru
 # 订阅地址的名称不能重复,可自定义
 # 订阅链接url填写订阅链接,双引号“”不要删除
 
-providers:
+proxy-providers:
 
   订阅地址1: {<<: *PProviders, url: "机场订阅填到这里，两端引号不要去掉", override: {skip-cert-verify: true}}
   
