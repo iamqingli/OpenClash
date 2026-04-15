@@ -1,12 +1,11 @@
 # ========================
-# Clash Smart策略 性能优化配置
-# 请使用Smart内核,否则无法运行
+# Clash Smart策略
 # ========================
 # 必读！！！
 # 此版本没有做防泄露处理
+# 请使用Smart内核,否则无法运行
 # 注意规则在满足自己需求情况下，尽量做到精简，不要过度复杂，以免影响性能
 # 跑裸核用户请自行去掉控制面板模块的注释
-# 机场订阅模块填写
 # ========================
 
 # ========================
@@ -15,20 +14,16 @@
 优先代理: &Proxy_first {type: select, proxies: [Smart智选, 手动选择, 香港, 日本, 美国, 台湾, 狮城, 全球, 🟢 直连]}
 优先直连: &Direct_first {type: select, proxies: [🟢 直连, Smart智选, 手动选择, 香港, 日本, 美国, 台湾, 狮城, 全球]}
 PProviders: &PProviders {type: http, interval: 21600, health-check: {enable: true, url: "https://www.gstatic.com/generate_204", interval: 300}, proxy: 🟢 直连, filter: '^(?!.*(群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|提示|特别|访问|支持|教程|关注|更新|作者|加入|USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|traffic))'}
-  
+
 # ========================
 # 节点订阅链接
 # ========================
 # 未使用的订阅可整体删除
-# 订阅地址的名称不能重复,可自定义
 # 订阅链接url填写订阅链接,双引号“”不要删除
 
 proxy-providers:
-
   订阅地址1: {<<: *PProviders, url: "机场订阅填到这里，两端引号不要去掉", override: {skip-cert-verify: true}}
-  
   订阅地址2: {<<: *PProviders, url: "机场订阅填到这里，两端引号不要去掉", override: {skip-cert-verify: true}}
-  
   订阅地址3: {<<: *PProviders, url: "机场订阅填到这里，两端引号不要去掉", override: {skip-cert-verify: true}}
 
 # 基础代理
