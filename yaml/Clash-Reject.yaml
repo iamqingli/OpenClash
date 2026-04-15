@@ -25,11 +25,11 @@ PProviders: &PProviders {type: http, interval: 21600, health-check: {enable: tru
 
 proxy-providers:
 
-  订阅地址1: {<<: *PProviders, url: "机场订阅填到这里，两端引号不要去掉", override: {skip-cert-verify: true, udp: true, ipv6: false}}
+  订阅地址1: {<<: *PProviders, url: "机场订阅填到这里，两端引号不要去掉", override: {skip-cert-verify: true, udp: true, path: ./providers/订阅地址1.yaml}}
   
-  订阅地址2: {<<: *PProviders, url: "机场订阅填到这里，两端引号不要去掉", override: {skip-cert-verify: true, udp: true, ipv6: false}}
+  订阅地址2: {<<: *PProviders, url: "机场订阅填到这里，两端引号不要去掉", override: {skip-cert-verify: true, udp: true, path: ./providers/订阅地址1.yaml}}
   
-  订阅地址3: {<<: *PProviders, url: "机场订阅填到这里，两端引号不要去掉", override: {skip-cert-verify: true, udp: true, ipv6: false}}
+  订阅地址3: {<<: *PProviders, url: "机场订阅填到这里，两端引号不要去掉", override: {skip-cert-verify: true, udp: true, path: ./providers/订阅地址1.yaml}}
 
 # 基础代理
 proxies:
@@ -97,7 +97,7 @@ dns:
   # 模式切换 redir-host/fake-ip
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
-  fake-ip-range6: fd00:bada:55ed::1/64
+  fake-ip-range6: fdfe:dcba:9876::1/64
   # 模式切换 whitelist/blacklist,黑名单模式表示如果匹配成功则不返回 Fake-IP, 白名单模式时只有匹配成功才返回 Fake-IP
   fake-ip-filter-mode: blacklist
   fake-ip-filter:
