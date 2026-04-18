@@ -153,7 +153,7 @@ proxy-groups:
 # ========================
   # 全局
   - {name: 手动选择, type: select, include-all: true, filter: "^((?!(🟢 直连)).)*$", icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/direct.png"}
-  - {name: Smart智选, type: smart, include-all: true, policy-priority: ".*(日本|JP).*:1.2";.*机场.*:0.2", uselightgbm: true, collectdata: true, interval: 300, filter: "^((?!(🟢 直连)).)*$", icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/final.png"}
+  - {name: Smart智选, type: smart, include-all: true, policy-priority: ".*(香港|HK).*:1.2";.*机场.*:0.2", uselightgbm: true, collectdata: true, interval: 300, filter: "^((?!(🟢 直连)).)*$", icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/final.png"}
   # 香港
   - {name: 香港, type: fallback, interval: 300, lazy: false, proxies: [香港手选, 香港智选], icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png"}
   - {name: 香港手选, type: select, include-all: true, filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png"}
