@@ -1,5 +1,5 @@
 # ========================
-# Clash  /Nikki 链式代理 带故障转移策略
+# Clash  /Nikki 链式代理 故障转移带Reject策略组
 # ========================
 # 必读！！！
 # 此版本没有做防泄露处理
@@ -152,6 +152,7 @@ proxy-groups:
   - {name: 国外流量, <<: *Proxy_first, icon: "https://logo.svgcdn.com/simple-icons/openvpn-dark.png"}
   - {name: 游戏平台, <<: *Direct_first, icon: "https://www.freepnglogos.com/uploads/512x512-logo-png/512x512-logo-steam-icon-13.png"}
   - {name: 国内流量, <<: *Direct_first, icon: "https://cdn.pixabay.com/photo/2015/04/22/23/18/pagoda-735491_960_720.png"}
+  - {name: 拒绝访问, <<: *Reject_first, icon: "https://cdn.pixabay.com/photo/2024/08/09/06/31/ai-generated-8956182_1280.png"}
   - {name: 漏网之鱼, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2017/02/16/10/20/target-2070972_1280.png"}
   
 # ========================
@@ -187,41 +188,38 @@ proxy-groups:
   #   - 名字4
   # 全局
   - {name: 手动选择, type: select, include-all: true, filter: "^((?!(🟢 直连|🔴 拒绝)).)*$", icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/direct.png"}
-  - {name: 自动选择, type: url-test, include-all: true, tolerance: 20, interval: 300, url: "http://www.gstatic.com/generate_204", lazy: true, filter: "^((?!(🟢 直连|🔴 拒绝)).)*$", icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/final.png"}
+  - {name: 自动选择, type: url-test, include-all: true, tolerance: 50, interval: 300, filter: "^((?!(🟢 直连|🔴 拒绝)).)*$", icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/final.png"}
   # 香港
-  - {name: 香港, type: fallback, interval: 60, lazy: true, proxies: [香港手选, 香港自选], icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png"}
-  - {name: 香港手选, type: select, include-all: true, filter: "(?i)(广港|香港|HK|Hong\\ Kong|🇭🇰|HongKong)", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png"}
-  - {name: 香港自选, type: url-test, include-all: true, tolerance: 20, interval: 300, url: "http://www.gstatic.com/generate_204", lazy: true, filter: "(?i)(广港|香港|HK|Hong\\ Kong|🇭🇰|HongKong)", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png"}
+  - {name: 香港, type: fallback, interval: 300, lazy: false, proxies: [香港手选, 香港自选], icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png"}
+  - {name: 香港手选, type: select, include-all: true, filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png"}
+  - {name: 香港自选, type: url-test, include-all: true, tolerance: 50, interval: 300, filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png"}
   # 日本
-  - {name: 日本, type: fallback, interval: 60, lazy: true, proxies: [日本手选, 日本自选], icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Japan.png"}
-  - {name: 日本手选, type: select, include-all: true, filter: "(?i)(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Japan.png"}
-  - {name: 日本自选, type: url-test, include-all: true, tolerance: 20, interval: 300, url: "http://www.gstatic.com/generate_204", lazy: true, filter: "(?i)(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Japan.png"}
+  - {name: 日本, type: fallback, interval: 300, lazy: false, proxies: [日本手选, 日本自选], icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Japan.png"}
+  - {name: 日本手选, type: select, include-all: true, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Japan.png"}
+  - {name: 日本自选, type: url-test, include-all: true, tolerance: 50, interval: 300, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Japan.png"}
   # 台湾
-  - {name: 台湾, type: fallback, interval: 60, lazy: true, proxies: [台湾手选, 台湾自选], icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png"}
-  - {name: 台湾手选, type: select, include-all: true, filter: "(?i)(广台|台湾|台灣|TW|Tai\\ Wan|🇹🇼|TaiWan|Taiwan)", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png"}
-  - {name: 台湾自选, type: url-test, include-all: true, tolerance: 20, interval: 300, url: "http://www.gstatic.com/generate_204", lazy: true, filter: "(?i)(广台|台湾|台灣|TW|Tai\\ Wan|🇹🇼|TaiWan|Taiwan)", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png"}
+  - {name: 台湾, type: fallback, interval: 300, lazy: false, proxies: [台湾手选, 台湾自选], icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png"}
+  - {name: 台湾手选, type: select, include-all: true, filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan)).*$", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png"}
+  - {name: 台湾自选, type: url-test, include-all: true, tolerance: 50, interval: 300, filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan)).*$", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png"}
   # 美国
-  - {name: 美国, type: fallback, interval: 60, lazy: true, proxies: [美国手选, 美国自选], icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/United_States.png"}
-  - {name: 美国手选, type: select, include-all: true, filter: "(?i)(广美|\\bUS\\b|United\\ States|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸)", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/United_States.png"}
-  - {name: 美国自选, type: url-test, include-all: true, tolerance: 20, interval: 300, url: "http://www.gstatic.com/generate_204", lazy: true, filter: "(?i)(广美|\\bUS\\b|United\\ States|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸)", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/United_States.png"}
-  # 德国
-  - {name: 德国, type: fallback, interval: 60, lazy: true, proxies: [德国手选, 德国自选], icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Germany.png"}
-  - {name: 德国手选, type: select, include-all: true, filter: "(?i)(德|德国|\\bDE\\b|Frankfurt|法兰克福|慕尼黑|柏林|汉堡|杜塞尔多夫|🇩🇪|Germany)", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Germany.png"}
-  - {name: 德国自选, type: url-test, include-all: true, tolerance: 20, interval: 300, url: "http://www.gstatic.com/generate_204", lazy: true, filter: "(?i)(德|德国|\\bDE\\b|Frankfurt|法兰克福|慕尼黑|柏林|汉堡|杜塞尔多夫|🇩🇪|Germany)", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Germany.png"}
+  - {name: 美国, type: fallback, interval: 300, lazy: false, proxies: [美国手选, 美国自选], icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/United_States.png"}
+  - {name: 美国手选, type: select, include-all: true, filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/United_States.png"}
+  - {name: 美国自选, type: url-test, include-all: true, tolerance: 50, interval: 300, filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/United_States.png"}
   # 狮城
-  - {name: 狮城, type: fallback, interval: 60, lazy: true, proxies: [狮城手选, 狮城自选], icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Singapore.png"}
-  - {name: 狮城手选, type: select, include-all: true, filter: "(?i)(广新|新加坡|\\bSG\\b|坡|狮城|🇸🇬|Singapore)", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Singapore.png"}
-  - {name: 狮城自选, type: url-test, include-all: true, tolerance: 20, interval: 300, url: "http://www.gstatic.com/generate_204", lazy: true, filter: "(?i)(广新|新加坡|\\bSG\\b|坡|狮城|🇸🇬|Singapore)", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Singapore.png"}
+  - {name: 狮城, type: fallback, interval: 300, lazy: false, proxies: [狮城手选, 狮城自选], icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Singapore.png"}
+  - {name: 狮城手选, type: select, include-all: true, filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Singapore.png"}
+  - {name: 狮城自选, type: url-test, include-all: true, tolerance: 50, interval: 300, filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Singapore.png"}
   # 全球
-  - {name: 全球, type: fallback, interval: 60, lazy: true, proxies: [全球手选, 全球自选], icon: "https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_1280.png"}
-  - {name: 全球手选, type: select, include-all: true, filter: "^((?!(🟢 直连|🔴 拒绝|广港|香港|HK|Hong\\ Kong|🇭🇰|HongKong|广台|台湾|台灣|\\bTW\\b|Tai\\ Wan|🇹🇼|TaiWan|Taiwan|广日|日本|\\bJP\\b|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|\\bSG\\b|坡|狮城|🇸🇬|Singapore|广美|\\bUS\\b|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|德|德国|\\bDE\\b|Frankfurt|法兰克福|慕尼黑|柏林|汉堡|杜塞尔多夫|🇩🇪|Germany)).)*$", icon: "https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_1280.png"}
-  - {name: 全球自选, type: url-test, include-all: true, tolerance: 20, interval: 300, url: "http://www.gstatic.com/generate_204", lazy: true, filter: "^((?!(🟢 直连|🔴 拒绝|广港|香港|HK|Hong\\ Kong|🇭🇰|HongKong|广台|台湾|台灣|\\bTW\\b|Tai\\ Wan|🇹🇼|TaiWan|Taiwan|广日|日本|\\bJP\\b|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|\\bSG\\b|坡|狮城|🇸🇬|Singapore|广美|\\bUS\\b|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|德|德国|\\bDE\\b|Frankfurt|法兰克福|慕尼黑|柏林|汉堡|杜塞尔多夫|🇩🇪|Germany)).)*$", icon: "https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_1280.png"}
-    
+  - {name: 全球, type: fallback, interval: 300, lazy: false, proxies: [全球手选, 全球自选], icon: "https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_1280.png"}
+  - {name: 全球手选, type: select, include-all: true, filter: "^((?!(🟢 直连|🔴 拒绝|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸)).)*$", icon: "https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_1280.png"}
+  - {name: 全球自选, type: url-test, include-all: true, tolerance: 50, interval: 300, filter: "^((?!(🟢 直连|🔴 拒绝|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸)).)*$", icon: "https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_1280.png"}
+
 # ========================
 # 规则引擎（rules）
 # ========================
 rules:
   # 优先级高的规则
+  - RULE-SET,Block_Domain,拒绝访问
   - RULE-SET,Private_ip,国内流量,no-resolve
   - RULE-SET,Private_Domain,国内流量
   - RULE-SET,Proxy_Domain,国外流量
@@ -282,6 +280,7 @@ rule-anchor:
 rule-providers:
   # 优先匹配规则
   fakeip_filter_domain: {<<: *domain, url: "https://raw.githubusercontent.com/Lanlan13-14/Rules/refs/heads/main/rules/Domain/fakeip-filter.mrs"}
+  Block_Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/Block.list"}
   Private_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
   Proxy_Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/Proxy.list"}
   # 流媒体规则
