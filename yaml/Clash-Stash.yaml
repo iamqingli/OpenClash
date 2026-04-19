@@ -32,29 +32,27 @@ proxies:
 # ========================
 # 全局配置
 # ========================
-port: 7890
-socks-port: 7891
-redir-port: 7892
-mixed-port: 7893
-tproxy-port: 7895
+mixed-port: 7890
+ipv6: true
 allow-lan: true
 bind-address: "*"
 mode: rule
 log-level: warning
 unified-delay: true
 tcp-concurrent: true
-interface-name: enp6s18
+# 路由器下根据情况指定出站接口:
+# interface-name: eth0
 global-client-fingerprint: chrome
 keep-alive-idle: 600
-keep-alive-interval: 15
+keep-alive-interval: 30
 
 # 控制面板
-# 跑裸核用户请自行去掉下方控制面板模块的注释。
-# external-controller: 0.0.0.0:9090
-# external-ui: ui
-# external-ui-name: zashboard
-# external-ui-url: "https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
-# secret: "123456"
+external-controller: 0.0.0.0:9090
+external-ui: ui
+external-ui-url: "https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
+# 下载面板地址可更换：https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip
+# 密码默认设置无，请自行修改：
+secret: ""
 
 # 策略组选择和fakeip缓存
 profile:
@@ -65,7 +63,7 @@ profile:
 # 流量嗅探（fakeip下可以不用嗅探）
 # ========================
 sniffer:
-  enable: false
+  enable: true
   sniff:
     HTTP:
       ports: [80, 8080-8880]
@@ -79,51 +77,51 @@ sniffer:
     - "+.push.apple.com"
 
 # ========================
+# 入站代理配置
+# ========================
+tun:
+  enable: true
+  # system/gvisor/mixed
+  stack: gvisor
+  mtu: 9000
+  dns-hijack: ["any:53", "tcp://any:53"]
+  # 使用nikki，混入全部不修改的情况，请修改开启接口device指定为nikki
+  # device: nikki
+  auto-route: true
+  auto-redirect: true
+  auto-detect-interface: true
+
+# ========================
 # DNS 设置
 # ========================
 dns:
   enable: true
   cache-algorithm: arc
   listen: 0.0.0.0:1053
-  respect-rules: false
+  respect-rules: true
   ipv6: true
+  prefer-h3: false # 是否开启 DoH 支持 HTTP/3，将并发尝试
   # 模式切换 redir-host/fake-ip
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
-  fake-ip-range6: fd00:bada:55ed::1/64
-  # 模式切换 whitelist/blacklist,黑名单模式表示如果匹配成功则不返回 Fake-IP, 白名单模式时只有匹配成功才返回 Fake-IP
+  fake-ip-range6: fdfe:dcba:9876::1/64
+  # 模式切换 whitelist/blacklist
+  # 黑名单模式表示如果匹配成功则不返回 Fake-IP, 白名单模式时只有匹配成功才返回 Fake-IP
   fake-ip-filter-mode: blacklist
   fake-ip-filter:
     - rule-set:fakeip_filter_domain
   default-nameserver:
-    - https://223.5.5.5/dns-query
+    - 119.29.29.29
+    - 180.184.1.1
   proxy-server-nameserver:
-    - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
+    - https://223.5.5.5/dns-query#h3=true
   direct-nameserver:
-    - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
+    - https://223.5.5.5/dns-query#h3=true
   nameserver:
-    - https://dns.alidns.com/dns-query
-    - https://doh.pub/dns-query
-    
-  # 增强DNS缓存,提升性能
-  cache: true
-  cache-size: 8000
-  
-# ========================
-# 入站代理配置
-# ========================
-tun:
-  enable: true
-  # system/gvisor/mixed
-  stack: system
-  dns-hijack: ["any:53", "tcp://any:53"]
-  device: Stash
-  # 使用仅内核自行修改下面三项为true
-  auto-route: true
-  auto-redirect: true
-  auto-detect-interface: true
+    - https://dns.google/dns-query
+    - https://dns.cloudflare.com/dns-query
   
 # ========================
 # 策略组定义
