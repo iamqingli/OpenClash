@@ -117,9 +117,9 @@ dns:
 tun:
   enable: true
   # system/gvisor/mixed
-  stack: mixed
+  stack: system
   dns-hijack: ["any:53", "tcp://any:53"]
-  device: stash
+  device: Stash
   # 使用仅内核自行修改下面三项为true
   auto-route: true
   auto-redirect: true
