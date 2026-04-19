@@ -21,7 +21,6 @@ proxy-providers:
   订阅地址2: {<<: *PProviders, url: "机场订阅填到这里，两端引号不要去掉", override: {skip-cert-verify: true}}
   订阅地址3: {<<: *PProviders, url: "机场订阅填到这里，两端引号不要去掉", override: {skip-cert-verify: true}}
 
-
 # 基础代理
 proxies:
   - {name: 🟢 直连, type: direct}
