@@ -1,19 +1,20 @@
 # ========================
-# Clash / Nikki 故障转移无Reject策略组
+# Clash / Nikki 故障转移带Reject策略组
 # ========================
 # 必读！！！
 # 此版本没有做防泄露处理
-# 注意规则在满足自己需求情况下，尽量做到精简，不要过度复杂，以免影响性能。
-# 跑裸核用户请自行去掉控制面板模块的注释。
+# 注意规则在满足自己需求情况下，尽量做到精简，不要过度复杂，以免影响性能
+# 跑裸核用户请自行去掉控制面板模块的注释
 # ========================
 
 # ========================
 # 锚点定义
 # ========================
-优先代理: &Proxy_first {type: select, proxies: [自动选择, 手动选择, 香港, 日本, 美国, 台湾, 狮城, 全球, 🟢 直连]}
-优先直连: &Direct_first {type: select, proxies: [🟢 直连, 自动选择, 手动选择, 香港, 日本, 美国, 台湾, 狮城, 全球]}
+优先代理: &Proxy_first {type: select, proxies: [自动选择, 手动选择, 香港, 日本, 美国, 台湾, 狮城, 全球, 🟢 直连, 🔴 拒绝]}
+优先直连: &Direct_first {type: select, proxies: [🟢 直连, 自动选择, 手动选择, 香港, 日本, 美国, 台湾, 狮城, 全球, 🔴 拒绝]}
+优先拒绝: &Reject_first {type: select, proxies: [🔴 拒绝, 自动选择, 手动选择, 香港, 日本, 美国, 台湾, 狮城, 全球, 🟢 直连]}
 PProviders: &PProviders {type: http, interval: 21600, health-check: {enable: true, url: "https://www.google.com/generate_204", interval: 300}, proxy: 🟢 直连, filter: '^(?!.*(群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|提示|特别|访问|支持|教程|关注|更新|作者|加入|USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|traffic))'}
-  
+
 # ========================
 # 节点订阅链接
 # ========================
@@ -26,7 +27,8 @@ proxy-providers:
 
 # 基础代理
 proxies:
-  - {name: 🟢 直连, type: direct}
+  - {name: "🟢 直连", type: direct}
+  - {name: "🔴 拒绝", type: reject}
 
 # ========================
 # 全局配置
@@ -42,7 +44,7 @@ mode: rule
 log-level: warning
 unified-delay: true
 tcp-concurrent: true
-# interface-name: enp6s18
+interface-name: enp6s18
 global-client-fingerprint: chrome
 keep-alive-idle: 600
 keep-alive-interval: 15
@@ -89,7 +91,7 @@ dns:
   # 模式切换 redir-host/fake-ip
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
-  fake-ip-range6: fd00:bada:55ed::1/64
+  fake-ip-range6: fdfe:dcba:9876::1/64
   # 模式切换 whitelist/blacklist,黑名单模式表示如果匹配成功则不返回 Fake-IP, 白名单模式时只有匹配成功才返回 Fake-IP
   fake-ip-filter-mode: blacklist
   fake-ip-filter:
@@ -107,8 +109,8 @@ dns:
     - https://doh.pub/dns-query
     
   # 增强DNS缓存,提升性能
-  # cache: true
-  # cache-size: 8000
+  cache: true
+  cache-size: 8000
   
 # ========================
 # 入站代理配置
@@ -118,12 +120,11 @@ tun:
   # system/gvisor/mixed
   stack: mixed
   dns-hijack: ["any:53", "tcp://any:53"]
-  # 使用nikki，混入全部不修改的情况，请修改开启接口device指定为nikki
-  # device: nikki
+  device: stash
   # 使用仅内核自行修改下面三项为true
-  auto-route: false
-  auto-redirect: false
-  auto-detect-interface: false
+  auto-route: true
+  auto-redirect: true
+  auto-detect-interface: true
   
 # ========================
 # 策略组定义
@@ -145,14 +146,15 @@ proxy-groups:
   - {name: 国外流量, <<: *Proxy_first, icon: "https://logo.svgcdn.com/simple-icons/openvpn-dark.png"}
   - {name: 游戏平台, <<: *Direct_first, icon: "https://www.freepnglogos.com/uploads/512x512-logo-png/512x512-logo-steam-icon-13.png"}
   - {name: 国内流量, <<: *Direct_first, icon: "https://cdn.pixabay.com/photo/2015/04/22/23/18/pagoda-735491_960_720.png"}
+  - {name: 拒绝访问, <<: *Reject_first, icon: "https://cdn.pixabay.com/photo/2024/08/09/06/31/ai-generated-8956182_1280.png"}
   - {name: 漏网之鱼, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2017/02/16/10/20/target-2070972_1280.png"}
   
 # ========================
 # 节点选择组
 # ========================
   # 全局
-  - {name: 手动选择, type: select, include-all: true, filter: "^((?!(🟢 直连)).)*$", icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/direct.png"}
-  - {name: 自动选择, type: url-test, include-all: true, tolerance: 50, interval: 300, filter: "^((?!(🟢 直连)).)*$", icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/final.png"}
+  - {name: 手动选择, type: select, include-all: true, filter: "^((?!(🟢 直连|🔴 拒绝)).)*$", icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/direct.png"}
+  - {name: 自动选择, type: url-test, include-all: true, tolerance: 50, interval: 300, filter: "^((?!(🟢 直连|🔴 拒绝)).)*$", icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/final.png"}
   # 香港
   - {name: 香港, type: fallback, interval: 300, lazy: false, proxies: [香港手选, 香港自选], icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png"}
   - {name: 香港手选, type: select, include-all: true, filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png"}
@@ -175,14 +177,15 @@ proxy-groups:
   - {name: 狮城自选, type: url-test, include-all: true, tolerance: 50, interval: 300, filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Singapore.png"}
   # 全球
   - {name: 全球, type: fallback, interval: 300, lazy: false, proxies: [全球手选, 全球自选], icon: "https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_1280.png"}
-  - {name: 全球手选, type: select, include-all: true, filter: "^((?!(🟢 直连|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸)).)*$", icon: "https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_1280.png"}
-  - {name: 全球自选, type: url-test, include-all: true, tolerance: 50, interval: 300, filter: "^((?!(🟢 直连|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸)).)*$", icon: "https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_1280.png"}
+  - {name: 全球手选, type: select, include-all: true, filter: "^((?!(🟢 直连|🔴 拒绝|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸)).)*$", icon: "https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_1280.png"}
+  - {name: 全球自选, type: url-test, include-all: true, tolerance: 50, interval: 300, filter: "^((?!(🟢 直连|🔴 拒绝|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸)).)*$", icon: "https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_1280.png"}
 
 # ========================
 # 规则引擎（rules）
 # ========================
 rules:
   # 优先级高的规则
+  - RULE-SET,Block_Domain,拒绝访问
   - RULE-SET,Private_ip,国内流量,no-resolve
   - RULE-SET,Private_Domain,国内流量
   - RULE-SET,Proxy_Domain,国外流量
@@ -243,6 +246,7 @@ rule-anchor:
 rule-providers:
   # 优先匹配规则
   fakeip_filter_domain: {<<: *domain, url: "https://raw.githubusercontent.com/Lanlan13-14/Rules/refs/heads/main/rules/Domain/fakeip-filter.mrs"}
+  Block_Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/Block.list"}
   Private_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
   Proxy_Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/Proxy.list"}
   # 流媒体规则
