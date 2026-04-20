@@ -34,14 +34,5 @@ Block分组带拒绝访问分组，包含部分域名，如：Adobe
 
 六、仅内核模式运行需要更改:
   
-  1.#跑裸核用户请自行去掉控制面板模块的注释。
-  
-  2.#使用nikki，混入全部不修改的情况，请修改开启接口device指定为nikki
-  
-  3.#使用仅内核自行修改下面三项为true
-  
-  auto-route: false > auto-route: true
-  
-  auto-redirect: false > auto-redirect: true
-  
-  auto-detect-interface: false > auto-detect-interface: true
+  1.#使用nikki，混入全部不修改的情况，请修改开启接口device指定为nikki
+
