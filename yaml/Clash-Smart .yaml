@@ -181,12 +181,12 @@ rules:
   - RULE-SET,Private_Domain,国内流量
   - RULE-SET,Proxy_Domain,国外流量
   # 流媒体规则
-  - RULE-SET,Youtube_Domain,YouTube
-  - RULE-SET,TikTok_Domain,TikTok
-  - RULE-SET,Netflix_Domain,Netflix
   - RULE-SET,Disney_Domain,流媒体
   - RULE-SET,HBO_Domain,流媒体
   - RULE-SET,Spotify_Domain,流媒体
+  - RULE-SET,Netflix_Domain,Netflix
+  - RULE-SET,TikTok_Domain,TikTok
+  - RULE-SET,Youtube_Domain,YouTube
   # 应用和服务规则
   - RULE-SET,AI_Domain,AI平台
   - RULE-SET,Github_Domain,GitHub
@@ -241,8 +241,8 @@ rule-providers:
   Proxy_Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/Proxy.list"}
   # 流媒体规则
   Youtube_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs"}
-  TikTok_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.mrs"}
   Netflix_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.mrs"}
+  TikTok_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.mrs"}
   Disney_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/disney.mrs"}
   HBO_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/hbo.mrs"}
   Spotify_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/spotify.mrs"}
