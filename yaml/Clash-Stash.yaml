@@ -126,8 +126,8 @@ proxy-groups:
   - {name: AI平台, <<: *Proxy_first, icon: "https://www.freepnglogos.com/uploads/logo-chatgpt-png/circle-green-logo-chatgpt-png-visual-studio-marketplace.png"}
   - {name: PayPal, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2012/04/28/18/53/money-43994_1280.png"}
   - {name: 流媒体, <<: *Proxy_first, icon: "https://logo.svgcdn.com/streamline-logos/disney-plus-logo-block-dark.png"}
-  - {name: TikTok, <<: *Proxy_first, icon: "https://www.freepnglogos.com/uploads/tik-tok-logo-png/tik-tok-musical-archives-buy-social-buzz-19.png"}
   - {name: Netflix, <<: *Proxy_first, icon: "https://www.freepnglogos.com/uploads/netflix-logo-app-png-16.png"}
+  - {name: TikTok, <<: *Proxy_first, icon: "https://www.freepnglogos.com/uploads/tik-tok-logo-png/tik-tok-musical-archives-buy-social-buzz-19.png"}
   - {name: YouTube, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2018/05/27/22/48/social-3434840_1280.png"}
   - {name: GitHub, <<: *Proxy_first, icon: "https://www.freepnglogos.com/uploads/512x512-logo-png/512x512-logo-github-icon-35.png"}
   - {name: Telegram, <<: *Proxy_first, icon: "https://www.freepnglogos.com/uploads/telegram-png/telegram-software-wikipedia-2.png"}
@@ -241,8 +241,8 @@ rule-providers:
   Proxy_Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/Proxy.list"}
   # 流媒体规则
   Youtube_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs"}
-  TikTok_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.mrs"}
   Netflix_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.mrs"}
+  TikTok_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.mrs"}
   Disney_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/disney.mrs"}
   HBO_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/hbo.mrs"}
   Spotify_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/spotify.mrs"}
