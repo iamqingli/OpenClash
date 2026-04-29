@@ -5,6 +5,10 @@ DOMAIN-SUFFIX,adobe.io
 DOMAIN-SUFFIX,omtrdc.net
 DOMAIN-SUFFIX,adobelogin.com
 
+# Mylist
+DOMAIN-SUFFIX,log.avlyun.com
+DOMAIN-SUFFIX,avlstatic.vivo.com.cn
+
 # WebRTC
 DOMAIN,stun.l.google.com
 DOMAIN,stun1.l.google.com
