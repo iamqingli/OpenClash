@@ -134,7 +134,7 @@ dns:
 # ========================
 proxy-groups:
   - {name: AI平台, <<: *Proxy_first, icon: "https://www.svgrepo.com/show/306500/openai.svg"}
-  - {name: PayPal, <<: *Proxy_first, icon: "https://www.svgrepo.com/show/452082/paypal.svg"}
+  - {name: PayPal, <<: *Proxy_first, icon: "https://www.svgrepo.com/show/475665/paypal-color.svg"}
   - {name: 流媒体, <<: *Proxy_first, icon: "https://www.svgrepo.com/show/303508/walt-disney-pictures-logo.svg"}
   - {name: Netflix, <<: *Proxy_first, icon: "https://www.svgrepo.com/show/303341/netflix-1-logo.svg"}
   - {name: TikTok, <<: *Proxy_first, icon: "https://www.svgrepo.com/show/452114/tiktok.svg"}
@@ -151,7 +151,7 @@ proxy-groups:
   - {name: 游戏平台, <<: *Direct_first, icon: "https://www.svgrepo.com/show/452107/steam.svg"}
   - {name: 国内流量, <<: *Direct_first, icon: "https://www.svgrepo.com/show/476905/pagoda.svg"}
   - {name: 拒绝访问, <<: *Reject_first, icon: "https://www.svgrepo.com/show/509530/no-entry.svg"}
-  - {name: 漏网之鱼, <<: *Proxy_first, icon: "https://www.svgrepo.com/show/486302/fish.svg"}
+  - {name: 漏网之鱼, <<: *Proxy_first, icon: "https://www.svgrepo.com/svg/100438/fish"}
   
 # ========================
 # 节点选择组
