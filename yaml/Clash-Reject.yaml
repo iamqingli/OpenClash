@@ -133,9 +133,10 @@ proxy-groups:
   - {name: YouTube, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2018/05/27/22/48/social-3434840_1280.png"}
   - {name: GitHub, <<: *Proxy_first, icon: "https://www.freepnglogos.com/uploads/512x512-logo-png/512x512-logo-github-icon-35.png"}
   - {name: Telegram, <<: *Proxy_first, icon: "https://www.freepnglogos.com/uploads/telegram-png/telegram-software-wikipedia-2.png"}
+  - {name: Apple, <<: *Direct_first, icon: "https://www.freepnglogos.com/uploads/iphone-logo-5.png"}
   - {name: Google, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2016/04/13/14/27/google-chrome-1326908_1280.png"}
-  - {name: Microsoft, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2021/10/17/14/47/windows-7-logo-6718525_1280.png"}
   - {name: Onedrive, <<: *Direct_first, icon: "https://logo.svgcdn.com/logos/microsoft-onedrive.png"}
+  - {name: Microsoft, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2021/10/17/14/47/windows-7-logo-6718525_1280.png"}
   - {name: 加密货币, <<: *Proxy_first, icon: "https://cdn.pixabay.com/photo/2015/04/14/08/09/currency-721803_1280.png"}
   - {name: 国外应用, <<: *Proxy_first, icon: "https://www.freepnglogos.com/uploads/whatsapp-png-logo-1.png"}
   - {name: 国外流量, <<: *Proxy_first, icon: "https://logo.svgcdn.com/simple-icons/openvpn-dark.png"}
@@ -195,9 +196,9 @@ rules:
   - RULE-SET,AI_Domain,AI平台
   - RULE-SET,Github_Domain,GitHub
   - RULE-SET,Google_Domain,Google
-  - RULE-SET,onedrive_domain,Onedrive
+  - RULE-SET,Onedrive_domain,Onedrive
   - RULE-SET,Microsoft_Domain,Microsoft
-  - RULE-SET,Apple_Domain,国内流量
+  - RULE-SET,Apple_Domain,Apple
   - RULE-SET,PayPal_Domain,PayPal
   - RULE-SET,Telegram_Domain,Telegram
   - RULE-SET,Twitter_Domain,国外应用
@@ -219,7 +220,7 @@ rules:
   - RULE-SET,Binance_Domain,加密货币
   - RULE-SET,OtherPay_Domain,加密货币  
   # 国内外分流规则
-  - RULE-SET,Apple_IP,国内流量
+  - RULE-SET,Apple_IP,Apple
   - RULE-SET,Google_IP,Google 
   - RULE-SET,Netflix_IP,Netflix 
   - RULE-SET,Telegram_IP,Telegram
@@ -255,7 +256,7 @@ rule-providers:
   AI_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-!cn.mrs"}
   Github_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs"}
   Google_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs"}
-  onedrive_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/onedrive.mrs" }
+  Onedrive_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/onedrive.mrs" }
   Microsoft_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.mrs"}
   Apple_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple.mrs"} 
   PayPal_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/paypal.mrs"}
