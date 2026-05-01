@@ -140,7 +140,7 @@ proxy-groups:
   - {name: 国外流量, <<: *Proxy_first, icon: "https://www.svgrepo.com/show/230738/world-internet.svg"}
   - {name: 游戏平台, <<: *Direct_first, icon: "https://www.svgrepo.com/show/452107/steam.svg"}
   - {name: 国内流量, <<: *Direct_first, icon: "https://www.svgrepo.com/show/476905/pagoda.svg"}
-  - {name: 漏网之鱼, <<: *Proxy_first, icon: "https://www.svgrepo.com/svg/100438/fish"}
+  - {name: 漏网之鱼, <<: *Proxy_first, icon: "https://www.svgrepo.com/show/100438/fish.svg"}
   
 # ========================
 # 节点选择组
