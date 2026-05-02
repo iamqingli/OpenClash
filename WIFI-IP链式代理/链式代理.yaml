@@ -185,8 +185,8 @@ proxy-groups:
   #   - DIRECT
   #   - 名字4
   # 全局
-  - {name: 手动选择, type: select, include-all: true, filter: "^((?!(🟢 直连|🔴 拒绝)).)*$", icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/direct.png"}
   - {name: 自动选择, type: url-test, include-all: true, tolerance: 50, interval: 300, filter: "^((?!(🟢 直连|🔴 拒绝)).)*$", icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/final.png"}
+  - {name: 手动选择, type: select, include-all: true, filter: "^((?!(🟢 直连|🔴 拒绝)).)*$", icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/direct.png"}
   # 香港
   - {name: 香港, type: fallback, interval: 300, lazy: false, proxies: [香港手选, 香港自选], icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png"}
   - {name: 香港手选, type: select, include-all: true, filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$", icon: "https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png"}
