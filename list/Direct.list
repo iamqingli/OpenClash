@@ -5,6 +5,7 @@ DOMAIN-SUFFIX,aial.pw
 DOMAIN-SUFFIX,cntcc.cn
 DOMAIN-SUFFIX,tcc-adn.com
 DOMAIN-SUFFIX,china-tcc.com
+IP-CIDR,161.129.34.195,no-resolve
 
 # tracker
 DOMAIN-SUFFIX,audiences.me
