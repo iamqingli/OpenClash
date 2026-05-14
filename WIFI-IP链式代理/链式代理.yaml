@@ -224,7 +224,6 @@ rules:
   # 流媒体规则
   - RULE-SET,Disney_Domain,流媒体
   - RULE-SET,HBO_Domain,流媒体
-  - RULE-SET,Spotify_Domain,流媒体
   - RULE-SET,Netflix_Domain,Netflix
   - RULE-SET,TikTok_Domain,TikTok
   - RULE-SET,Youtube_Domain,YouTube
@@ -237,6 +236,7 @@ rules:
   - RULE-SET,Apple_Domain,Apple
   - RULE-SET,PayPal_Domain,PayPal
   - RULE-SET,Telegram_Domain,Telegram
+  - RULE-SET,Spotify_Domain,国外应用
   - RULE-SET,Twitter_Domain,国外应用
   - RULE-SET,WhatsApp_Domain,国外应用
   - RULE-SET,Facebook_Domain,国外应用
