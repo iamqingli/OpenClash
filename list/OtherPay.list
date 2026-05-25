@@ -1,4 +1,7 @@
 # 需走加密货币策略的域名:
+DOMAIN-SUFFIX,deepflood.com
+DOMAIN-SUFFIX,nodeseek.com
+
 # 小红卡
 DOMAIN-SUFFIX,redotpay.com
 DOMAIN-SUFFIX,redotpay.zendesk.com
