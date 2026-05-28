@@ -3,6 +3,7 @@ DOMAIN-SUFFIX,uhdnow.com
 DOMAIN-SUFFIX,freepnglogos.com
 DOMAIN-SUFFIX,pixabay.com
 DOMAIN-SUFFIX,svgcdn.com
+DOMAIN-SUFFIX,push.apple.com
 
 # 国外DNS
 DOMAIN-SUFFIX,dns.google
