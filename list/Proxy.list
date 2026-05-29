@@ -7,6 +7,7 @@ DOMAIN-SUFFIX,api.btyjscl.com
 DOMAIN-SUFFIX,s1s1s1.com
 DOMAIN-SUFFIX,javdb.com
 DOMAIN-SUFFIX,javbus.com
+DOMAIN-SUFFIX,curl.se
 
 # APPLE APNs推送服务
 DOMAIN-SUFFIX,push.apple.com
