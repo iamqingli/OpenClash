@@ -38,7 +38,6 @@ unified-delay: true
 tcp-concurrent: true
 # 路由器下根据情况指定出站接口:eth0/br-lan
 # interface-name: eth0
-global-client-fingerprint: chrome
 keep-alive-idle: 600
 keep-alive-interval: 30
 
