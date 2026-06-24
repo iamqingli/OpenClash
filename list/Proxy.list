@@ -2,6 +2,7 @@
 DOMAIN-SUFFIX,freepnglogos.com
 DOMAIN-SUFFIX,pixabay.com
 DOMAIN-SUFFIX,svgcdn.com
+DOMAIN-SUFFIX,jsdmirror.com
 
 # APPLE APNs推送服务
 DOMAIN-SUFFIX,push.apple.com
