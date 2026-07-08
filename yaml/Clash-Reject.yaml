@@ -38,7 +38,6 @@ mode: rule
 log-level: warning
 unified-delay: true
 tcp-concurrent: true
-global-client-fingerprint: chrome
 keep-alive-idle: 600
 keep-alive-interval: 30
 
