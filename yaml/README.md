@@ -39,7 +39,9 @@ Block分组带拒绝访问分组，包含部分域名，如：Adobe
   2.使用仅内核自行修改下面三项为true，路由控制、使用GUI客户端请保持 false，纯内核命令行运行改为 true
   
   auto-route: false
+  
   auto-redirect: false
+  
   auto-detect-interface: false
   
   3.控制面板:
