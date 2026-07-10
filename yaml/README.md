@@ -34,5 +34,19 @@ Block分组带拒绝访问分组，包含部分域名，如：Adobe
 
 六、仅内核模式运行需要更改:
   
-  1.#使用nikki，混入全部不修改的情况，请修改开启接口device指定为nikki
+  1.使用nikki，混入全部不修改的情况，请修改开启接口device指定为nikki
+  
+  2.使用仅内核自行修改下面三项为true，路由控制、使用GUI客户端请保持 false，纯内核命令行运行改为 true
+  
+  auto-route: false
+  auto-redirect: false
+  auto-detect-interface: false
+  
+  3.控制面板:
+  
+  密码默认设置为空，请自行修改
+  
+  面板地址可更换：https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip
+  
+  避免桌面gui客户端冲突，默认保持注释，Nikki可取消注释使用
 
