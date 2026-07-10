@@ -191,7 +191,7 @@ rules:
   - RULE-SET,AI_Domain,AI平台
   - RULE-SET,Github_Domain,GitHub
   - RULE-SET,Google_Domain,Google
-  - RULE-SET,Onedrive_domain,Onedrive
+  - RULE-SET,Onedrive_Domain,Onedrive
   - RULE-SET,Microsoft_Domain,Microsoft
   - RULE-SET,Apple_Domain,Apple
   - RULE-SET,PayPal_Domain,PayPal
@@ -211,7 +211,7 @@ rules:
   - RULE-SET,Blizzard_Domain,游戏平台
   - RULE-SET,UBI_Domain,游戏平台
   - RULE-SET,Sony_Domain,游戏平台
-  - RULE-SET,Nintend_Domain,游戏平台  
+  - RULE-SET,Nintendo_Domain,游戏平台  
   # 加密货币规则
   - RULE-SET,OKX_Domain,加密货币
   - RULE-SET,Bybit_Domain,加密货币
@@ -252,7 +252,7 @@ rule-providers:
   AI_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-!cn.mrs"}
   Github_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs"}
   Google_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs"}
-  Onedrive_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/onedrive.mrs" }
+  Onedrive_Domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/onedrive.mrs" }
   Microsoft_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.mrs"}
   Apple_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple.mrs"} 
   PayPal_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/paypal.mrs"}
@@ -260,7 +260,7 @@ rule-providers:
   Spotify_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/spotify.mrs"}
   Reddit_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/reddit.mrs"}
   Instagram_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/instagram.mrs"}
-  Twitter_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/x.mrs"}
+  Twitter_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/twitter.mrs"}
   WhatsApp_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/whatsapp.mrs"}
   Facebook_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/facebook.mrs"}
   OtherAPP_Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/OtherAPP.list"}
@@ -272,7 +272,7 @@ rule-providers:
   Blizzard_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/blizzard.mrs"}
   UBI_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/ubisoft.mrs"}
   Sony_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/sony.mrs"}
-  Nintend_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/nintendo.mrs"}
+  Nintendo_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/nintendo.mrs"}
   # 加密货币规则
   OKX_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/okx.mrs"}
   Bybit_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/bybit.mrs"}
