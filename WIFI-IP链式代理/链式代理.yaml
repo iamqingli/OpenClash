@@ -128,6 +128,10 @@ dns:
   nameserver:
     - 8.8.8.8#自动选择
     - 1.1.1.1#自动选择
+  nameserver-policy:
+    "rule-set:fakeip_filter_domain": [system, 223.5.5.5, 119.29.29.29]
+    "rule-set:Private_Domain": [system, 223.5.5.5, 119.29.29.29]
+    "rule-set:China_Domain": [system, 223.5.5.5, 119.29.29.29]
   
 # ========================
 # 策略组定义
@@ -239,7 +243,7 @@ rules:
   - RULE-SET,Spotify_Domain,国外应用
   - RULE-SET,Reddit_Domain,国外应用
   - RULE-SET,Instagram_Domain,国外应用
-  - RULE-SET,Twitter_Domain,国外应用
+  - RULE-SET,X_Domain,国外应用
   - RULE-SET,WhatsApp_Domain,国外应用
   - RULE-SET,Facebook_Domain,国外应用
   - RULE-SET,OtherAPP_Domain,国外应用
@@ -301,7 +305,7 @@ rule-providers:
   Spotify_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/spotify.mrs"}
   Reddit_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/reddit.mrs"}
   Instagram_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/instagram.mrs"}
-  Twitter_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/twitter.mrs"}
+  X_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/X.mrs"}
   WhatsApp_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/whatsapp.mrs"}
   Facebook_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/facebook.mrs"}
   OtherAPP_Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/OtherAPP.list"}
