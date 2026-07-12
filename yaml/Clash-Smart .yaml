@@ -118,9 +118,9 @@ dns:
     - 8.8.8.8#自动选择
     - 1.1.1.1#自动选择
   nameserver-policy:
-    "rule-set:fakeip_filter_domain": [system, 223.5.5.5, 119.29.29.29]
-    "rule-set:Private_Domain": [system, 223.5.5.5, 119.29.29.29]
-    "rule-set:China_Domain": [system, 223.5.5.5, 119.29.29.29]
+    "rule-set:fakeip_filter_domain": [223.5.5.5, 119.29.29.29]
+    "rule-set:Private_Domain": [223.5.5.5, 119.29.29.29]
+    "rule-set:China_Domain": [223.5.5.5, 119.29.29.29]
   
 # ========================
 # 策略组定义
