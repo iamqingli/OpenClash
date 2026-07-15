@@ -189,6 +189,7 @@ rules:
   - RULE-SET,Private_Domain,国内流量
   - RULE-SET,Proxy_Domain,国外流量
   # 流媒体规则
+  - RULE-SET,Emby_Domain,流媒体
   - RULE-SET,Disney_Domain,流媒体
   - RULE-SET,HBO_Domain,流媒体
   - RULE-SET,Netflix_Domain,Netflix
@@ -251,6 +252,7 @@ rule-providers:
   Private_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
   Proxy_Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/Proxy.list"}
   # 流媒体规则
+  Emby_Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/Emby.list"}
   Youtube_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs"}
   Netflix_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.mrs"}
   TikTok_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.mrs"}
