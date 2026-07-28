@@ -61,19 +61,19 @@ profile: { store-selected: true, store-fake-ip: true }
 # ========================
 sniffer:
   enable: true                                                          # 启用嗅探  提升分流准确性
-  override-destination: true                                            # 成功解析  使用嗅探到的域名覆盖原始目标地址
   parse-pure-ip: true                                                   # 反向解析  解析纯 IP 连接（尝试反向解析获得域名）
   force-dns-mapping: true                                               # 强制映射  DNS 映射（对纯 IP 连接尝试 DNS 映射）
+  override-destination: true                                            # 成功解析  使用嗅探到的域名覆盖原始目标地址
   sniff:
     QUIC: { ports: [443] }                                              # 嗅探参数  QUIC 协议流量（HTTP/3 常用端口）
     TLS:  { ports: [443, 8443] }                                        # 嗅探参数  HTTPS（TLS）常用及备用端口
     HTTP: { ports: [80, 8080-8880] } 
   force-domain:
+    - "+.tiktok.com"                                                    # 强制嗅探  TikTok 流媒体
     - "+.netflix.com"                                                   # 强制嗅探  Netflix 主域名
     - "+.nflxvideo.net"                                                 # 强制嗅探  Netflix CDN
     - "+.amazonaws.com"                                                 # 强制嗅探  AWS 云服务
     - "+.media.dssott.com"                                              # 强制嗅探  Disney+ 流媒体
-    - "+.tiktok.com"                                                    # 强制嗅探  TikTok 流媒体
   skip-domain:
     - Mijia Cloud                                                       # 跳过嗅探  米家云服务
     - dlg.io.mi.com                                                     # 跳过嗅探  小米设备通信
@@ -117,10 +117,9 @@ dns:
   # 黑名单模式表示如果匹配成功则不返回 Fake-IP, 白名单模式时只有匹配成功才返回 Fake-IP
   fake-ip-filter-mode: blacklist
   fake-ip-filter:
-    - "+.lan"                                                           # 真实解析  常见局域网域名后缀
-    - "rule-set:China_Domain"                                           # 真实解析  大陆域名数据
-    - "rule-set:Direct_Domain"                                          # 真实解析  直连域名数据
-    - "rule-set:fakeip_filter_domain"                                   # 真实解析
+    - "+.lan"
+    - "rule-set:China_Domain"
+    - "rule-set:fakeip_filter_domain"
   default-nameserver:
     - 119.29.29.29
     - 180.184.1.1
@@ -136,7 +135,6 @@ dns:
   nameserver-policy:
     "rule-set:fakeip_filter_domain": [223.5.5.5, 119.29.29.29]
     "rule-set:Private_Domain": [223.5.5.5, 119.29.29.29]
-    "rule-set:Direct_Domain": [223.5.5.5, 119.29.29.29]
     "rule-set:China_Domain": [223.5.5.5, 119.29.29.29]
   
 # ========================
