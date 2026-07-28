@@ -33,51 +33,45 @@ ipv6: false
 allow-lan: true
 bind-address: "*"
 mode: rule
-log-level: warning
+log-level: info
 unified-delay: true
 tcp-concurrent: true
 keep-alive-idle: 600
-keep-alive-interval: 30
+keep-alive-interval: 15
+# 策略组选择和fakeip缓存,记住选择的节点和策略组、Fake-IP映射
+profile: { store-selected: true, store-fake-ip: true }
 
 # ========================
 # 控制面板
 # 密码默认设置为空，请自行修改
 # 面板地址可更换：https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip
-# 避免桌面gui客户端冲突，默认保持注释，Nikki可取消注释使用
 # ========================
-#external-controller: 0.0.0.0:9090
-#external-ui-name: zashboard  
-#external-ui: ui
-#external-ui-url: "https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
-#secret: ""
-
-# 策略组选择和fakeip缓存,记住选择的节点和策略组、Fake-IP映射
-profile: { store-selected: true, store-fake-ip: true }
+external-controller: 0.0.0.0:9090 
+external-ui: ui
+external-ui-url: "https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
+secret: ""
 
 # ========================
 # 流量嗅探（fakeip下可以不用嗅探）
 # ========================
 sniffer:
-  enable: true                                                          # 启用嗅探  提升分流准确性
-  override-destination: true                                            # 成功解析  使用嗅探到的域名覆盖原始目标地址
-  parse-pure-ip: true                                                   # 反向解析  解析纯 IP 连接（尝试反向解析获得域名）
-  force-dns-mapping: true                                               # 强制映射  DNS 映射（对纯 IP 连接尝试 DNS 映射）
+  enable: true
   sniff:
-    QUIC: { ports: [443] }                                              # 嗅探参数  QUIC 协议流量（HTTP/3 常用端口）
-    TLS:  { ports: [443, 8443] }                                        # 嗅探参数  HTTPS（TLS）常用及备用端口
-    HTTP: { ports: [80, 8080-8880] } 
+    QUIC: { ports: [443] }
+    TLS:  { ports: [443, 8443] }
+    HTTP: { ports: [80, 8080-8880] ,override-destination: true}
   force-domain:
-    - "+.netflix.com"                                                   # 强制嗅探  Netflix 主域名
-    - "+.nflxvideo.net"                                                 # 强制嗅探  Netflix CDN
-    - "+.amazonaws.com"                                                 # 强制嗅探  AWS 云服务
-    - "+.media.dssott.com"                                              # 强制嗅探  Disney+ 流媒体
-    - "+.tiktok.com"                                                    # 强制嗅探  TikTok 流媒体
+    - "+.tiktok.com"
+    - "+.netflix.com"
+    - "+.nflxvideo.net"
+    - "+.amazonaws.com"
+    - "+.media.dssott.com"
   skip-domain:
-    - Mijia Cloud                                                       # 跳过嗅探  米家云服务
-    - dlg.io.mi.com                                                     # 跳过嗅探  小米设备通信
-    - "+.oray.com"                                                      # 跳过嗅探  花生壳服务
-    - "+.sunlogin.net"                                                  # 跳过嗅探  向日葵远程控制
-    - "+.push.apple.com"                                                # 跳过嗅探  苹果推送服务
+    - Mijia Cloud
+    - dlg.io.mi.com
+    - "+.oray.com"
+    - "+.sunlogin.net"
+    - "+.push.apple.com"
 
 # ========================
 # hosts配置
@@ -92,9 +86,9 @@ tun:
   enable: true                                                          # 网卡模式  是否启用 TUN 虚拟网卡模式  
   stack: mixed                                                          # 协议类型  网络栈：system（系统栈）/ gvisor（内置用户态栈）/ mixed（混合）
   dns-hijack: [udp://any:53, tcp://any:53]                              # 劫持请求  劫持所有 UDP/TCP 53 端口的 DNS 请求
-  auto-detect-interface: false                                          # 自动出口  自动识别默认出口网络接口 （仅内核模式有效）
   auto-route: false                                                     # 自动路由  自动添加系统路由表      （仅内核模式有效）
   auto-redirect: false                                                  # 自动定向  自动将流量重定向至 TUN  （仅内核模式有效）
+  auto-detect-interface: false                                          # 自动出口  自动识别默认出口网络接口 （仅内核模式有效）
   strict-route: false                                                   # 路由模式  严格路由模式
   endpoint-independent-nat: true                                        # 端点无关  NAT（提高 NAT 类型兼容性，适用于 P2P 和游戏）
   route-exclude-address-set: [China_IP]                                 # 绕过大陆  匹配大陆IP-CIDR（流量不进入代理）
@@ -105,7 +99,6 @@ tun:
 dns:
   enable: true
   cache-algorithm: arc
-  listen: 0.0.0.0:1053
   respect-rules: true
   ipv6: false
   # 模式切换 redir-host/fake-ip
@@ -115,10 +108,9 @@ dns:
   # 黑名单模式表示如果匹配成功则不返回 Fake-IP, 白名单模式时只有匹配成功才返回 Fake-IP
   fake-ip-filter-mode: blacklist
   fake-ip-filter:
-    - "+.lan"                                                           # 真实解析  常见局域网域名后缀
-    - "rule-set:China_Domain"                                           # 真实解析  大陆域名数据
-    - "rule-set:Direct_Domain"                                          # 真实解析  直连域名数据
-    - "rule-set:fakeip_filter_domain"                                   # 真实解析
+    - "+.lan"
+    - "rule-set:China_Domain"
+    - "rule-set:fakeip_filter_domain"
   default-nameserver:
     - 119.29.29.29
     - 180.184.1.1
