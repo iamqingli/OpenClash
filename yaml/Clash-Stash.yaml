@@ -52,7 +52,7 @@ external-ui-url: "https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-p
 secret: ""
 
 # ========================
-# 流量嗅探（fakeip下可以不用嗅探）
+# 流量嗅探
 # ========================
 sniffer:
   enable: true
@@ -64,13 +64,8 @@ sniffer:
     - "+.tiktok.com"
     - "+.netflix.com"
     - "+.nflxvideo.net"
-    - "+.amazonaws.com"
-    - "+.media.dssott.com"
   skip-domain:
-    - Mijia Cloud
-    - dlg.io.mi.com
-    - "+.oray.com"
-    - "+.sunlogin.net"
+    - "Mijia Cloud"
     - "+.push.apple.com"
 
 # ========================
@@ -108,9 +103,11 @@ dns:
   # 黑名单模式表示如果匹配成功则不返回 Fake-IP, 白名单模式时只有匹配成功才返回 Fake-IP
   fake-ip-filter-mode: blacklist
   fake-ip-filter:
+    - "*"
     - "+.lan"
+    - "+.local"
+    - "+.market.xiaomi.com"
     - "rule-set:China_Domain"
-    - "rule-set:fakeip_filter_domain"
   default-nameserver:
     - 119.29.29.29
     - 180.184.1.1
@@ -124,7 +121,6 @@ dns:
     - 1.1.1.1#自动选择
     - 8.8.8.8#自动选择
   nameserver-policy:
-    "rule-set:fakeip_filter_domain": [223.5.5.5, 119.29.29.29]
     "rule-set:Private_Domain": [223.5.5.5, 119.29.29.29]
     "rule-set:China_Domain": [223.5.5.5, 119.29.29.29]
   direct-nameserver-follow-policy: true
@@ -250,7 +246,6 @@ rule-anchor:
   class: &class {type: http, interval: 86400, behavior: classical, format: text}
 rule-providers:
   # 优先匹配规则
-  fakeip_filter_domain: {<<: *domain, url: "https://raw.githubusercontent.com/Lanlan13-14/Rules/refs/heads/main/rules/Domain/fakeip-filter.mrs"}
   Private_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
   Proxy_Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/Proxy.list"}
   # 流媒体规则
