@@ -31,6 +31,11 @@ proxies:
 # 全局配置
 # ========================
 mixed-port: 7890
+authentication:
+- "user:passwd"
+skip-auth-prefixes:
+- 127.0.0.0/8
+- 192.168.0.0/16
 ipv6: false
 allow-lan: true
 bind-address: "*"
@@ -50,6 +55,7 @@ profile: { store-selected: true, store-fake-ip: true }
 # ========================
 external-controller: 0.0.0.0:9090 
 external-ui: ui
+external-ui-name: zashboard
 external-ui-url: "https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
 secret: ""
 
@@ -58,10 +64,13 @@ secret: ""
 # ========================
 sniffer:
   enable: true
+  override-destination: false
+  force-dns-mapping: false
+  parse-pure-ip: true
   sniff:
     QUIC: { ports: [443] }
     TLS:  { ports: [443, 8443] }
-    HTTP: { ports: [80, 8080-8880] ,override-destination: true}
+    HTTP: { ports: [80, 8080-8880] }
   skip-domain:
     - "Mijia Cloud"
     - "+.push.apple.com"
@@ -71,6 +80,11 @@ sniffer:
 # ========================
 hosts:
   'services.googleapis.cn': ['services.googleapis.com']                 # 谷歌商店  解决无法下载的问题
+geox-url:
+  mmdb: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb"
+ntp:
+  enable: true
+  write-to-system: true
 
 # ========================
 # 入站代理配置
@@ -79,9 +93,9 @@ tun:
   enable: true                                                          # 网卡模式  是否启用 TUN 虚拟网卡模式  
   stack: mixed                                                          # 协议类型  网络栈：system（系统栈）/ gvisor（内置用户态栈）/ mixed（混合）
   dns-hijack: [udp://any:53, tcp://any:53]                              # 劫持请求  劫持所有 UDP/TCP 53 端口的 DNS 请求
-  auto-route: false                                                     # 自动路由  自动添加系统路由表      （仅内核模式有效）
-  auto-redirect: false                                                  # 自动定向  自动将流量重定向至 TUN  （仅内核模式有效）
-  auto-detect-interface: false                                          # 自动出口  自动识别默认出口网络接口 （仅内核模式有效）
+  auto-route: true                                                     # 自动路由  自动添加系统路由表      （仅内核模式有效）
+  auto-redirect: true                                                  # 自动定向  自动将流量重定向至 TUN  （仅内核模式有效）
+  auto-detect-interface: true                                          # 自动出口  自动识别默认出口网络接口 （仅内核模式有效）
   strict-route: false                                                   # 路由模式  严格路由模式
   endpoint-independent-nat: true                                        # 端点无关  NAT（提高 NAT 类型兼容性，适用于 P2P 和游戏）
   route-exclude-address-set: [China_IP]                                 # 绕过大陆  匹配大陆IP-CIDR（流量不进入代理）
