@@ -263,7 +263,7 @@ rule-anchor:
 rule-providers:
   # 优先匹配规则
   fakeipfilter_cn: {<<: *domain, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/fakeipfilter-cn.list"}
-  fakeipfilter_!cn: {<<: *domain, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/fakeipfilter_!cn"}
+  fakeipfilter_!cn: {<<: *domain, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/fakeipfilter_!cn.list"}
   Block_Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/Block.list"}
   Private_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
   Proxy_Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/Proxy.list"}
