@@ -100,10 +100,6 @@ dns:
   # 模式切换 whitelist/blacklist
   # 黑名单模式表示如果匹配成功则不返回 Fake-IP, 白名单模式时只有匹配成功才返回 Fake-IP
   fake-ip-filter-mode: blacklist
-  fake-ip-filter:
-    - "*"
-    - "+.lan"
-    - "+.local"
   default-nameserver:
     - 119.29.29.29
     - 180.184.1.1
@@ -120,6 +116,11 @@ dns:
     "rule-set:Private_Domain": [223.5.5.5, 119.29.29.29]
     "rule-set:China_Domain": [223.5.5.5, 119.29.29.29]
   direct-nameserver-follow-policy: true
+  fake-ip-filter:
+    - rule-set:fakeipfilter_cn
+    - rule-set:fakeipfilter_!cn
+    - rule-set:Private_Domain
+    - rule-set:China_Domain
   
 # ========================
 # 策略组定义
@@ -244,6 +245,8 @@ rule-anchor:
   class: &class {type: http, interval: 86400, behavior: classical, format: text}
 rule-providers:
   # 优先匹配规则
+  fakeipfilter_cn: {<<: *domain_text, url: "https://raw.githubusercontent.com/qichiyuhub/rule/refs/heads/main/rules/fakeipfilter-cn.list"}
+  fakeipfilter_!cn: {<<: *domain_text, url: "https://raw.githubusercontent.com/qichiyuhub/rule/refs/heads/main/rules/fakeipfilter-!cn.list"}
   Block_Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/Block.list"}
   Private_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
   Proxy_Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/Proxy.list"}
