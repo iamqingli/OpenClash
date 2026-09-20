@@ -13,7 +13,11 @@
 优先代理: &Proxy_first {type: select, proxies: [自动选择, 手动选择, 香港, 日本, 美国, 德国, 台湾, 狮城, 全球, 🟢 直连, 🔴 拒绝]}
 优先直连: &Direct_first {type: select, proxies: [🟢 直连, 自动选择, 手动选择, 香港, 日本, 美国, 德国, 台湾, 狮城, 全球, 🔴 拒绝]}
 优先拒绝: &Reject_first {type: select, proxies: [🔴 拒绝, 自动选择, 手动选择, 香港, 日本, 美国, 德国, 台湾, 狮城, 全球, 🟢 直连]}
-PProviders: &PProviders {type: http, interval: 21600, health-check: {enable: true, url: "https://www.gstatic.com/generate_204", interval: 300}, proxy: 🟢 直连}
+PProviders: &PProviders {type: http, interval: 0, health-check: {enable: true, url: 'https://www.gstatic.com/generate_204', interval: 300}, exclude-filter: "官网|剩余|流量|套餐|订阅|直连|到期时间|GB|Expire Date|Traffic|ExpireDate", proxy: 🟢 直连}
+
+# ========================
+# 节点订阅链接
+# ========================
   
 # ========================
 # 节点订阅链接
@@ -39,10 +43,14 @@ proxies:
 # 全局配置
 # ========================
 mixed-port: 7890
+authentication:
+- "user:passwd"
+skip-auth-prefixes:
+- 127.0.0.0/8
+- 192.168.0.0/16
 ipv6: false
 allow-lan: true
 bind-address: "*"
-mode: rule
 log-level: info
 unified-delay: true
 tcp-concurrent: true
@@ -58,6 +66,7 @@ profile: { store-selected: true, store-fake-ip: true }
 # ========================
 external-controller: 0.0.0.0:9090 
 external-ui: ui
+external-ui-name: zashboard
 external-ui-url: "https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
 secret: ""
 
@@ -66,10 +75,13 @@ secret: ""
 # ========================
 sniffer:
   enable: true
+  override-destination: false
+  force-dns-mapping: false
+  parse-pure-ip: true
   sniff:
-    QUIC: { ports: [443] }
+    QUIC: { ports: [443, 8443] }
     TLS:  { ports: [443, 8443] }
-    HTTP: { ports: [80, 8080-8880] ,override-destination: true}
+    HTTP: { ports: [80, 8080-8880] }
   skip-domain:
     - "Mijia Cloud"
     - "+.push.apple.com"
@@ -79,6 +91,11 @@ sniffer:
 # ========================
 hosts:
   'services.googleapis.cn': ['services.googleapis.com']                 # 谷歌商店  解决无法下载的问题
+geox-url:
+  mmdb: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb"
+ntp:
+  enable: true
+  write-to-system: true
 
 # ========================
 # 入站代理配置
@@ -87,9 +104,9 @@ tun:
   enable: true                                                          # 网卡模式  是否启用 TUN 虚拟网卡模式  
   stack: mixed                                                          # 协议类型  网络栈：system（系统栈）/ gvisor（内置用户态栈）/ mixed（混合）
   dns-hijack: [udp://any:53, tcp://any:53]                              # 劫持请求  劫持所有 UDP/TCP 53 端口的 DNS 请求
-  auto-route: false                                                     # 自动路由  自动添加系统路由表      （仅内核模式有效）
-  auto-redirect: false                                                  # 自动定向  自动将流量重定向至 TUN  （仅内核模式有效）
-  auto-detect-interface: false                                          # 自动出口  自动识别默认出口网络接口 （仅内核模式有效）
+  auto-route: true                                                      # 自动路由  自动添加系统路由表      （仅内核模式有效）
+  auto-redirect: true                                                   # 自动定向  自动将流量重定向至 TUN  （仅内核模式有效）
+  auto-detect-interface: true                                           # 自动出口  自动识别默认出口网络接口 （仅内核模式有效）
   strict-route: false                                                   # 路由模式  严格路由模式
   endpoint-independent-nat: true                                        # 端点无关  NAT（提高 NAT 类型兼容性，适用于 P2P 和游戏）
   route-exclude-address-set: [China_IP]                                 # 绕过大陆  匹配大陆IP-CIDR（流量不进入代理）
@@ -104,30 +121,35 @@ dns:
   ipv6: false
   # 模式切换 redir-host/fake-ip
   enhanced-mode: fake-ip
-  fake-ip-range: 198.18.0.1/16
+  fake-ip-range: 198.18.0.0/16
   # 模式切换 whitelist/blacklist
   # 黑名单模式表示如果匹配成功则不返回 Fake-IP, 白名单模式时只有匹配成功才返回 Fake-IP
   fake-ip-filter-mode: blacklist
-  fake-ip-filter:
-    - "*"
-    - "+.lan"
-    - "+.local"
   default-nameserver:
     - 119.29.29.29
     - 180.184.1.1
   proxy-server-nameserver:
+    - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
-    - https://223.5.5.5/dns-query
   direct-nameserver:
+    - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
-    - https://223.5.5.5/dns-query
   nameserver:
     - 1.1.1.1#自动选择
     - 8.8.8.8#自动选择
   nameserver-policy:
-    "rule-set:Private_Domain": [223.5.5.5, 119.29.29.29]
-    "rule-set:China_Domain": [223.5.5.5, 119.29.29.29]
+    "rule-set:fakeipfilter_cn": [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
+    "rule-set:Private_Domain": [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
+    "rule-set:China_Domain": [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
   direct-nameserver-follow-policy: true
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+  fake-ip-filter:
+    - rule-set:fakeipfilter_cn
+    - rule-set:fakeipfilter_!cn
+    - rule-set:Private_Domain
+    - rule-set:China_Domain
   
 # ========================
 # 策略组定义
@@ -279,8 +301,11 @@ rule-anchor:
   ip: &ip {type: http, interval: 86400, behavior: ipcidr, format: mrs}
   domain: &domain {type: http, interval: 86400, behavior: domain, format: mrs}
   class: &class {type: http, interval: 86400, behavior: classical, format: text}
+  domain_text: &domain_text {type: http, interval: 86400, behavior: domain, format: text}
 rule-providers:
   # 优先匹配规则
+  fakeipfilter_cn: {<<: *domain_text, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/fakeipfilter-cn.list"}
+  fakeipfilter_!cn: {<<: *domain_text, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/fakeipfilter_!cn.list"}
   Block_Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/Block.list"}
   Private_Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
   Proxy_Domain: {<<: *class, url: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/list/Proxy.list"}
