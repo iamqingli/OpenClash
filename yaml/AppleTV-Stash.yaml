@@ -93,7 +93,7 @@ tun:
   auto-detect-interface: true                                           # 自动出口  自动识别默认出口网络接口 （仅内核模式有效）
   strict-route: false                                                   # 路由模式  严格路由模式
   endpoint-independent-nat: true                                        # 端点无关  NAT（提高 NAT 类型兼容性，适用于 P2P 和游戏）
-  route-exclude-address-set: [cn]                                       # 绕过大陆  匹配大陆IP-CIDR（流量不进入代理）
+  route-exclude-address-set: [China_IP]                                 # 绕过大陆  匹配大陆IP-CIDR（流量不进入代理）
 
 # ========================
 # DNS 设置
@@ -124,7 +124,7 @@ dns:
   direct-nameserver-follow-policy: true
   fallback-filter:
     geoip: true
-    geoip-code: cn
+    geoip-code: CN
   fake-ip-filter:
     - rule-set:fakeipfilter_cn
     - rule-set:fakeipfilter_!cn
@@ -174,8 +174,8 @@ proxy-groups:
   - {name: 台湾自选, type: url-test, include-all: true, tolerance: 50, interval: 300, filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan)).*$", icon: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/Icons/Taiwan.png"}
   # 美国
   - {name: 美国, type: fallback, interval: 300, lazy: false, proxies: [美国手选, 美国自选], client-fingerprint: chrome, icon: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/Icons/United_States.png"}
-  - {name: 美国手选, type: select, include-all: true, filter: "(?=.*(广美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$", icon: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/Icons/United_States.png"}
-  - {name: 美国自选, type: url-test, include-all: true, tolerance: 50, interval: 300, filter: "(?=.*(广美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$", icon: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/Icons/United_States.png"}
+  - {name: 美国手选, type: select, include-all: true, filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$", icon: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/Icons/United_States.png"}
+  - {name: 美国自选, type: url-test, include-all: true, tolerance: 50, interval: 300, filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$", icon: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/Icons/United_States.png"}
   # 狮城
   - {name: 狮城, type: fallback, interval: 300, lazy: false, proxies: [狮城手选, 狮城自选], client-fingerprint: chrome, icon: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/Icons/Singapore.png"}
   - {name: 狮城手选, type: select, include-all: true, filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$", icon: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/Icons/Singapore.png"}
@@ -183,7 +183,7 @@ proxy-groups:
   # 全球
   - {name: 全球, type: fallback, interval: 300, lazy: false, proxies: [全球手选, 全球自选], client-fingerprint: chrome, icon: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/Icons/world.png"}
   - {name: 全球手选, type: select, include-all: true, filter: "^((?!(🟢 直连|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸)).)*$", icon: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/Icons/world.png"}
-  - {name: 全球自选, type: url-test, include-all: true, tolerance: 50, interval: 300, filter: "^((?!(🟢 直连|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸)).)*$", icon: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/Icons/world.png"}
+  - {name: 全球自选, type: url-test, include-all: true, tolerance: 50, interval: 300, filter: "^((?!(🟢 直连|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸)).)*$", icon: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/Icons/world.png"}
 
 # ========================
 # 规则引擎（rules）
