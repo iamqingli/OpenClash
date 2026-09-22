@@ -130,7 +130,7 @@ dns:
   direct-nameserver-follow-policy: true
   fallback-filter:
     geoip: true
-    geoip-code: cn
+    geoip-code: CN
   fake-ip-filter:
     - rule-set:fakeipfilter_cn
     - rule-set:fakeipfilter_!cn
