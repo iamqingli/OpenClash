@@ -1,5 +1,5 @@
 # ========================
-# Clash / Nikki 故障转移无Reject策略组
+# Apple-Stash 故障转移无Reject策略组
 # ========================
 # 注意规则在满足自己需求情况下，尽量做到精简，不要过度复杂，以免影响性能。
 # ========================
@@ -73,10 +73,8 @@ sniffer:
     - "+.push.apple.com"
 
 # ========================
-# hosts配置
+# NTP配置
 # ========================
-hosts:
-  'services.googleapis.cn': ['services.googleapis.com']                 # 谷歌商店  解决无法下载的问题
 geox-url:
   mmdb: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb"
 ntp:
@@ -95,7 +93,7 @@ tun:
   auto-detect-interface: true                                           # 自动出口  自动识别默认出口网络接口 （仅内核模式有效）
   strict-route: false                                                   # 路由模式  严格路由模式
   endpoint-independent-nat: true                                        # 端点无关  NAT（提高 NAT 类型兼容性，适用于 P2P 和游戏）
-  route-exclude-address-set: [cn]                                 # 绕过大陆  匹配大陆IP-CIDR（流量不进入代理）
+  route-exclude-address-set: [cn]                                       # 绕过大陆  匹配大陆IP-CIDR（流量不进入代理）
 
 # ========================
 # DNS 设置
@@ -130,7 +128,7 @@ dns:
   direct-nameserver-follow-policy: true
   fallback-filter:
     geoip: true
-    geoip-code: CN
+    geoip-code: cn
   fake-ip-filter:
     - rule-set:fakeipfilter_cn
     - rule-set:fakeipfilter_!cn
