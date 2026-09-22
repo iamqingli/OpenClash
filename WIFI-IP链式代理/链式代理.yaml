@@ -13,7 +13,7 @@
 优先代理: &Proxy_first {type: select, proxies: [自动选择, 手动选择, 香港, 日本, 美国, 德国, 台湾, 狮城, 全球, 🟢 直连, 🔴 拒绝]}
 优先直连: &Direct_first {type: select, proxies: [🟢 直连, 自动选择, 手动选择, 香港, 日本, 美国, 德国, 台湾, 狮城, 全球, 🔴 拒绝]}
 优先拒绝: &Reject_first {type: select, proxies: [🔴 拒绝, 自动选择, 手动选择, 香港, 日本, 美国, 德国, 台湾, 狮城, 全球, 🟢 直连]}
-PProviders: &PProviders {type: http, interval: 0, health-check: {enable: true, url: 'https://www.gstatic.com/generate_204', interval: 300}, exclude-filter: "官网|剩余|流量|套餐|订阅|直连|到期时间|GB|Expire Date|Traffic|ExpireDate", proxy: 🟢 直连}
+PProviders: &PProviders {type: http, interval: 86400, health-check: {enable: true, url: 'https://www.gstatic.com/generate_204', interval: 300}, exclude-filter: "官网|剩余|流量|套餐|订阅|直连|到期时间|GB|Expire Date|Traffic|ExpireDate", proxy: 🟢 直连}
 
 # ========================
 # 节点订阅链接
@@ -53,7 +53,7 @@ allow-lan: true
 bind-address: "*"
 log-level: info
 unified-delay: true
-tcp-concurrent: true
+tcp-concurrent: false
 keep-alive-idle: 600
 keep-alive-interval: 15
 # 策略组选择和fakeip缓存,记住选择的节点和策略组、Fake-IP映射
@@ -224,8 +224,8 @@ proxy-groups:
   - {name: 台湾自选, type: url-test, include-all: true, tolerance: 50, interval: 300, filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan)).*$", icon: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/Icons/Taiwan.png"}
   # 美国
   - {name: 美国, type: fallback, interval: 300, lazy: false, proxies: [美国手选, 美国自选], client-fingerprint: chrome, icon: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/Icons/United_States.png"}
-  - {name: 美国手选, type: select, include-all: true, filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$", icon: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/Icons/United_States.png"}
-  - {name: 美国自选, type: url-test, include-all: true, tolerance: 50, interval: 300, filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$", icon: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/Icons/United_States.png"}
+  - {name: 美国手选, type: select, include-all: true, filter: "(?=.*(广美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$", icon: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/Icons/United_States.png"}
+  - {name: 美国自选, type: url-test, include-all: true, tolerance: 50, interval: 300, filter: "(?=.*(广美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$", icon: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/Icons/United_States.png"}
   # 狮城
   - {name: 狮城, type: fallback, interval: 300, lazy: false, proxies: [狮城手选, 狮城自选], client-fingerprint: chrome, icon: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/Icons/Singapore.png"}
   - {name: 狮城手选, type: select, include-all: true, filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$", icon: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/Icons/Singapore.png"}
@@ -233,7 +233,7 @@ proxy-groups:
   # 全球
   - {name: 全球, type: fallback, interval: 300, lazy: false, proxies: [全球手选, 全球自选], client-fingerprint: chrome, icon: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/Icons/world.png"}
   - {name: 全球手选, type: select, include-all: true, filter: "^((?!(🟢 直连|🔴 拒绝|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸)).)*$", icon: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/Icons/world.png"}
-  - {name: 全球自选, type: url-test, include-all: true, tolerance: 50, interval: 300, filter: "^((?!(🟢 直连|🔴 拒绝|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸)).)*$", icon: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/Icons/world.png"}
+  - {name: 全球自选, type: url-test, include-all: true, tolerance: 50, interval: 300, filter: "^((?!(🟢 直连|🔴 拒绝|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸)).)*$", icon: "https://raw.githubusercontent.com/iamqingli/OpenClash/refs/heads/main/Icons/world.png"}
 
 # ========================
 # 规则引擎（rules）
