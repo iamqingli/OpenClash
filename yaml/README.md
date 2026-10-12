@@ -4,9 +4,9 @@
 
 DNS地址可根据自身需要进行更改
 
-一，Clash-Reject.yaml： 
+一，Mihomo.yaml： 
 
-#带故障转移的拒绝策略组，默认优先使用此yaml文件，若某些客户端报错，请选择使用Clash-Stash.yaml文件。
+#带故障转移的拒绝策略组，默认优先使用此yaml文件，若某些客户端报错，请选择使用Apple-Stash.yaml文件。
 
 #该策略组无法在IOS系统的Stash应用中使用，因reject规则不被该应用支持，无法运行
 
@@ -18,7 +18,7 @@ DNS地址可根据自身需要进行更改
 
 #该策略组请使用Smart内核,否则无法运行
 
-三，Clash-Stash.yaml： 
+三，Apple-Stash.yaml： 
 
 #带故障转移的Url-test策略组，IOS客户端Stash软件专用。
 
@@ -26,7 +26,7 @@ DNS地址可根据自身需要进行更改
 
 #带故障转移的Url-test策略组，AppleTV客户端Stash软件专用（客户端版本低于IOS端）。
 
-该策略组Clash内核通用
+该策略组Mihomo内核通用
 
 五，节点订阅链接
 
@@ -48,19 +48,9 @@ DNS地址可根据自身需要进行更改
   
   1.使用nikki，混入全部不修改的情况，请修改开启接口device指定为nikki
   
-  2.使用仅内核自行修改下面三项为true，路由控制、使用GUI客户端请保持 false，纯内核命令行运行改为 true
-  
-  auto-route: false
-  
-  auto-redirect: false
-  
-  auto-detect-interface: false
-  
-  3.控制面板:
+  2.控制面板:
   
   密码默认设置为空，请自行修改
   
   面板地址可更换：https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip
-  
-  避免桌面gui客户端冲突，默认保持注释，Nikki可取消注释使用
   
