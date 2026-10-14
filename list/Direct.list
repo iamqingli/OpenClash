@@ -11,58 +11,6 @@ DOMAIN-SUFFIX,china-tcc.com
 DOMAIN-SUFFIX,entertang.work
 DOMAIN-SUFFIX,oracle.com
 
-# 金融银行支付直连
-# 工商银行
-DOMAIN-SUFFIX,icbc.com.cn
-DOMAIN-SUFFIX,icbc-ltd.com
-# 建设银行
-DOMAIN-SUFFIX,ccb.com
-DOMAIN-SUFFIX,ccb.cn
-# 中国银行
-DOMAIN-SUFFIX,boc.cn
-DOMAIN-SUFFIX,bankofchina.com
-# 农业银行
-DOMAIN-SUFFIX,abchina.com
-# 招商银行
-DOMAIN-SUFFIX,cmbchina.com
-DOMAIN-SUFFIX,cmbimg.com
-# 交通银行
-DOMAIN-SUFFIX,bankcomm.com
-# 邮储银行
-DOMAIN-SUFFIX,psbc.com
-# 中信银行
-DOMAIN-SUFFIX,citicbank.com
-# 广发银行
-DOMAIN-SUFFIX,cgbchina.com.cn
-# 民生银行
-DOMAIN-SUFFIX,cmbc.com.cn
-# 平安银行
-DOMAIN-SUFFIX,bank.pingan.com
-DOMAIN-SUFFIX,pingan.com
-# 浦发银行
-DOMAIN-SUFFIX,spdb.com.cn
-# 兴业银行
-DOMAIN-SUFFIX,cib.com.cn
-# 光大银行
-DOMAIN-SUFFIX,cebbank.com
-
-# 第三方支付
-# 支付宝
-DOMAIN-SUFFIX,alipay.com
-DOMAIN-SUFFIX,alipayobjects.com
-# 微信支付
-DOMAIN-SUFFIX,weixin.qq.com
-DOMAIN-SUFFIX,wx.qq.com
-DOMAIN-SUFFIX,tenpay.com
-# 京东支付
-DOMAIN-SUFFIX,jdpay.com
-# 云闪付
-DOMAIN-SUFFIX,unionpay.com
-DOMAIN-SUFFIX,95516.com
-# Apple Pay 中国
-DOMAIN-SUFFIX,apple.com
-DOMAIN-SUFFIX,icloud.com
-
 # tracker
 DOMAIN-SUFFIX,audiences.me
 DOMAIN-SUFFIX,cinefiles.info
