@@ -29,6 +29,3 @@ DOMAIN-SUFFIX,666666.host
 DOMAIN-SUFFIX,ipip.net
 DOMAIN-SUFFIX,ipw.cn
 DOMAIN-SUFFIX,ddnspod.com
-
-# 域名关键字匹配
-DOMAIN-KEYWORD,baidu
