@@ -145,6 +145,7 @@ dns:
     - rule-set:fakeipfilter_!cn
     - rule-set:Private_Domain
     - rule-set:China_Domain
+    - rule-set:Direct_Domain
   
 # ========================
 # 策略组定义
