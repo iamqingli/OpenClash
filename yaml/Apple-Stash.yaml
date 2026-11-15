@@ -34,7 +34,7 @@ authentication:
 skip-auth-prefixes:
 - 127.0.0.0/8
 - 192.168.0.0/16
-ipv6: false
+ipv6: true
 allow-lan: true
 bind-address: "*"
 log-level: info
@@ -99,7 +99,7 @@ dns:
   enable: true
   cache-algorithm: arc
   respect-rules: true
-  ipv6: false
+  ipv6: true
   # 模式切换 redir-host/fake-ip
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.0/16
@@ -116,8 +116,8 @@ dns:
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
   nameserver:
-    - 1.1.1.1#自动选择
-    - 8.8.8.8#自动选择
+    - https://1.1.1.1/dns-query#自动选择
+    - https://dns.google/dns-query#自动选择
   nameserver-policy:
     "rule-set:fakeipfilter_cn": [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
     "rule-set:Private_Domain": [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
